@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'GTAmericaMonoTrial-Lt';
+  src:  url('#{$fontsPath}/GTAmericaMonoTrial-Lt.eot?#iefix') format('embedded-opentype'),
+        url('#{$fontsPath}/GTAmericaMonoTrial-Lt.otf') format('opentype'),
+        url('#{$fontsPath}/GTAmericaMonoTrial-Lt.woff') format('woff'),
+        url('#{$fontsPath}/GTAmericaMonoTrial-Lt.ttf') format('truetype'),
+        url('#{$fontsPath}/GTAmericaMonoTrial-Lt.svg#GTAmericaMonoTrial-Lt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GTAmericaTrial-Rg';
+  src:  url('#{$fontsPath}/GTAmericaTrial-Rg.eot?#iefix') format('embedded-opentype'),
+        url('#{$fontsPath}/GTAmericaTrial-Rg.otf') format('opentype'),
+        url('#{$fontsPath}/GTAmericaTrial-Rg.woff') format('woff'),
+        url('#{$fontsPath}/GTAmericaTrial-Rg.ttf') format('truetype'),
+        url('#{$fontsPath}/GTAmericaTrial-Rg.svg#GTAmericaTrial-Rg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'GTAmericaMonoTrial-Rg';
+  src:  url('#{$fontsPath}/GTAmericaMonoTrial-Rg.eot?#iefix') format('embedded-opentype'),
+        url('#{$fontsPath}/GTAmericaMonoTrial-Rg.otf') format('opentype'),
+        url('#{$fontsPath}/GTAmericaMonoTrial-Rg.woff') format('woff'),
+        url('#{$fontsPath}/GTAmericaMonoTrial-Rg.ttf') format('truetype'),
+        url('#{$fontsPath}/GTAmericaMonoTrial-Rg.svg#GTAmericaMonoTrial-Rg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GTAmericaMonoTrial-Md';
+  src:  url('#{$fontsPath}/GTAmericaMonoTrial-Md.eot?#iefix') format('embedded-opentype'),
+        url('#{$fontsPath}/GTAmericaMonoTrial-Md.otf') format('opentype'),
+        url('#{$fontsPath}/GTAmericaMonoTrial-Md.woff') format('woff'),
+        url('#{$fontsPath}/GTAmericaMonoTrial-Md.ttf') format('truetype'),
+        url('#{$fontsPath}/GTAmericaMonoTrial-Md.svg#GTAmericaMonoTrial-Md') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

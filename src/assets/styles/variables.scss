@@ -1,0 +1,27 @@
+/* Breakpoints */
+$tabletLandscape: 1024px;
+$tabletAndMobile: 1023px;
+$mobile: 768px;
+$mobilePortrait: 365px;
+$mobilePortraitSmall: 320px;
+
+/* Constants */
+$containerHorizontalPadding: 48px;
+$containerWidth: 1120px;
+
+/* Colors */
+$black: #000000;
+$orange: #ff4f00;
+$white: #ffffff;
+
+/* Fonts */
+$fontsPath: '../fonts';
+$gtAmericaMonoLT: 'GTAmericaMonoTrial-Lt';
+$gtAmericaMonoRG: 'GTAmericaMonoTrial-Rg';
+$gtAmericaMonoMD: 'GTAmericaMonoTrial-Md';
+$gtAmericaRG: 'GTAmericaTrial-Rg';
+
+/* Configs */
+$transitionTimeFast: .3s cubic-bezier(.77,.2,.05,1);
+$transitionTimeMedium: .5s cubic-bezier(.77,.2,.05,1);
+$transitionTimeSlow: .75s cubic-bezier(.77,.2,.05,1);

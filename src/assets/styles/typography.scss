@@ -1,0 +1,20 @@
+.h2 {
+  font-family: $gtAmericaRG;
+  font-size: 32px;
+  line-height: 44px;
+  font-weight: normal;
+}
+
+.h3 {
+  font-family: $gtAmericaMonoMD;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 23px;
+}
+
+@media(max-width: $tabletAndMobile) {
+  .h2 {
+    font-size: 28px;
+    line-height: 39px;
+  }
+}

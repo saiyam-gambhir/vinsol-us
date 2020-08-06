@@ -1,0 +1,113 @@
+.clients {
+  padding-top: 50px;
+
+  .section-heading {
+    margin-bottom: 48px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__list-item {
+    display: flex;
+    flex-direction: column;
+    width: 33.333%;
+  }
+}
+
+.client {
+  margin-bottom: 12px;
+
+  &__logo {
+    display: flex;
+    min-height: 80px;
+
+    img {
+      align-self: flex-end;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+  }
+
+  .apple {
+    img {
+      width: 64px;
+    }
+  }
+
+  .loreal {
+    img {
+      width: 144px;
+    }
+  }
+
+  .logitech {
+    img {
+      width: 145px;
+    }
+  }
+
+  .stadium {
+    img {
+      width: 160px;
+    }
+  }
+
+  .grand-rounds {
+    img {
+      width: 228px;
+    }
+  }
+
+  .orthoscience {
+    img {
+      width: 220px;
+    }
+  }
+}
+
+@media(max-width: $tabletAndMobile) {
+  .client {
+    &__details {
+      font-size: 14px;
+      line-height: 20px;
+      margin-top: 18px;
+    }
+
+    .apple img {
+      width: 36px;
+    }
+
+    .loreal img {
+      width: 94px;
+    }
+
+    .logitech img {
+      width: 81px;
+    }
+
+    .stadium img {
+      width: 101px;
+    }
+
+    .grand-rounds img {
+      width: 153px;
+    }
+
+    .orthoscience img {
+      width: 130px;
+    }
+  }
+
+  .clients {
+    &__list-item {
+      width: 50%;
+    }
+  }
+}

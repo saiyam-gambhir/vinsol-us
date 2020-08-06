@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+html {
+  scrollbar-width: none;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  color: $black;
+  font-family: $gtAmericaMonoLT;
+  font-size: 24px;
+  line-height: 32px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+a {
+  color: $black;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.wrapper {
+  @media(max-width: $containerWidth) {
+    overflow-x: hidden;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 $containerHorizontalPadding;
+  max-width: $containerWidth;
+
+  @media(max-width: $containerWidth) {
+    width: 100%;
+  }
+}
+
+.page-section {
+  background: $white;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.section-heading {
+  &:not(.aos-animate)[data-aos=fade-up] {
+    transform: translate3d(0,300px,0);
+  }
+
+  &.three-lines-text {
+    span {
+      display: block;
+
+      &:not(.aos-animate).text-1[data-aos=fade-up] {
+        transform: translate3d(0,25px,0);
+      }
+
+      &:not(.aos-animate).text-2[data-aos=fade-up] {
+        transform: translate3d(0,150px,0);
+      }
+
+      &:not(.aos-animate).text-3[data-aos=fade-up] {
+        transform: translate3d(0,300px,0);
+      }
+    }
+  }
+
+  &.four-lines-text {
+    span {
+      display: block;
+
+      &:not(.aos-animate).text-1[data-aos=fade-up] {
+        transform: translate3d(0,25px,0);
+      }
+
+      &:not(.aos-animate).text-2[data-aos=fade-up] {
+        transform: translate3d(0,150px,0);
+      }
+
+      &:not(.aos-animate).text-3[data-aos=fade-up] {
+        transform: translate3d(0,175px,0);
+      }
+
+      &:not(.aos-animate).text-4[data-aos=fade-up] {
+        transform: translate3d(0,225px,0);
+      }
+    }
+  }
+}
+
+.hidden-mobile {
+  @media(max-width: $mobile) {
+    display: none !important;
+  }
+}
+
+.hidden-desktop {
+  @media(min-width: 769px) {
+    display: none !important;
+  }
+}

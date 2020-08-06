@@ -1,0 +1,61 @@
+.footer {
+  font-family: $gtAmericaMonoRG;
+  font-size: 16px;
+  letter-spacing: -1px;
+  line-height: 23px;
+  padding: 133px 0 100px 0;
+
+  .container {
+    display: flex;
+  }
+
+  &__left {
+    margin-right: 333px;
+    width: 95px;
+  }
+
+  &__center {
+    margin-right: 135px;
+    width: 185px;
+  }
+
+  &__right {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    transition: $transitionTimeFast;
+
+    svg {
+      left: calc(100% + 6px);
+      position: absolute;
+      top: 6px;
+      transform: scale(.85);
+      transition: $transitionTimeFast;
+    }
+
+    &:hover {
+      padding-left: 20px;
+      svg {
+        left: 0px;
+      }
+    }
+  }
+}
+
+@media(max-width: $tabletAndMobile) {
+  .footer {
+    padding: 50px 0 100px 0;
+
+    .container {
+      flex-direction: column;
+    }
+
+    &__left, &__center {
+      margin: 0 0 20px 0;
+    }
+  }
+}
