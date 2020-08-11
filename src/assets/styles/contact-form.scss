@@ -1,0 +1,311 @@
+%flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%placeholder {
+  color: rgba(0,0,0,0.3);
+  font-family: $gtAmericaMonoRG;
+  @include fontstyle(20px, 300, 1.5);
+}
+
+@mixin checkbox-svg($w, $h, $l, $t) {
+  width: $w;
+  height: $h;
+  left: $l;
+  top: $t;
+}
+
+.contact-form {
+  &.fullscreen {
+    background-color: #f6f6f6;
+    height: 100vh;
+
+    > .container {
+      height: inherit;
+    }
+  }
+}
+
+.contact-form-wrap {
+  margin-top: 8px;
+
+  &.w-100 {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.headings {
+  margin-top: 13.2%;
+}
+
+.mt-26 {
+  margin-top: 26px;
+}
+
+.form-wrapper {
+  @extend %flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: inherit;
+  margin: 0 auto;
+  max-width: 100%;
+  padding-left:  $containerHorizontalPaddingFormLeft;
+  padding-right:  $containerHorizontalPaddingFormRight;
+
+  @media(max-width: $containerWidth) {
+    width: 100%;
+  }
+
+}
+
+.form-input {
+  &__field {
+    font-family: $gtAmericaMonoRG;
+    @include fontstyle(30px, 300, 45px);
+    border: 0;
+    background-color: transparent;
+    border-bottom: dashed 1px $black;
+    color: $black;
+    padding: 0;
+    text-align: center;
+    width: 172px;
+    caret-color: $red;
+    transition:border-bottom 500ms ease-in-out;
+    will-change: border-bottom;
+
+    &:focus {
+      border-bottom: solid 1px $black;
+    }
+  }
+
+  &__field::-webkit-input-placeholder {
+    @extend %placeholder;
+  }
+
+  &__field:-ms-input-placeholder {
+    @extend %placeholder;
+  }
+
+  &__field::placeholder {
+    @extend %placeholder;
+  }
+}
+
+.checkbox {
+  @include fontstyle(20px, 300, 1.6);
+  position: absolute;
+
+  input {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+  }
+
+  svg {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    fill:transparent;
+    transition: fill 300ms ease-in-out;
+    will-change: fill;
+  }
+
+  label {
+    font-family: $gtAmericaMonoRG;
+    @include fontstyle(20px, 300, 1);
+    @extend %flex;
+    width: 100%;
+    height: 100%;
+    color: $black;
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    transition: color 300ms ease-in-out;
+    will-change: color;
+    z-index: 2;
+  }
+
+  &:hover {
+    svg {
+      fill: $orange;
+    }
+
+  }
+
+  input:checked {
+    ~ svg {
+      fill: $black;
+    }
+
+    + .checkbox-label {
+        color: $white;
+      }
+  }
+}
+
+.ecommerce {
+  @include checkbox-svg(125px, 85px, 19%, 10px);
+}
+
+.brand {
+  @include checkbox-svg(80px, 61px, 11%, 82px);
+}
+
+.research {
+  @include checkbox-svg(104px, 80px, 37%, 27px);
+}
+
+.ui {
+  @include checkbox-svg(54px, 42px, 30.5%, 107px);
+}
+
+.ux {
+  @include checkbox-svg(54px, 42px, 20%, 130px);
+}
+
+.strategy {
+  @include checkbox-svg(113px, 86px, 56%, 36px);
+}
+
+.webdev {
+  @include checkbox-svg(81px, 63px, 71.5%, 10px);
+}
+
+.saas {
+  @include checkbox-svg(75px, 58px, 58.37%, 156px);
+}
+
+.product-design {
+  @include checkbox-svg(104px, 80px, 44.5%, 120px);
+}
+
+.engineering {
+  @include checkbox-svg(130px, 94px, 29.83%, 170px);
+}
+
+.mobiledev {
+  @include checkbox-svg(130px, 94px, 47.25%, 226px);
+}
+
+.design {
+  @include checkbox-svg(93px, 72px, 8.86%, 205px);
+}
+
+.others {
+  @include checkbox-svg(80px, 61px, 82.48%, 18px);
+}
+
+.radio-group {
+  @extend %flex;
+  justify-content: space-between;
+  padding-left:78px;
+  padding-right:78px;
+  padding-top: 76px;
+
+  .radio {
+    width: 200px;
+    height: 150px;
+    position: relative;
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .radio-label {
+      @extend %flex;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+
+      span {
+        color: $black;
+        position: relative;
+        transition: color 500ms ease-in-out;
+        will-change: color;
+      }
+
+      &:before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        content: '';
+        background: url("./../images/radio-bg.svg");
+        opacity: 0;
+        transition: opacity 500ms ease-in-out;
+        will-change: opacity;
+      }
+    }
+
+    input:checked {
+      ~ label {
+        color: $white;
+
+        > span {
+          color: $white;
+        }
+
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+
+.radio-button-help {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  .radio-btn {
+    @extend %flex;
+    display: inline-flex;
+    position: relative;
+  }
+
+  .radio-label {
+    @include fontstyle(12px, 100, 1.33);
+    padding-left: 8px;
+
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 2px;
+      content: '';
+      opacity: 1;
+      width: 10px;
+      height: 10px;
+      background-color: transparent;
+      border-radius: 8px;
+      border: 1px solid $black;
+      transition: background-color 300ms ease-in-out;
+      will-change: background-color;
+    }
+  }
+
+  input {
+    visibility: hidden;
+
+    &:checked {
+      ~ .radio-label {
+          &:before {
+            background-color: #ff400f;
+            border: 0;
+          }
+        }
+    }
+  }
+}
+

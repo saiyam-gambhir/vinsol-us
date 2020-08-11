@@ -18,3 +18,4 @@ scripts()
 $(window).on('load scroll', function() {
   scrollBar()
 })
+

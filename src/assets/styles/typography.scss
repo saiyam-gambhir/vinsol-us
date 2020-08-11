@@ -1,5 +1,13 @@
+@mixin fontstyle($fs, $fw, $fl) {
+  font-family: $gtAmericaMonoRG;
+  font-size: $fs;
+  line-height: $fl;
+  font-weight: $fw;
+}
+
+
 .h2 {
-  font-family: $gtAmericaRG;
+  font-family: $gtAmericaMonoMD;
   font-size: 32px;
   line-height: 44px;
   font-weight: normal;
@@ -10,6 +18,15 @@
   font-size: 16px;
   font-weight: normal;
   line-height: 23px;
+}
+
+.heading-form {
+  @include fontstyle(24px, 300, 1.33);
+  color: $white-5;
+}
+
+.heading-small {
+  @include fontstyle(11px, 100, 0.91);
 }
 
 @media(max-width: $tabletAndMobile) {
