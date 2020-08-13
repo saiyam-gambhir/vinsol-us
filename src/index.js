@@ -19,3 +19,16 @@ $(window).on('load scroll', function() {
   scrollBar()
 })
 
+$('.contact-button__link').click(function(){
+  $(".contact-form-section").addClass("fsm");
+  $("html").addClass("fullscreen");
+  $(".rem-btn").removeClass("fsm");
+});
+
+$('.rem-btn').click(function(){
+  $(".contact-form-section").removeClass("fsm");
+  $(".contact-form-section").addClass("shrink");
+});
+
+
+

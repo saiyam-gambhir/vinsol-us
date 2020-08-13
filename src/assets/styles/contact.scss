@@ -105,3 +105,132 @@
     z-index: 2;
   }
 }
+
+
+
+.contact-form-section {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  opacity: 0;
+  z-index: -1;
+  overflow: hidden;
+  transition: opacity 100ms ease-in, background-color 700ms ease-in, transform 1s ease-in;
+  will-change: opacity, background-color, transform;
+
+  .h2.section-heading {
+    visibility: hidden;
+  }
+  .contact-button__link {
+    opacity: 1;
+
+    .svg-overlay{
+      left: 8px;
+      top: 0;
+      opacity: 1;
+      transform: translate(0);
+    }
+
+    &:hover {
+      .svg-overlay{
+        left: 8px;
+        top: 0;
+        opacity: 1;
+        transform: translate(0);
+      }
+    }
+  }
+
+  &.fsm {
+    opacity: 1;
+    z-index: 2;
+    background-color: $gray;
+    transform: scale(2.1);
+    padding-top: 120px;
+
+    .contact-input__inner, .contact-button__link {
+      svg {
+        stroke-width: 0;
+
+        g {
+          fill: white;
+          stroke-width: 0;
+        }
+      }
+    }
+
+    .contact-input,
+    .contact-button {
+      margin-left: -8px;
+
+      .contact-input__field,
+      .contact-button__text,
+      .svg-overlay {
+        opacity: 0;
+      }
+    }
+
+    .rem-btn {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      left: 50%;
+      top: 50%;
+    }
+  }
+
+  &.shrink {
+    opacity: 0;
+    z-index: -1;
+    background-color: transparent;
+    transform: scale(1);
+    padding-top: 0;
+
+    .contact-input__inner, .contact-button__link {
+      svg {
+        stroke-width: 0;
+
+        g {
+          fill: none;
+          stroke-width: 1;
+        }
+      }
+    }
+
+    .contact-input,
+    .contact-button {
+      margin-left: -150px;
+
+      .contact-input__field,
+      .contact-button__text,
+      .svg-overlay {
+        opacity: 1;
+      }
+    }
+
+    .rem-btn {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      left: 50%;
+      top: 50%;
+    }
+  }
+}
+
+
+.fullscreen {
+  body {
+    overflow: hidden;
+  }
+
+  .navigation{
+    top: 0 !important;
+  }
+}
