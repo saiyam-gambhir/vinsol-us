@@ -1,48 +1,58 @@
 .footer {
   font-family: $gtAmericaMonoRG;
   font-size: 16px;
-  letter-spacing: -1px;
+  letter-spacing: -1.5px;
   line-height: 23px;
-  padding: 133px 0 100px 0;
+  padding: 133px 0 40px 0;
 
   .container {
     display: flex;
   }
 
-  &__left {
-    margin-right: 333px;
-    width: 95px;
+  &__list {
+    font-size: 0;
   }
 
-  &__center {
-    margin-right: 135px;
-    width: 185px;
+  &__left {
+    margin-right: 120px;
+  }
+
+  &__contacts {
+    margin-right: 140px;
+  }
+
+  &__locations {
+    margin-right: 107px;
   }
 
   &__right {
-    display: flex;
     align-items: flex-end;
+    display: flex;
+    font-size: 12px;
   }
 
   &__link {
-    position: relative;
+    color: $orange;
     display: inline-block;
-    transition: $transitionTimeFast;
+    position: relative;
+  }
 
-    svg {
-      left: calc(100% + 6px);
-      position: absolute;
-      top: 6px;
-      transform: scale(.85);
-      transition: $transitionTimeFast;
-    }
+  &__list-item {
+    font-size: 16px;
+  }
 
-    &:hover {
-      padding-left: 20px;
-      svg {
-        left: 0px;
-      }
-    }
+  .current-time {
+    font-size: 10px;
+    letter-spacing: .25px;
+  }
+
+  .time-flash {
+    color: $orange;
+    font-family: $gtAmericaMonoMD;
+    font-size: 12px;
+    left: 14.5px;
+    position: absolute;
+    top: -6.5px;
   }
 }
 

@@ -11,7 +11,8 @@ const scripts = () => {
       event.stopPropagation();
     });
 
-    $navigationListItem.on('click', function(_event) {
+    $navigationListItem.on('click', function(event) {
+      event.preventDefault();
       $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 500, 'swing');
       $('.navigation__list-item').removeClass('active');
       $(this).closest('li').addClass('active');

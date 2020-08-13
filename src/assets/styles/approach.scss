@@ -1,5 +1,15 @@
 $totalStages: 5;
 
+@keyframes fillIt {
+  0%   { fill: $white; }
+  100%  { fill: $black; }
+}
+
+@keyframes fillColor {
+  0%   { color: $black; }
+  100%  { color: $white; }
+}
+
 .stages {
   padding-bottom: 100px;
   text-align: center;
@@ -8,14 +18,8 @@ $totalStages: 5;
     padding-left: 0;
   }
 
-  @keyframes fillIt {
-    0%   { fill: $white; }
-    100%  { fill: $black; }
-  }
-
-  @keyframes fillColor {
-    0%   { color: $black; }
-    100%  { color: $white; }
+  &__inner {
+    display: inline-flex;
   }
 
   &__list-item {
@@ -36,27 +40,46 @@ $totalStages: 5;
     }
   }
 
-  &__top-content,
-  &__bottom-content {
-    position: absolute;
-    top: 50%;
-    font-size: 32px;
-    line-height: 1.35;
-    font-family: $gtAmericaRG;
-  }
-
   &__top-content {
-    left: 25%;
+    font-family: $gtAmericaRG;
+    font-size: 32px;
+    left: calc(-189px - 52px);
+    line-height: 1.38;
+    position: absolute;
     text-align: right;
-    transform: translateX(calc(-25% - 50px)) translateY(-50%);
+    top: 50%;
+    transform: translateY(-50%);
     width: 189px;
   }
 
-  &__bottom-content {
-    right: 25%;
-    text-align: left;
-    transform: translateX(calc(25% + 37px)) translateY(-50%);
-    width: 175px;
+  &__left-content,
+  &__right-content,
+  &__rotated-content {
+    font-family: $gtAmericaMonoRG;
+    font-size: 24px;
+    letter-spacing: 1.5px;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__left-content {
+    min-width: 105px;
+    left: calc(-105px - 32px);
+  }
+
+  &__right-content {
+    min-width: 149px;
+    right: calc(-149px - 32px);
+  }
+
+  &__rotated-content {
+    bottom: -5px;
+    min-width: 105px;
+    right: -95px;
+    top: auto;
+    transform: rotate(45deg);
   }
 
   .stage {
@@ -65,17 +88,18 @@ $totalStages: 5;
       font-size: 24px;
       left: 50%;
       letter-spacing: normal;
-      line-height: 24px;
+      line-height: 1;
       position: absolute;
       top: 50%;
       transform: translateX(-50%) translateY(-50%);
+      width: 90%;
       z-index: 1;
     }
   }
 }
 
 .our-approach {
-  padding-top: 80px;
+  padding-top: 93px;
 
   .section-heading {
     margin-bottom: 107px;

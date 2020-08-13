@@ -93,11 +93,11 @@ li {
       }
 
       &:not(.aos-animate).text-2[data-aos=fade-up] {
-        transform: translate3d(0,150px,0);
+        transform: translate3d(0,100px,0);
       }
 
       &:not(.aos-animate).text-3[data-aos=fade-up] {
-        transform: translate3d(0,300px,0);
+        transform: translate3d(0,250px,0);
       }
     }
   }
@@ -135,4 +135,8 @@ li {
   @media(min-width: 769px) {
     display: none !important;
   }
+}
+
+.theme-color {
+  color: $orange;
 }
