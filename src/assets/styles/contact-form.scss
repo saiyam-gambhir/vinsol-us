@@ -17,19 +17,29 @@
   top: $t;
 }
 
-.contact-form {
-  &.fullscreen {
-    background-color: #f6f6f6;
-    height: 100vh;
+.slider-form-wrap {
+  background-color: #f6f6f6;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  overflow-y: hidden;
 
-    > .container {
-      height: inherit;
-    }
+  > .container {
+    height: inherit;
   }
 }
 
 .contact-form-wrap {
-  margin-top: 8px;
+  margin-top: 140px;
+
+  &.mt-8 {
+    margin-top: 8px;
+  }
 
   &.w-100 {
     width: 100%;
@@ -46,12 +56,13 @@
 }
 
 .form-wrapper {
-  @extend %flex;
+  display: inline-flex !important;
+  align-items: center;
   flex-direction: column;
-  justify-content: space-between;
   height: inherit;
   margin: 0 auto;
   max-width: 100%;
+  height: inherit;
   padding-left:  $containerHorizontalPaddingFormLeft;
   padding-right:  $containerHorizontalPaddingFormRight;
 
@@ -119,6 +130,7 @@
   label {
     font-family: $gtAmericaMonoRG;
     @include fontstyle(20px, 300, 1);
+    letter-spacing: -0.5px;
     @extend %flex;
     width: 100%;
     height: 100%;
@@ -166,7 +178,7 @@
 }
 
 .ux {
-  @include checkbox-svg(54px, 42px, 20%, 130px);
+  @include checkbox-svg(51px, 66px, 20%, 130px);
 }
 
 .strategy {
@@ -186,7 +198,7 @@
 }
 
 .engineering {
-  @include checkbox-svg(130px, 94px, 29.83%, 170px);
+  @include checkbox-svg(138px, 95px, 28.83%, 170px);
 }
 
 .mobiledev {
@@ -305,6 +317,108 @@
             border: 0;
           }
         }
+    }
+  }
+}
+
+
+.fm-slider {
+  height: inherit;
+
+  .slick-slide,
+  .slick-list,
+  .slick-track {
+    height: inherit;
+  }
+
+  .slick-slide {
+    > div {
+      height: inherit;
+    }
+  }
+}
+
+
+.slick-arrow-group {
+  @extend %flex ;
+  position: absolute;
+  bottom: 34px;
+  left: 0;
+  right: 0;
+
+  .slick-arrow {
+    position: relative;
+    padding: 0px;
+    line-height: 30px;
+    cursor: pointer;
+
+    .prev-arrow {
+      background: url(./../images/left-arrow.svg) no-repeat center;
+      width: 7px;
+      height: 30px;
+      display: block;
+      opacity: 1;
+      transition: opacity 200ms ease;
+      will-change: opacity;
+    }
+
+    .next-arrow {
+      background: url(./../images/right-arrow.svg)  no-repeat center;
+      width: 7px;
+      height: 30px;
+      display: block;
+      transition: opacity 200ms ease;
+      will-change: opacity;
+    }
+
+    &.slick-disabled {
+      .prev-arrow, .next-arrow {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      + .press-enter {
+        display: none;
+      }
+    }
+
+    &.next:not(.slick-disabled) {
+      + .submit-btn {
+        display: none;
+      }
+    }
+  }
+
+  .pagingInfo {
+    @include fontstyle(11px, 100, 0.91);
+    color: $white-5;
+    padding: 0px 16px;
+    line-height: 30px;
+  }
+
+  .press-enter {
+    @include fontstyle(11px, 100, 0.91);
+    color: $white-5;
+    padding-left: 16px;
+    line-height: 30px;
+  }
+
+  .submit-btn {
+    @include fontstyle(10px, normal, 1.5);
+    color: $black;
+    cursor: pointer;
+    margin-top: 0;
+    box-shadow: none;
+    background-color: transparent;
+    border: 1px solid $red;
+    padding: 6px;
+    transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+    will-change: background-color;
+
+    &:hover, &:focus {
+      background-color: $red;
+      border-color: transparent;
+      color: $white;
     }
   }
 }
