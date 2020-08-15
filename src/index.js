@@ -20,7 +20,6 @@ $(window).on('load scroll', function() {
   scrollBar()
 })
 
-
 var $status = $('.pagingInfo');
 var $slickElement = $('.slideshow');
 
@@ -35,4 +34,17 @@ $slickElement.slick({
   arrows: true,
   prevArrow: $('.prev'),
   nextArrow: $('.next'),
+});
+
+$('.contact-button__link').click(function(){
+  $(".contact-form-section").addClass("fsm");
+  $("html").addClass("fullscreen");
+  $(".submit-btn").removeClass("fsm");
+  $(".slider-form-wrap").addClass("show");
+});
+
+$('.submit-btn').click(function(){
+  $(".contact-form-section").removeClass("fsm");
+  $(".contact-form-section").addClass("shrink");
+  $(".slider-form-wrap").removeClass("show");
 });
