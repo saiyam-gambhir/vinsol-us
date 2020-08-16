@@ -27,4 +27,22 @@ $(document).ready(function() {
   setInterval(function() {
     flash.css('opacity', (flash.css('opacity') == 1 ? 0 : 1));
   }, 1000);
+
+  var typeHere = $('[data-hook=type-here]');
+  var initialRows = 1;
+
+  typeHere.on('input', function() {
+    var $width = $('.contact-input__inner').outerWidth();
+    this.style.height = '';
+    if(this.scrollHeight > 45) {
+      this.style.height = this.scrollHeight + "px";
+      var totalRows = this.scrollHeight/parseInt($('textarea').css('lineHeight'),10);
+      console.log(totalRows);
+      if(totalRows > initialRows) {
+        $('.contact-input__inner').css({ width: $width + totalRows*10 + 'px' });
+        $('.shape-scale').css({ width: $width + totalRows*10 + 'px' });
+        initialRows = initialRows + 1;
+      }
+    }
+  })
 });

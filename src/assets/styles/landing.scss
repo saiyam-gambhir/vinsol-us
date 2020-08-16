@@ -4,7 +4,6 @@
 
   .section-heading {
     align-self: flex-end;
-    display: inline-flex;
     margin-bottom: 146px;
   }
 
@@ -54,20 +53,27 @@
 }
 
 @media(max-width: $mobile) {
-  .landing {
+  .landing-section {
     &__container {
-      flex-direction: column;
-      justify-content: initial;
-    }
-
-    .container {
-      padding: 0;
+      display: block;
     }
 
     .section-heading {
       align-self: flex-start;
       margin: 85px 0 30px 0;
       padding: 0 24px;
+    }
+
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .landing {
+    &__container {
+      flex-direction: column;
+      justify-content: initial;
     }
 
     .shape-text {

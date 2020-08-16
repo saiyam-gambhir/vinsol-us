@@ -87,7 +87,6 @@ li {
   &.three-lines-text {
     span {
       display: block;
-
       &:not(.aos-animate).text-1[data-aos=fade-up] {
         transform: translate3d(0,25px,0);
       }
@@ -98,28 +97,6 @@ li {
 
       &:not(.aos-animate).text-3[data-aos=fade-up] {
         transform: translate3d(0,250px,0);
-      }
-    }
-  }
-
-  &.four-lines-text {
-    span {
-      display: block;
-
-      &:not(.aos-animate).text-1[data-aos=fade-up] {
-        transform: translate3d(0,25px,0);
-      }
-
-      &:not(.aos-animate).text-2[data-aos=fade-up] {
-        transform: translate3d(0,150px,0);
-      }
-
-      &:not(.aos-animate).text-3[data-aos=fade-up] {
-        transform: translate3d(0,175px,0);
-      }
-
-      &:not(.aos-animate).text-4[data-aos=fade-up] {
-        transform: translate3d(0,225px,0);
       }
     }
   }

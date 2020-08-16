@@ -1,12 +1,16 @@
 .footer {
   font-family: $gtAmericaMonoRG;
   font-size: 16px;
-  letter-spacing: -1.5px;
-  line-height: 23px;
+  letter-spacing: -1.49px;
+  line-height: 1.44;
   padding: 133px 0 40px 0;
 
   .container {
     display: flex;
+  }
+
+  &__heading {
+    letter-spacing: normal;
   }
 
   &__list {
@@ -29,6 +33,7 @@
     align-items: flex-end;
     display: flex;
     font-size: 12px;
+    letter-spacing: .25px;
   }
 
   &__link {
@@ -42,17 +47,18 @@
   }
 
   .current-time {
-    font-size: 10px;
+    font-family: $gtAmericaMonoRG;
+    font-size: 8px;
     letter-spacing: .25px;
   }
 
   .time-flash {
     color: $orange;
-    font-family: $gtAmericaMonoMD;
-    font-size: 12px;
-    left: 14.5px;
+    font-family: $gtAmericaMonoRG;
+    font-size: 9px;
+    left: 10px;
     position: absolute;
-    top: -6.5px;
+    top: -1px;
   }
 }
 
