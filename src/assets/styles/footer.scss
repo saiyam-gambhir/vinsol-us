@@ -1,48 +1,64 @@
 .footer {
   font-family: $gtAmericaMonoRG;
   font-size: 16px;
-  letter-spacing: -1px;
-  line-height: 23px;
-  padding: 133px 0 100px 0;
+  letter-spacing: -1.49px;
+  line-height: 1.44;
+  padding: 133px 0 40px 0;
 
   .container {
     display: flex;
   }
 
-  &__left {
-    margin-right: 333px;
-    width: 95px;
+  &__heading {
+    letter-spacing: normal;
   }
 
-  &__center {
-    margin-right: 135px;
-    width: 185px;
+  &__list {
+    font-size: 0;
+  }
+
+  &__left {
+    margin-right: 120px;
+  }
+
+  &__contacts {
+    margin-right: 140px;
+  }
+
+  &__locations {
+    margin-right: 107px;
   }
 
   &__right {
-    display: flex;
     align-items: flex-end;
+    display: flex;
+    font-size: 12px;
+    letter-spacing: .25px;
   }
 
   &__link {
-    position: relative;
+    color: $orange;
     display: inline-block;
-    transition: $transitionTimeFast;
+    position: relative;
+  }
 
-    svg {
-      left: calc(100% + 6px);
-      position: absolute;
-      top: 6px;
-      transform: scale(.85);
-      transition: $transitionTimeFast;
-    }
+  &__list-item {
+    font-size: 16px;
+  }
 
-    &:hover {
-      padding-left: 20px;
-      svg {
-        left: 0px;
-      }
-    }
+  .current-time {
+    font-family: $gtAmericaMonoRG;
+    font-size: 8px;
+    letter-spacing: .25px;
+  }
+
+  .time-flash {
+    color: $orange;
+    font-family: $gtAmericaMonoRG;
+    font-size: 9px;
+    left: 10px;
+    position: absolute;
+    top: -1px;
   }
 }
 

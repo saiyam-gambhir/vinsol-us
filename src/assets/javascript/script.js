@@ -4,15 +4,15 @@ const scripts = () => {
   var $navigationListItem = $('.navigation__list').find('.navigation__list-link');
 
   $(document).ready(function() {
-
     $menuButton.on('click', function(event) {
       $(this).addClass('open');
       $navigationList.addClass('open');
       event.stopPropagation();
     });
 
-    $navigationListItem.on('click', function(_event) {
-      $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 500, 'swing');
+    $navigationListItem.on('click', function(event) {
+      event.preventDefault();
+      $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 500);
       $('.navigation__list-item').removeClass('active');
       $(this).closest('li').addClass('active');
     });
@@ -20,7 +20,7 @@ const scripts = () => {
     $('[data-hook=type-here]').on('keyup', function() {
       if($(this).val().length > 0) {
         $('.contact-button__link').addClass('aos-init');
-        $('.contact-button__link').attr({ 'data-aos':'fade-up', 'data-aos-delay': '450', 'data-aos-duration': '1000' });
+        $('.contact-button__link').attr({ 'data-aos':'fade-up', 'data-aos-delay': '100', 'data-aos-duration': '350' });
         $('.contact-button__link').addClass('aos-animate');
       } else {
         $('.contact-button__link').removeClass('aos-animate');
