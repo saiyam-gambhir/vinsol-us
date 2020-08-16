@@ -17,30 +17,6 @@
   top: $t;
 }
 
-.slider-form-wrap {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
-  overflow-y: hidden;
-  opacity: 0;
-  transition: opacity 500ms  ease-in-out;
-  transition-delay: 1s;
-
-  &.show {
-    opacity: 1;
-    z-index: 2;
-  }
-
-  > .container {
-    height: inherit;
-  }
-}
-
 .contact-form-wrap {
   margin-top: 140px;
 
@@ -328,6 +304,36 @@
   }
 }
 
+.slider-form-wrap {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow-y: hidden;
+  opacity: 0;
+  transition: opacity 500ms  ease-in-out;
+
+  &.show {
+    transition-delay: 700ms;
+  }
+
+  &.hide {
+    transition-delay: 100ms;
+  }
+
+  &.show {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  > .container {
+    height: inherit;
+  }
+}
 
 .fm-slider {
   height: inherit;

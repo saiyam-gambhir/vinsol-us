@@ -38,13 +38,17 @@ $slickElement.slick({
 
 $('.contact-button__link').click(function(){
   $(".contact-form-section").addClass("fsm");
+  $(".contact-form-section").removeClass("shrink");
   $("html").addClass("fullscreen");
   $(".submit-btn").removeClass("fsm");
   $(".slider-form-wrap").addClass("show");
+  $(".slider-form-wrap").removeClass("hide");
 });
 
 $('.submit-btn').click(function(){
   $(".contact-form-section").removeClass("fsm");
   $(".contact-form-section").addClass("shrink");
   $(".slider-form-wrap").removeClass("show");
+  $(".slider-form-wrap").addClass("hide");
+  $("html").removeClass("fullscreen");
 });

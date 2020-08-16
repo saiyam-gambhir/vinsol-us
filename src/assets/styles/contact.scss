@@ -107,7 +107,6 @@
 }
 
 
-
 .contact-form-section {
   position: fixed;
   width: 100vw;
@@ -119,7 +118,7 @@
   opacity: 0;
   z-index: -1;
   overflow: hidden;
-  transition: opacity 100ms ease-in, background-color 700ms ease-in, transform 1s ease-in;
+  transition: opacity 100ms ease-in-out, background-color 500ms ease-in-out, transform 500ms ease-in-out;
   will-change: opacity, background-color, transform;
 
   .h2.section-heading {
@@ -171,15 +170,6 @@
       .svg-overlay {
         opacity: 0;
       }
-    }
-
-    .rem-btn {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      background-color: red;
-      left: 50%;
-      top: 50%;
     }
   }
 
