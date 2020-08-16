@@ -7,12 +7,18 @@ $mobilePortraitSmall: 320px;
 
 /* Constants */
 $containerHorizontalPadding: 48px;
+$containerHorizontalPaddingFormLeft : 39px;
+$containerHorizontalPaddingFormRight : 60px;
 $containerWidth: 1120px;
 
 /* Colors */
 $black: #000000;
 $orange: #ff4f00;
 $white: #ffffff;
+$gray: #f6f6f6;
+$red: #ff400f;
+$white-5: rgba(0, 0, 0, 0.5);
+
 
 /* Fonts */
 $fontsPath: '../fonts';

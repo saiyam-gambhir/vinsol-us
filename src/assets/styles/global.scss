@@ -57,6 +57,11 @@ li {
   @media(max-width: $containerWidth) {
     width: 100%;
   }
+
+  &.container-form {
+    padding-left:  $containerHorizontalPaddingFormLeft;
+    padding-left:  $containerHorizontalPaddingFormRight;
+  }
 }
 
 .page-section {
@@ -116,4 +121,8 @@ li {
 
 .theme-color {
   color: $orange;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
 }
