@@ -179,6 +179,7 @@
     background-color: transparent;
     transform: scale(1);
     padding-top: 0;
+    transition-delay: 3s;
 
     .contact-input__inner, .contact-button__link {
       svg {

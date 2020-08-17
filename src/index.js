@@ -43,6 +43,10 @@ $('.contact-button__link').click(function(){
   $(".submit-btn").removeClass("fsm");
   $(".slider-form-wrap").addClass("show");
   $(".slider-form-wrap").removeClass("hide");
+
+   $('html,body').animate({
+    scrollTop: $(".contact").offset().top},
+    '100');
 });
 
 $('.submit-btn').click(function(){
