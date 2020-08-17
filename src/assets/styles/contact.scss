@@ -1,5 +1,7 @@
 .contact {
   padding-top: 54px;
+  transition: opacity 200ms ease-in-out;
+  will-change: opacity;
 
   &-input,
   &-button {
@@ -8,7 +10,7 @@
 
   &-form {
     padding-top: 25px;
-  }  
+  }
 }
 
 .contact-input {
@@ -113,5 +115,116 @@
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     z-index: 2;
+  }
+}
+
+.contact-form-section {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  opacity: 0;
+  z-index: -1;
+  overflow: hidden;
+  transform: scale(1);
+  transition: opacity 100ms ease-in-out, background-color 500ms ease-in-out, transform 500ms ease-in-out;
+  will-change: opacity, background-color, transform;
+
+  .h2.section-heading {
+    visibility: hidden;
+  }
+  .contact-button__link {
+    opacity: 1;
+
+    .svg-overlay{
+      left: 8px;
+      top: 0;
+      opacity: 1;
+      transform: translate(0);
+    }
+
+    &:hover {
+      .svg-overlay{
+        left: 8px;
+        top: 0;
+        opacity: 1;
+        transform: translate(0);
+      }
+    }
+  }
+
+}
+
+.fullscreen {
+  body {
+    overflow: hidden;
+  }
+
+  .navigation{
+    top: 0 !important;
+
+    .scrolled {
+      height: auto;
+      min-height: 56px;
+    }
+  }
+
+  .slider-form-wrap {
+    transition-delay: 500ms;
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .contact-form-section {
+    opacity: 1;
+    z-index: 2;
+    background-color: $gray;
+    transform: scale(2.3);
+
+    .contact-input__inner,
+    .contact-button__link {
+
+      svg {
+        stroke-width: 0;
+
+        g {
+          fill: white;
+          stroke-width: 0;
+        }
+      }
+    }
+
+    .contact-input,
+    .contact-button {
+      margin-left: -8px;
+
+      .contact-input__field,
+      .contact-button__text,
+      .svg-overlay {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.vin {
+  .page-section {
+    opacity:0;
+  }
+}
+
+
+@media screen and (min-width: 1441px) {
+  .fullscreen {
+    .contact-form-section {
+      transform: scale(3.5);
+
+      .contact-form-wrap {
+        margin-top: 250px;
+      }
+    }
   }
 }

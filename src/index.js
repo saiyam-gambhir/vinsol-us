@@ -48,7 +48,6 @@ $(document).ready(function() {
   })
 })
 
-
 var $status = $('.pagingInfo');
 var $slickElement = $('.slideshow');
 
@@ -63,4 +62,18 @@ $slickElement.slick({
   arrows: true,
   prevArrow: $('.prev'),
   nextArrow: $('.next'),
+});
+
+
+$('.contact-button__link').click(function(){
+  $("html").addClass("fullscreen vin");
+  $('html,body').animate({
+    scrollTop: $(".contact").offset().top}, '100');
+});
+
+$('.submit-btn').click(function(){
+  $("html").removeClass("fullscreen");
+  setTimeout(function(){
+    $("html").removeClass("vin");
+  }, 500);
 });
