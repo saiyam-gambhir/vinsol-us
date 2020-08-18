@@ -58,20 +58,58 @@
     font-size: 9px;
     left: 10px;
     position: absolute;
-    top: -1px;
+    top: -15%;
+  }
+
+  .copyright {
+    .theme-color {
+      font-family: sans-serif;
+    }
   }
 }
 
-@media(max-width: $tabletAndMobile) {
+@media(max-width: $smallDesktop) {
   .footer {
-    padding: 50px 0 100px 0;
+    &__left {
+      margin-right: 100px;
+    }
+
+    &__contacts {
+      margin-right: 75px;
+    }
+  }
+}
+
+@media(max-width: 964px) {
+  .footer {
+    .container {
+      flex-wrap: wrap;
+    }
+
+    &__left,
+    &__contacts,
+    &__locations,
+    &__right {
+      margin: 0 0 20px 0;
+      flex: 50%;
+    }
+  }
+}
+
+@media(max-width: 767px) {
+  .footer {
+    padding: 50px 0 24px 0;
 
     .container {
       flex-direction: column;
     }
 
-    &__left, &__center {
+    &__left, &__contacts, &__locations {
       margin: 0 0 20px 0;
+    }
+
+    &__right {
+      margin-bottom: 0;
     }
   }
 }

@@ -78,7 +78,7 @@
 
     .shape-text {
       font-size: 18px;
-      line-height: 24px;
+      line-height: 26px;
     }
   }
 
@@ -98,8 +98,24 @@
       }
     }
 
+    &__top {
+      .shape-text {
+        left: 55%;
+        text-align: right;
+        top: 50%;
+        white-space: nowrap;
+        width: auto;
+      }
+    }
+
     &__bottom {
       margin-top: -95px;
+
+      .shape-text {
+        left: 32px;
+        text-align: left;
+        transform: translateX(0) translateY(-50%) !important;
+      }
     }
   }
 }
