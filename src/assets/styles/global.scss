@@ -80,6 +80,10 @@ li {
   text-align: center;
 }
 
+.text-left {
+  text-align: left !important;
+}
+
 .text-right {
   text-align: right;
 }
@@ -89,32 +93,32 @@ li {
     transform: translate3d(0,300px,0);
   }
 
-  &.three-lines-text {
+  @for $i from 1 through $maxItemsToAnimate {
+    &__list-item:nth-child(#{$i}) {
+      top: calc(-3px * #{$i - 1});
+    }
+  }
+
+  &.animated-text {
     span {
       display: block;
-      &:not(.aos-animate).text-1[data-aos=fade-up] {
-        transform: translate3d(0,25px,0);
-      }
-
-      &:not(.aos-animate).text-2[data-aos=fade-up] {
-        transform: translate3d(0,100px,0);
-      }
-
-      &:not(.aos-animate).text-3[data-aos=fade-up] {
-        transform: translate3d(0,250px,0);
+    }
+    @for $i from 1 through $maxItemsToAnimate {
+      span:nth-child(#{$i}):not(.aos-animate) {
+        transform: translate3d(0, calc(25px * #{$i}), 0);
       }
     }
   }
 }
 
 .hidden-mobile {
-  @media(max-width: $mobile) {
+  @media(max-width: 767px) {
     display: none !important;
   }
 }
 
 .hidden-desktop {
-  @media(min-width: 769px) {
+  @media(min-width: 768px) {
     display: none !important;
   }
 }

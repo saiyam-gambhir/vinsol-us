@@ -19,6 +19,14 @@ scripts()
 
 $(window).on('load scroll', function() {
   scrollBar()
+
+  if(!$('.contact-input__inner').hasClass('aos-animate')) {
+    $('.contact-button__link').removeClass('aos-animate')
+  } else if ($('.contact-input__inner').hasClass('aos-animate') && $('.contact-input__inner').val().trim().length !== "") {
+    setTimeout(function() {
+      $('.contact-button__link').addClass('aos-animate')
+    }, 450)
+  }
 });
 
 $(document).ready(function() {
@@ -38,12 +46,11 @@ $(document).ready(function() {
     if(this.scrollHeight > 45) {
       this.style.height = this.scrollHeight + "px";
       var totalRows = this.scrollHeight/parseInt($('textarea').css('lineHeight'),10);
-      console.log(totalRows);
-      if(totalRows > initialRows) {
-        $('.contact-input__inner').css({ width: $width + totalRows*10 + 'px' });
-        $('.shape-scale').css({ width: $width + totalRows*10 + 'px' });
-        initialRows = initialRows + 1;
-      }
+      // if(totalRows > initialRows) {
+      //   $('.contact-input__inner').css({ width: $width + totalRows*10 + 'px' });
+      //   $('.shape-scale').css({ width: $width + totalRows*10 + 'px' });
+      //   initialRows = initialRows + 1;
+      // }
     }
   })
 })
