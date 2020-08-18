@@ -84,6 +84,11 @@ li {
   text-align: right;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .section-heading {
   &:not(.aos-animate)[data-aos=fade-up] {
     transform: translate3d(0,300px,0);
@@ -114,7 +119,7 @@ li {
 }
 
 .hidden-desktop {
-  @media(min-width: 769px) {
+  @media(min-width: 768px) {
     display: none !important;
   }
 }

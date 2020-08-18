@@ -62,7 +62,16 @@ $slickElement.slick({
   arrows: true,
   prevArrow: $('.prev'),
   nextArrow: $('.next'),
+  fade:true,
 });
+
+$(document).on('keydown', function(e) {
+  if(e.keyCode == 13) {
+      $slickElement.slick('slickNext');
+  }
+});
+
+
 
 
 $('.contact-button__link').click(function(){

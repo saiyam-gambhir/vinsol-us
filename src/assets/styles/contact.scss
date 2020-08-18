@@ -228,3 +228,131 @@
     }
   }
 }
+
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+  .fullscreen {
+    .contact-form-section {
+      .contact-form-wrap {
+        margin-top: 10%;
+      }
+    }
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1023px) and (orientation: portrait)  {
+  .fullscreen {
+    .contact-form-section {
+      .contact-form-wrap {
+        margin-top: 29%;
+      }
+    }
+  }
+}
+
+@media screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: portrait) {
+  .fullscreen {
+    .contact-form-section {
+      .contact-form-wrap {
+        margin-top: 32%;
+      }
+    }
+  }
+}
+
+@media screen and (min-device-width: 1025px) and (max-device-width: 1366px) and (orientation: landscape) {
+  .fullscreen {
+    .contact-form-section {
+      .contact-form-wrap {
+        margin-top: 22%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .fullscreen {
+    .header {
+      .container {
+        padding: 0;
+      }
+
+      .logo {
+        margin:0;
+        line-height: 1;
+        margin-bottom: 36px;
+      }
+    }
+    .navigation {
+      .scrolled {
+        min-height: 33px;
+      }
+    }
+
+    .mt-26 {
+      margin-top: 0;
+    }
+
+    .form-input__field {
+      @include fontstyle(24px, 300, 1.38);
+    }
+
+    .contact-form-section {
+      .contact-form-wrap {
+        margin-left: -53%;
+        margin-top: 145px;
+      }
+
+      .contact-input__inner {
+        margin: 0;
+      }
+
+      .contact-button__link {
+        margin-top: -100px;
+        left: 90px;
+      }
+    }
+  }
+}
+
+
+@media screen and (min-device-width: 414px) and (max-device-width: 736px){
+  .fullscreen {
+    .contact-form-section {
+      .contact-form-wrap {
+        margin-left: -42%;
+        margin-top: 125px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 736px) and (orientation: landscape) {
+  .fullscreen {
+    .header {
+      .logo {
+        margin-bottom: 16px;
+      }
+    }
+
+    .headings {
+      margin-top: 16px;
+    }
+
+    .contact-form-wrap {
+      margin-top: 70px;
+    }
+
+    .contact-form-section {
+      .contact-form-wrap {
+        margin-left: -42%;
+        margin-top: 125px;
+      }
+    }
+  }
+}
+
+
+
+
+
+

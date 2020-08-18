@@ -34,3 +34,9 @@
     line-height: 39px;
   }
 }
+
+@media(max-width: $mobile) {
+  .heading-form {
+    @include fontstyle(18px, 300, 1.28);
+  }
+}

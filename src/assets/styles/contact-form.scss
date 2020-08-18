@@ -31,7 +31,7 @@
 }
 
 .headings {
-  margin-top: 13.2%;
+  margin-top: 7.2%;
 }
 
 .mt-26 {
@@ -65,10 +65,10 @@
     color: $black;
     padding: 0;
     text-align: center;
-    width: 172px;
     caret-color: $red;
     transition:border-bottom 500ms ease-in-out;
     will-change: border-bottom;
+    width: 172px;
 
     &:focus {
       border-bottom: solid 1px $black;
@@ -144,56 +144,58 @@
   }
 }
 
-.ecommerce {
-  @include checkbox-svg(125px, 85px, 19%, 10px);
-}
+@media(min-width: 768px) {
+  .ecommerce {
+    @include checkbox-svg(125px, 85px, 19%, 10px);
+  }
 
-.brand {
-  @include checkbox-svg(80px, 61px, 11%, 82px);
-}
+  .brand {
+    @include checkbox-svg(80px, 61px, 11%, 82px);
+  }
 
-.research {
-  @include checkbox-svg(104px, 80px, 37%, 27px);
-}
+  .research {
+    @include checkbox-svg(104px, 80px, 37%, 27px);
+  }
 
-.ui {
-  @include checkbox-svg(54px, 42px, 30.5%, 107px);
-}
+  .ui {
+    @include checkbox-svg(54px, 42px, 30.5%, 107px);
+  }
 
-.ux {
-  @include checkbox-svg(51px, 66px, 20%, 130px);
-}
+  .ux {
+    @include checkbox-svg(51px, 66px, 20%, 130px);
+  }
 
-.strategy {
-  @include checkbox-svg(113px, 86px, 56%, 36px);
-}
+  .strategy {
+    @include checkbox-svg(113px, 86px, 56%, 36px);
+  }
 
-.webdev {
-  @include checkbox-svg(81px, 63px, 71.5%, 10px);
-}
+  .webdev {
+    @include checkbox-svg(81px, 63px, 71.5%, 10px);
+  }
 
-.saas {
-  @include checkbox-svg(75px, 58px, 58.37%, 156px);
-}
+  .saas {
+    @include checkbox-svg(75px, 58px, 58.37%, 156px);
+  }
 
-.product-design {
-  @include checkbox-svg(104px, 80px, 44.5%, 120px);
-}
+  .product-design {
+    @include checkbox-svg(104px, 80px, 44.5%, 120px);
+  }
 
-.engineering {
-  @include checkbox-svg(138px, 95px, 28.83%, 170px);
-}
+  .engineering {
+    @include checkbox-svg(138px, 95px, 26.83%, 170px);
+  }
 
-.mobiledev {
-  @include checkbox-svg(130px, 94px, 47.25%, 226px);
-}
+  .mobiledev {
+    @include checkbox-svg(130px, 94px, 47.25%, 226px);
+  }
 
-.design {
-  @include checkbox-svg(93px, 72px, 8.86%, 205px);
-}
+  .design {
+    @include checkbox-svg(93px, 72px, 8.86%, 205px);
+  }
 
-.others {
-  @include checkbox-svg(80px, 61px, 82.48%, 18px);
+  .others {
+    @include checkbox-svg(80px, 61px, 83.48%, 18px);
+  }
 }
 
 .radio-group {
@@ -235,7 +237,10 @@
         top: 0;
         bottom: 0;
         content: '';
-        background: url("./../images/radio-bg.svg");
+        background-image: url("./../images/radio-bg.svg");
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
         opacity: 0;
         transition: opacity 500ms ease-in-out;
         will-change: opacity;
@@ -303,6 +308,108 @@
   }
 }
 
+@media(max-width: $mobile) {
+  .checkbox {
+    position: relative;
+    display: inline-block;
+    max-width: 50%;
+    flex: 0 0 50%;
+    height: 70px;
+
+    svg, br{
+      display: none;
+    }
+
+    input:checked {
+      + .checkbox-label {
+          color: $orange;
+        }
+    }
+  }
+
+  .form-wrapper {
+    padding: 0;
+
+    .contact-form-wrap {
+      &.build-topic {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        height: auto;
+        margin-top: 76px;
+      }
+    }
+
+    .radio-group {
+      @include flexcenter();
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: auto;
+      margin-top: 0;
+      padding: 0;
+
+      .radio {
+        width: 156px;
+        height: 101px;
+      }
+    }
+
+    .radio-button-help {
+      .radio-label {
+        max-width: 155px;
+        text-align: left;
+
+        &:before {
+          top: 4px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 736px) and (orientation: landscape) {
+  .checkbox {
+    max-width: 33.33%;
+    flex: 0 0 33.33%;
+    height: 40px;
+  }
+
+  .form-wrapper {
+    padding: 0;
+
+    .contact-form-wrap {
+      &.build-topic {
+        margin-top: 16px;
+      }
+
+      .radio-group {
+        flex-direction: row;
+      }
+    }
+
+    .radio-button-help {
+      .radio-label {
+        max-width: none;
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .fullscreen {
+    .form-wrapper {
+      padding: 0;
+    }
+
+    .radio-group {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+}
 
 
 
