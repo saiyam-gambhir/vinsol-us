@@ -20,6 +20,7 @@ const scrollBar = () => {
 
   $navigationList.on('click', function(event) {
     event.stopPropagation();
+    $("html").removeClass("fullscreen vin");
   });
 
   $('body').on('click', function(event) {

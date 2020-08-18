@@ -1,8 +1,23 @@
+@mixin fontstyle($fs, $fw, $fl) {
+  font-family: $gtAmericaMonoRG;
+  font-size: $fs;
+  line-height: $fl;
+  font-weight: $fw;
+}
+
+@mixin flexcenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Breakpoints */
 $smallDesktop: 1120px;
 $tabletLandscape: 1024px;
 $tabletAndMobile: 1023px;
-$mobile: 768px;
+$mobile: 767px;
+$mobilePortraitPlus: 414px;
+$mobilePortraitX: 375px;
 $mobilePortrait: 365px;
 $mobilePortraitSmall: 320px;
 
