@@ -11,6 +11,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init();
 
+$('.wrapper').scroll(function () {
+  AOS.refresh();
+});
+
 import { scripts } from './assets/javascript/script'
 import { scrollBar } from './assets/javascript/scrollBar'
 import timeZones from './assets/javascript/timeZones'
@@ -45,7 +49,7 @@ $(document).ready(function() {
     this.style.height = '';
     if(this.scrollHeight > 45) {
       this.style.height = this.scrollHeight + "px";
-      var totalRows = this.scrollHeight/parseInt($('textarea').css('lineHeight'),10);
+      // var totalRows = this.scrollHeight/parseInt($('textarea').css('lineHeight'),10);
       // if(totalRows > initialRows) {
       //   $('.contact-input__inner').css({ width: $width + totalRows*10 + 'px' });
       //   $('.shape-scale').css({ width: $width + totalRows*10 + 'px' });

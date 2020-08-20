@@ -22,7 +22,7 @@
 .landing-shapes {
   &__top {
     height: 286px;
-    left: -100px;
+    left: -85px;
     width: 548px;
     z-index: 1;
 
@@ -34,9 +34,10 @@
   &__bottom {
     display: inline-flex;
     height: 321px;
-    margin-top: -80px;
+    margin-top: -95px;
     width: 430px;
     z-index: 2;
+    margin-left: 180px;
 
     .shape-text {
       left: 44%;
@@ -60,7 +61,7 @@
 
     .section-heading {
       align-self: flex-start;
-      margin: 85px 0 30px 0;
+      margin: 85px 0 20px 0;
       padding: 0 24px;
     }
 
@@ -85,12 +86,12 @@
   .landing-shapes {
     &__top,
     &__bottom {
-      left: auto;
-      width: 100%;
       height: auto;
+      left: auto;
 
       .svg {
         width: 100%;
+        height: auto;
 
         path {
           fill: transparent;
@@ -99,17 +100,21 @@
     }
 
     &__top {
+      width: 95vw;
+      margin-left: 5vw;
+
       .shape-text {
         left: 55%;
         text-align: right;
-        top: 50%;
+        top: 53%;
         white-space: nowrap;
         width: auto;
       }
     }
 
     &__bottom {
-      margin-top: -95px;
+      margin: -28vw -25px 0 0;
+      width: 100%;
 
       .shape-text {
         left: 32px;
