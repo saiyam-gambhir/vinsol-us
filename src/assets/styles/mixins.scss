@@ -1,0 +1,12 @@
+@mixin fontstyle($fs, $fw, $fl) {
+  font-family: $gtAmericaMonoRG;
+  font-size: $fs;
+  line-height: $fl;
+  font-weight: $fw;
+}
+
+@mixin flexcenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
