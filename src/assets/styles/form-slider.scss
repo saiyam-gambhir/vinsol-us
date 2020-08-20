@@ -150,7 +150,17 @@
     background-size: cover;
   }
 
+  .fm-slider {
+    height: calc(100% - 200px);
+
+    .slick-list {
+      height: 100% !important;
+    }
+  }
+
   .slick-arrow-group  {
+    bottom: auto;
+
     .pagingInfo {
       display: none;
     }

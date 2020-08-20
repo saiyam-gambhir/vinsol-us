@@ -457,7 +457,7 @@
       .logo {
         margin:0;
         line-height: 1;
-        margin-bottom: 36px;
+        margin-bottom: 32px;
       }
     }
     .navigation {
@@ -496,9 +496,17 @@
 @media screen and (min-device-width: 414px) and (max-device-width: 736px){
   .fullscreen {
     .contact-form-section {
+      transform: scale(1.8);
       .contact-form-wrap {
-        margin-left: -42%;
-        margin-top: 125px;
+        margin-left: -3%;
+        margin-top: 17%;
+        transform: rotate(65deg);
+      }
+
+      .contact-button__link {
+        margin-top: 22px;
+        left: -4%;
+        transform: rotate(90deg) !important;
       }
     }
   }

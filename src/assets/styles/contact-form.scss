@@ -69,6 +69,7 @@
     transition:border-bottom 500ms ease-in-out;
     will-change: border-bottom;
     width: 172px;
+    border-radius: 0;
 
     &:focus {
       border-bottom: solid 1px $black;
@@ -313,7 +314,7 @@
     display: inline-block;
     max-width: 50%;
     flex: 0 0 50%;
-    height: 70px;
+    height: 50px;
 
     svg, br{
       display: none;
@@ -337,8 +338,13 @@
         align-items: flex-start;
         flex-wrap: wrap;
         height: auto;
-        margin-top: 76px;
+        margin-top: 24px;
       }
+    }
+
+    .radio-button-help {
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
 
     .radio-group {
@@ -350,8 +356,9 @@
       padding: 0;
 
       .radio {
-        width: 156px;
-        height: 101px;
+        width: 130px;
+        height: 80px;
+        font-size: 20px;
       }
     }
 
