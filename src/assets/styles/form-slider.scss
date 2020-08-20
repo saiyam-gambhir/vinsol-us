@@ -1,0 +1,192 @@
+.slider-form-wrap {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow-y: hidden;
+  opacity: 0;
+  transition: opacity 500ms  ease-in-out;
+
+  > .container {
+    height: inherit;
+  }
+}
+
+.fm-slider {
+  height: inherit;
+
+  .slick-slide,
+  .slick-list,
+  .slick-track {
+    height: inherit;
+  }
+
+  .slick-slide {
+    > div {
+      height: inherit;
+    }
+  }
+}
+
+
+.slick-arrow-group {
+  @extend %flex ;
+  position: absolute;
+  bottom: 34px;
+  left: 0;
+  right: 0;
+
+  .slick-arrow {
+    position: relative;
+    padding: 0px;
+    line-height: 30px;
+    cursor: pointer;
+
+    .prev-arrow {
+      background: url(./../images/left-arrow.svg) no-repeat center;
+      width: 7px;
+      height: 30px;
+      display: block;
+      opacity: 1;
+      transition: opacity 200ms ease;
+      will-change: opacity;
+    }
+
+    .next-arrow {
+      background: url(./../images/right-arrow.svg)  no-repeat center;
+      width: 7px;
+      height: 30px;
+      display: block;
+      transition: opacity 200ms ease;
+      will-change: opacity;
+    }
+
+    &.slick-disabled {
+      .prev-arrow, .next-arrow {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      + .press-enter {
+        display: none;
+      }
+    }
+
+    &.next:not(.slick-disabled) {
+      + .submit-btn {
+        display: none;
+      }
+    }
+  }
+
+  .pagingInfo{
+    @include fontstyle(11px, 100, 0.91);
+    display: inline-block;
+    color: $white-5;
+    padding: 0px 16px;
+    line-height: 30px;
+  }
+
+  .press-enter, .tap-enter {
+    @include fontstyle(11px, 100, 0.91);
+    color: $white-5;
+    padding-left: 16px;
+    line-height: 30px;
+  }
+
+  .tap-enter {
+    display: none;
+  }
+
+  .submit-btn {
+    @include fontstyle(10px, normal, 1.5);
+    color: $black;
+    cursor: pointer;
+    margin-top: 0;
+    box-shadow: none;
+    background-color: transparent;
+    border: 1px solid $red;
+    padding: 6px;
+    transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+    will-change: background-color;
+
+    &:hover, &:focus {
+      background-color: $red;
+      border-color: transparent;
+      color: $white;
+    }
+  }
+}
+
+
+
+
+@media screen and (max-width: $mobile) {
+  .pagingInfo {
+    display: block;
+    text-align: center;
+    @include fontstyle(18px, 300, 1.28);
+    color: $white-5;
+  }
+
+  .arrow-count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .prev-arrow {
+    background: url(./../images/left-arrow.svg) no-repeat center;
+    width: 20px;
+    height: 15px;
+    display: block;
+    opacity: 1;
+    transition: opacity 200ms ease;
+    will-change: opacity;
+    background-size: cover;
+  }
+
+  .slick-arrow-group  {
+    .pagingInfo {
+      display: none;
+    }
+
+    .tap-enter {
+      display: inline-block;
+    }
+
+    .slick-arrow {
+      color: $orange;
+
+      &.next {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include fontstyle(18px, 300, 1);
+      }
+
+      .next-arrow {
+        width: 12px;
+        height: 12px;
+        background-size: 12px;
+        margin-top: 2px;
+      }
+
+      .next-btn {
+        display: inline-block;
+        margin-right: 8px;
+        margin-left: 8px;
+      }
+
+      &.slick-disabled {
+        .next-btn {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -11,6 +11,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init();
 
+$('.wrapper').scroll(function () {
+  AOS.refresh();
+});
+
 import { scripts } from './assets/javascript/script'
 import { scrollBar } from './assets/javascript/scrollBar'
 import timeZones from './assets/javascript/timeZones'
@@ -19,6 +23,14 @@ scripts()
 
 $(window).on('load scroll', function() {
   scrollBar()
+
+  if(!$('.contact-input__inner').hasClass('aos-animate')) {
+    $('.contact-button__link').removeClass('aos-animate')
+  } else if ($('.contact-input__inner').hasClass('aos-animate') && $('.contact-input__inner').val().trim().length !== "") {
+    setTimeout(function() {
+      $('.contact-button__link').addClass('aos-animate')
+    }, 450)
+  }
 });
 
 $(document).ready(function() {
@@ -37,17 +49,15 @@ $(document).ready(function() {
     this.style.height = '';
     if(this.scrollHeight > 45) {
       this.style.height = this.scrollHeight + "px";
-      var totalRows = this.scrollHeight/parseInt($('textarea').css('lineHeight'),10);
-      console.log(totalRows);
-      if(totalRows > initialRows) {
-        $('.contact-input__inner').css({ width: $width + totalRows*10 + 'px' });
-        $('.shape-scale').css({ width: $width + totalRows*10 + 'px' });
-        initialRows = initialRows + 1;
-      }
+      // var totalRows = this.scrollHeight/parseInt($('textarea').css('lineHeight'),10);
+      // if(totalRows > initialRows) {
+      //   $('.contact-input__inner').css({ width: $width + totalRows*10 + 'px' });
+      //   $('.shape-scale').css({ width: $width + totalRows*10 + 'px' });
+      //   initialRows = initialRows + 1;
+      // }
     }
   })
 })
-
 
 var $status = $('.pagingInfo');
 var $slickElement = $('.slideshow');
@@ -63,4 +73,27 @@ $slickElement.slick({
   arrows: true,
   prevArrow: $('.prev'),
   nextArrow: $('.next'),
+  fade:true,
+});
+
+$(document).on('keydown', function(e) {
+  if(e.keyCode == 13) {
+      $slickElement.slick('slickNext');
+  }
+});
+
+
+
+
+$('.contact-button__link').click(function(){
+  $("html").addClass("fullscreen vin");
+  $('html,body').animate({
+    scrollTop: $(".contact").offset().top}, '100');
+});
+
+$('.submit-btn').click(function(){
+  $("html").removeClass("fullscreen");
+  setTimeout(function(){
+    $("html").removeClass("vin");
+  }, 500);
 });

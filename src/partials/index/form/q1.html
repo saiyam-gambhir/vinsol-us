@@ -1,11 +1,11 @@
 <div class="form-wrapper">
   <div class="headings text-center">
-    <div class="heading-small mb-24">hiya, let’s talk!</div>
+    <div class="heading-small mb-24 hidden-mobile">hiya, let’s talk!</div>
     <div class="heading-form">what is your <br> full name?</div>
   </div>
   <div class="contact-form-wrap">
     <div class="form-input text-center">
-      <input type="text" class="form-input__field" placeholder="type here" autofocus>
+      <input type="text" class="form-input__field" placeholder="type here" autofocus oninput='this.style.width = (this.scrollWidth) + "px";'>
     </div>
   </div>
 </div>

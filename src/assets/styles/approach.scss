@@ -115,16 +115,96 @@ $totalStages: 5;
   }
 }
 
-@media(max-width: $tabletLandscape) {
-  .stages {
-    &__top-content {
-      left: 20%;
-      transform: translateX(calc(-20% - 50px)) translateY(-50%);
+@media(max-width: 767px) {
+  .our-approach {
+    .container {
+      padding-left: 0;
+      padding-right: 0;
     }
 
-    &__bottom-content {
-      right: 20%;
-      transform: translateX(calc(20% + 37px)) translateY(-50%)
+    .section-heading {
+      margin-top: 50px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  .stages {
+    display: flex;
+    justify-content: flex-end;
+
+    .stage__name {
+      font-family: $gtAmericaMonoLT;
+      font-size: 16px;
+      letter-spacing: .5px;
+      line-height: 24px;
+    }
+
+    &__top-content {
+      font-size: 28px;
+      left: -120px;
+      line-height: 39px;
+      text-align: left;
+      transform: translateY(-50%);
+      width: 120px;
+    }
+
+    &__inner {
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    &__list {
+      padding-right: 33px;
+      width: calc(50% + 33px);
+    }
+
+    &__list-item {
+      .path {
+        height: auto;
+        width: 100%;
+      }
+
+      &.intoduction-stage {
+        .path {
+          width: 90%;
+        }
+      }
+
+      &.design-stage {
+        .path {
+          width: 94%;
+        }
+      }
+
+      &.build-stage {
+        .path {
+          width: 60%;
+        }
+      }
+
+      &.market-stage {
+        .path {
+          width: 73%;
+        }
+      }
+
+      &.support-stage {
+        .path {
+          width: 94%;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: $mobilePortraitSmall) {
+  .stages {
+    &__top-content {
+      font-size: 22px;
+      left: -102px;
+      line-height: 32px;
+      width: 90px;
     }
   }
 }
