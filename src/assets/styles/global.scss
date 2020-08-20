@@ -17,6 +17,7 @@ body {
   font-family: $gtAmericaMonoLT;
   font-size: 24px;
   line-height: 32px;
+  scrollbar-width: none;
 
   &::-webkit-scrollbar {
     display: none;

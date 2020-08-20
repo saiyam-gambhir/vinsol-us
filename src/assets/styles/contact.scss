@@ -280,20 +280,14 @@
     &__link {
       height: auto;
       left: auto;
-      margin-left: -38%;
+      margin-left: -40%;
       margin-top: 0;
-      padding-left: 10px;
-      margin-top: -5%;
-      width: 39%;
+      margin-top: -10%;
     }
 
     &__text {
       font-size: 16px;
       line-height: 24px;
-    }
-
-    svg {
-      transform: rotate(75deg);
     }
   }
 }
