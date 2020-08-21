@@ -17,6 +17,84 @@
   top: $t;
 }
 
+.contact-form-section {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  opacity: 0;
+  z-index: -1;
+  overflow: hidden;
+  transform: scale(1);
+  transition: opacity 100ms ease-in-out, background-color 500ms ease-in-out, transform 500ms ease-in-out;
+  will-change: opacity, background-color, transform;
+
+  > .container {
+    height: inherit;
+
+    .cnt-form-wrap {
+      height: inherit;
+      position: relative;
+    }
+  }
+
+  .cnt-input__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .contact-button__anim {
+    opacity: 1 !important;
+    position: absolute;
+    right: -15%;
+    bottom: 5%;
+    left: auto;
+  }
+}
+
+.fullscreen {
+  body {
+    overflow: hidden;
+  }
+
+  .navigation{
+    top: 0 !important;
+
+    .scrolled {
+      height: auto;
+      min-height: 56px;
+    }
+  }
+
+  .contact-form-section {
+    opacity: 1;
+    z-index: 2;
+    background-color: $gray;
+    transform: scale(2.3);
+
+    .contact-button__anim {
+      svg {
+        stroke-width: 0;
+
+        g {
+          fill: white;
+          stroke-width: 0;
+        }
+      }
+    }
+
+    .contact-input,
+    .contact-button {
+      margin-left: -8px;
+    }
+  }
+}
+
 .contact-form-wrap {
   margin-top: 120px;
 
@@ -308,6 +386,79 @@
   }
 }
 
+@media screen and (min-width: 1800px) {
+  .fullscreen {
+    .contact-form-section {
+      transform: scale(2.8);
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .fullscreen {
+    .contact-form-section {
+      transform: scale(2.8);
+    }
+  }
+}
+
+@media screen and (min-width: 2160px) {
+  .fullscreen {
+    .contact-form-section {
+      transform: scale(3.5);
+    }
+  }
+}
+
+@media screen and (min-width: 2880px) {
+  .fullscreen {
+    .contact-form-section {
+      transform: scale(4.5);
+    }
+  }
+}
+
+@media screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: portrait) {
+  .fullscreen {
+    .contact-form-section {
+      transform: scale(3);
+
+      .cnt-input__inner {
+        top: 46%;
+        left: 46%;
+      }
+    }
+  }
+}
+
+@media screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape) {
+  .fullscreen {
+    .contact-form-section {
+      transform: scale(3);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .fullscreen {
+    .contact-form-section {
+      .cnt-input__inner {
+        top: 45%;
+        left: 45%;
+      }
+    }
+
+    .form-wrapper {
+      padding: 0;
+    }
+
+    .radio-group {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+}
+
 @media(max-width: $mobile) {
   .checkbox {
     position: relative;
@@ -373,21 +524,82 @@
       }
     }
   }
+
+  .fullscreen {
+    .contact-form-section {
+      transform: scale(2.1);
+
+      .cnt-input__inner {
+        top: 47%;
+        left: 20%;
+      }
+    }
+
+    .header {
+      .container {
+        padding: 0;
+      }
+
+      .logo {
+        margin:0;
+        line-height: 1;
+        margin-bottom: 32px;
+      }
+    }
+    .navigation {
+      .scrolled {
+        min-height: 33px;
+      }
+    }
+  }
 }
 
-@media screen and (min-width: 375px) and (max-width: 736px) and (orientation: landscape) {
+@media screen and (min-width: 375px) and (max-width: 812px) and (orientation: landscape) {
+  .fullscreen {
+    .contact-form-section {
+      transform: scale(1.5);
+
+      .cnt-input__inner {
+        top: 50%;
+        left: 50%;
+      }
+    }
+
+    .header {
+      .logo {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
   .checkbox {
     max-width: 33.33%;
     flex: 0 0 33.33%;
     height: 40px;
+
+    label {
+      font-size: 20px !important;
+    }
   }
 
   .form-wrapper {
     padding: 0;
 
+    .headings {
+      margin-top: 16px;
+    }
+
     .contact-form-wrap {
+      margin-top: 70px;
+
       &.build-topic {
-        margin-top: 16px;
+        margin-top: 10px;
+        max-height: 250px;
+        overflow-y: auto;
+      }
+
+      &.radio-topic {
+        margin-top: 30px;
       }
 
       .radio-group {
@@ -399,19 +611,6 @@
       .radio-label {
         max-width: none;
       }
-    }
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .fullscreen {
-    .form-wrapper {
-      padding: 0;
-    }
-
-    .radio-group {
-      padding-left: 24px;
-      padding-right: 24px;
     }
   }
 }
@@ -443,4 +642,7 @@
     }
   }
 }
+
+
+
 
