@@ -278,9 +278,13 @@
   }
 }
 
-@media screen and (min-width: 375px) and (max-width: 736px) and (orientation: landscape) {
+@media screen and (min-width: 375px) and (max-width: 812px) and (orientation: landscape) {
   .fm-slider {
     height: calc(100% - 150px);
+
+    .slick-list {
+      height: 100% !important;
+    }
   }
 
   .slick-arrow-group  {
@@ -289,6 +293,9 @@
 }
 
 @media screen and (max-width: 320px) {
+  .fm-slider {
+    height: calc(100% - 170px);
+  }
   .slick-arrow-group  {
     bottom: 24px;
   }
