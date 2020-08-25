@@ -230,7 +230,7 @@
   }
 
   .fm-slider {
-    height: calc(100% - 200px);
+    height: calc(100% - 250px);
 
     .slick-list {
       height: 100% !important;
@@ -238,6 +238,8 @@
   }
 
   .slick-arrow-group  {
+    position: relative;
+    bottom: auto;
     .pagingInfo {
       display: none;
     }
@@ -276,6 +278,10 @@
       }
     }
   }
+
+  .build-topic {
+    margin-bottom: 24px;
+  }
 }
 
 @media screen and (min-width: 375px) and (max-width: 812px) and (orientation: landscape) {
@@ -295,8 +301,5 @@
 @media screen and (max-width: 320px) {
   .fm-slider {
     height: calc(100% - 170px);
-  }
-  .slick-arrow-group  {
-    bottom: 24px;
   }
 }
