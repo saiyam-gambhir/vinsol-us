@@ -31,6 +31,14 @@ $(window).on('load scroll', function() {
       $('.contact-button__link').addClass('aos-animate')
     }, 450)
   }
+
+  $('.stage').each(function() {
+    if(($(window).scrollTop() + $(window).outerHeight()/2) - $(this).outerHeight()/2 > $(this).offset().top) {
+      $(this).addClass('fill-color')
+    } else {
+      $(this).removeClass('fill-color')
+    }
+  })
 });
 
 $(document).ready(function() {
@@ -81,9 +89,6 @@ $(document).on('keydown', function(e) {
       $slickElement.slick('slickNext');
   }
 });
-
-
-
 
 $('.contact-button__link').click(function(){
   $("html").addClass("fullscreen vin");
