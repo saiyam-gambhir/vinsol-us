@@ -82,6 +82,7 @@ $slickElement.slick({
   prevArrow: $('.prev'),
   nextArrow: $('.next'),
   fade:true,
+  adaptiveHeight: true
 });
 
 $(document).on('keydown', function(e) {

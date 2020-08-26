@@ -4,3 +4,16 @@
     padding-right: 24px;
   }
 }
+
+@media screen and (min-width: 1441px) {
+  .navigation {
+    .toggle-btn__bar {
+      top: 1px;
+      width: 18px;
+
+      + .toggle-btn__bar {
+          margin-top: 5px;
+      }
+    }
+  }
+}
