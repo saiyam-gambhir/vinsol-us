@@ -122,10 +122,89 @@
   }
 }
 
+.fullscreen {
+  .slider-form-wrap {
+    transition-delay: 500ms;
+    opacity: 1;
+    z-index: 2;
+  }
+}
 
+.vin {
+  .page-section {
+    opacity:0;
+  }
+}
 
+@media screen and (min-width: 1920px) {
+  .fullscreen {
+    .slider-form-wrap  {
+      overflow-x: hidden;
+    }
+
+    .form-wrapper {
+      transform: scale(1.1);
+      margin-top: 8%;
+    }
+
+    .slick-arrow-group {
+      transform: scale(1.1);
+    }
+  }
+}
+
+@media screen and (min-width: 2160px) {
+  .fullscreen {
+    .slider-form-wrap  {
+      overflow-x: hidden;
+    }
+
+    .form-wrapper {
+      transform: scale(1.3);
+      margin-top: 18%;
+    }
+
+    .slick-arrow-group {
+      transform: scale(1.3);
+    }
+  }
+}
+
+@media screen and (min-width: 2880px) {
+  .fullscreen {
+    .form-wrapper {
+      margin-top: 25%;
+    }
+  }
+}
+
+@media screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+  .fullscreen {
+    .slick-arrow-group {
+      bottom: 60px;
+    }
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .fullscreen {
+    .slick-arrow-group {
+      bottom: 60px;
+    }
+  }
+}
 
 @media screen and (max-width: $mobile) {
+  .fullscreen{
+    .mt-26 {
+      margin-top: 0;
+    }
+
+    .form-input__field {
+      @include fontstyle(24px, 300, 1.38);
+    }
+  }
+
   .pagingInfo {
     display: block;
     text-align: center;
@@ -150,7 +229,17 @@
     background-size: cover;
   }
 
+  .fm-slider {
+    height: calc(100% - 250px);
+
+    .slick-list {
+      height: 100% !important;
+    }
+  }
+
   .slick-arrow-group  {
+    position: relative;
+    bottom: auto;
     .pagingInfo {
       display: none;
     }
@@ -188,5 +277,29 @@
         }
       }
     }
+  }
+
+  .build-topic {
+    margin-bottom: 24px;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 812px) and (orientation: landscape) {
+  .fm-slider {
+    height: calc(100% - 150px);
+
+    .slick-list {
+      height: 100% !important;
+    }
+  }
+
+  .slick-arrow-group  {
+    bottom: 24px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .fm-slider {
+    height: calc(100% - 170px);
   }
 }
