@@ -1,7 +1,7 @@
 .footer {
   font-family: $gtAmericaMonoRG;
-  font-size: 16px;
-  letter-spacing: -1.49px;
+  font-size: 1em;
+  letter-spacing: 0;
   line-height: 1.44;
   padding: 133px 0 40px 0;
 
@@ -32,7 +32,7 @@
   &__right {
     align-items: flex-end;
     display: flex;
-    font-size: 12px;
+    font-size: 0.750em;
     letter-spacing: .25px;
   }
 
@@ -43,19 +43,19 @@
   }
 
   &__list-item {
-    font-size: 16px;
+    font-size: 1em;
   }
 
   .current-time {
     font-family: $gtAmericaMonoRG;
-    font-size: 8px;
+    font-size: 0.5em;
     letter-spacing: .25px;
   }
 
   .time-flash {
     color: $orange;
     font-family: $gtAmericaMonoRG;
-    font-size: 9px;
+    font-size: 0.56em;
     left: 10px;
     position: absolute;
     top: -15%;

@@ -7,7 +7,7 @@
 %placeholder {
   color: rgba(0,0,0,0.3);
   font-family: $gtAmericaMonoRG;
-  @include fontstyle(20px, 300, 1.5);
+  @include fontstyle(1.25em, 300, 1.5);
 }
 
 @mixin checkbox-svg($w, $h, $l, $t) {
@@ -136,7 +136,7 @@
 .form-input {
   &__field {
     font-family: $gtAmericaMonoRG;
-    @include fontstyle(30px, 300, 45px);
+    @include fontstyle(1.875em, 300, 45px);
     border: 0;
     background-color: transparent;
     border-bottom: dashed 1px $black;
@@ -168,7 +168,7 @@
 }
 
 .checkbox {
-  @include fontstyle(20px, 300, 1.6);
+  @include fontstyle(1.25em, 300, 1.6);
   position: absolute;
 
   input {
@@ -191,7 +191,7 @@
 
   label {
     font-family: $gtAmericaLT;
-    font-size: 20px;
+    font-size: 1.25em;
     line-height: 1;
     @extend %flex;
     width: 100%;
@@ -353,7 +353,7 @@
   }
 
   .radio-label {
-    @include fontstyle(12px, 100, 1.33);
+    @include fontstyle(0.75em, 100, 1.33);
     padding-left: 8px;
 
     &:before {
@@ -509,7 +509,7 @@
       .radio {
         width: 130px;
         height: 80px;
-        font-size: 20px;
+        font-size: 1.25em;
       }
     }
 
@@ -581,7 +581,7 @@
     top: 0;
 
     label {
-      font-size: 20px !important;
+      font-size: 1.25em !important;
     }
 
     svg, br{
@@ -641,7 +641,7 @@
       .radio {
         width: 130px;
         height: 80px;
-        font-size: 20px;
+        font-size: 1.25em;
       }
     }
 
@@ -664,7 +664,7 @@
     height: 45px !important;
 
     label {
-      font-size: 16px !important;
+      font-size: 1em !important;
     }
   }
 
@@ -676,7 +676,7 @@
       }
 
       .radio-label {
-        font-size: 16px !important;
+        font-size: 1em !important;
       }
     }
 
