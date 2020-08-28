@@ -33,6 +33,8 @@
     display: flex;
     flex-direction: column;
     margin-top: 25px;
+    font-size: 1.5em;
+    line-height: 1.33;
   }
 
   .apple {
@@ -75,8 +77,8 @@
 @media(max-width: $tabletAndMobile) {
   .client {
     &__details {
-      font-size: 14px;
-      line-height: 20px;
+      font-size: 0.875em;
+      line-height: 1.2;
       margin-top: 18px;
     }
 

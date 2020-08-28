@@ -96,6 +96,16 @@
     color: $white-5;
     padding-left: 16px;
     line-height: 30px;
+    position: absolute;
+    margin-left: 200px;
+    opacity: 1;
+    transition: opacity 100ms ease-in-out;
+    will-change: opacity;
+
+    &.d-none {
+      display: none;
+      opacity: 0;
+    }
   }
 
   .tap-enter {

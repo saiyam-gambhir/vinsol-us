@@ -9,7 +9,7 @@
   font-family: $gtAmericaRG;
   font-size: 2em;
   font-weight: normal;
-  line-height: 2.750em;
+  line-height: 1.38;
 }
 
 .h3 {
@@ -26,6 +26,11 @@
 
 .heading-small {
   @include fontstyle(0.688em, 100, 0.91);
+}
+
+.shape-text {
+  font-size: 1.5em;
+  line-height: 1.33;
 }
 
 @media(max-width: $tabletAndMobile) {

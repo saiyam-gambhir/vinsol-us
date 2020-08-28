@@ -74,16 +74,31 @@ $slickElement.slick({
   prevArrow: $('.prev'),
   nextArrow: $('.next'),
   fade:true,
-  adaptiveHeight: true
+  adaptiveHeight: true,
+  onAfterChange: function(slide, index) {
+    if(index === 2) {
+      $('.press-enter').css('display', 'none')
+    }
+    else {
+      $('.press-enter').css('display', 'block')
+    }
+  }
 });
+
+$slickElement.on('afterChange', function (event, slick, currentSlide) {
+  if(currentSlide == 0) {
+      $('.press-enter, .tap-enter').removeClass('d-none');
+  }
+  else {
+      $('.press-enter, .tap-enter').addClass('d-none');
+  }
+})
 
 $(document).on('keydown', function(e) {
   if(e.keyCode == 13) {
       $slickElement.slick('slickNext');
   }
 });
-
-
 
 
 $('.contact-button__link').click(function(){
