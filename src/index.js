@@ -28,7 +28,8 @@ let ourApproach = new OurApproach(ourApproachOptions);
 let navigationOptions = {
   menuBtn: '#menu-toggle-btn',
   navigationList: '.navigation__list',
-  navigationListItem: '.navigation__list-link'
+  navigationListItem: '.navigation__list-link',
+  navigationListItemParent: '.navigation__list-item'
 }
 
 let navigation = new Navigation(navigationOptions);
@@ -48,6 +49,10 @@ $(window).on('load scroll', function() {
   }
 
   ourApproach.toggleStageColor();
+});
+
+$(window).on('load', function() {
+  $('#menu-toggle-btn, #navigation-menu').addClass('open');
 });
 
 $(document).ready(function() {
@@ -91,8 +96,25 @@ $slickElement.slick({
   prevArrow: $('.prev'),
   nextArrow: $('.next'),
   fade:true,
-  adaptiveHeight: true
+  adaptiveHeight: true,
+  onAfterChange: function(slide, index) {
+    if(index === 2) {
+      $('.press-enter').css('display', 'none')
+    }
+    else {
+      $('.press-enter').css('display', 'block')
+    }
+  }
 });
+
+$slickElement.on('afterChange', function (event, slick, currentSlide) {
+  if(currentSlide == 0) {
+      $('.press-enter, .tap-enter').removeClass('d-none');
+  }
+  else {
+      $('.press-enter, .tap-enter').addClass('d-none');
+  }
+})
 
 $(document).on('keydown', function(e) {
   if(e.keyCode == 13) {

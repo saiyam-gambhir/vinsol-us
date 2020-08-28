@@ -3,6 +3,7 @@ class Navigation {
     this.menuBtn = options.menuBtn;
     this.navigationList = options.navigationList;
     this.navigationListItem = options.navigationListItem;
+    this.navigationListItemParent = options.navigationListItemParent;
   }
 
   openNavigation() {
@@ -19,8 +20,8 @@ class Navigation {
     $(this.navigationListItem).on('click', function(event) {
       event.preventDefault();
       $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 500);
-      $(_this.navigationListItem).removeClass('active');
-      $(this).parent('li').addClass('active');
+      $(_this.navigationListItemParent).removeClass('active');
+      $(this).closest('li').addClass('active');
     });
   };
 

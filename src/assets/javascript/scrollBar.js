@@ -2,6 +2,7 @@ const scrollBar = () => {
   let $menuButton = $('#menu-toggle-btn');
   let $navigation = $('.navigation');
   let $navigationList = $('.navigation__list');
+  let $navigationContactButton = $('.nav-cnt-btn');
 
   if($navigationList.hasClass('open')) {
     $navigationList.removeClass('open');
@@ -21,6 +22,11 @@ const scrollBar = () => {
   $navigationList.on('click', function(event) {
     event.stopPropagation();
     $("html").removeClass("fullscreen vin");
+  });
+
+  $navigationContactButton.on('click', function(event) {
+    event.stopPropagation();
+    $("html").addClass("fullscreen vin");
   });
 
   $('body').on('click', function(event) {

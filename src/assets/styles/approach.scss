@@ -41,7 +41,7 @@ $totalStages: 5;
 
   &__top-content {
     font-family: $gtAmericaRG;
-    font-size: 32px;
+    font-size: 2em;
     left: calc(-189px - 52px);
     line-height: 1.38;
     position: absolute;
@@ -55,7 +55,7 @@ $totalStages: 5;
   &__right-content,
   &__rotated-content {
     font-family: $gtAmericaMonoRG;
-    font-size: 24px;
+    font-size: 1.5em;
     letter-spacing: 1.5px;
     line-height: 1;
     position: absolute;
@@ -84,7 +84,7 @@ $totalStages: 5;
   .stage {
     &__name {
       font-family: $gtAmericaMonoRG;
-      font-size: 24px;
+      font-size: 1.5em;
       left: 50%;
       letter-spacing: normal;
       line-height: 1;
@@ -134,15 +134,15 @@ $totalStages: 5;
 
     .stage__name {
       font-family: $gtAmericaMonoLT;
-      font-size: 16px;
+      font-size: 1em;
       letter-spacing: .5px;
-      line-height: 24px;
+      line-height: 1.5;
     }
 
     &__top-content {
-      font-size: 28px;
+      font-size: 1.75em;
       left: -120px;
-      line-height: 39px;
+      line-height: 2.4375rem;
       text-align: left;
       transform: translateY(-50%);
       width: 120px;
@@ -200,9 +200,9 @@ $totalStages: 5;
 @media(max-width: $mobilePortraitSmall) {
   .stages {
     &__top-content {
-      font-size: 22px;
+      font-size: 1.375em;
       left: -102px;
-      line-height: 32px;
+      line-height: 2;
       width: 90px;
     }
   }

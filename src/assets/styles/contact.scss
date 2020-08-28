@@ -87,7 +87,7 @@
     width: 175px;
     transition: .35s;
 
-    &.aos-animate {
+    &.aos-init {
       cursor: pointer;
       pointer-events: initial;
     }
@@ -108,7 +108,7 @@
 
   &__text {
     font-family: $gtAmericaMonoRG;
-    font-size: 24px;
+    font-size: 1.5em;
     left: 50%;
     line-height: 32px;
     pointer-events: none;
@@ -188,8 +188,8 @@
     }
 
     &__text {
-      font-size: 16px;
-      line-height: 24px;
+      font-size: 1em;
+      line-height: 1.5;
     }
   }
 }
