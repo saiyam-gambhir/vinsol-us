@@ -1,9 +1,10 @@
 .footer {
   font-family: $gtAmericaMonoRG;
-  font-size: 16px;
-  letter-spacing: -1.49px;
+  font-size: 1em;
+  letter-spacing: normal;
   line-height: 1.44;
   padding: 133px 0 40px 0;
+  white-space: nowrap;
 
   .container {
     display: flex;
@@ -13,26 +14,22 @@
     letter-spacing: normal;
   }
 
-  &__list {
-    font-size: 0;
-  }
-
   &__left {
-    margin-right: 120px;
+    margin-right: 100px;
   }
 
   &__contacts {
-    margin-right: 140px;
+    margin-right: 120px;
   }
 
   &__locations {
-    margin-right: 107px;
+    margin-right: 93px;
   }
 
   &__right {
     align-items: flex-end;
     display: flex;
-    font-size: 12px;
+    font-size: 0.750em;
     letter-spacing: .25px;
   }
 
@@ -43,19 +40,20 @@
   }
 
   &__list-item {
-    font-size: 16px;
+    font-size: 1em;
+    line-height: 1.44;
   }
 
   .current-time {
     font-family: $gtAmericaMonoRG;
-    font-size: 8px;
+    font-size: 0.5em;
     letter-spacing: .25px;
   }
 
   .time-flash {
     color: $orange;
     font-family: $gtAmericaMonoRG;
-    font-size: 9px;
+    font-size: 1.1em;
     left: 10px;
     position: absolute;
     top: -15%;
@@ -76,6 +74,14 @@
 
     &__contacts {
       margin-right: 75px;
+    }
+  }
+}
+
+@media(max-width: $tabletLandscape) {
+  .footer {
+    &__left, &__contacts, &__locations {
+      margin-right: 65px;
     }
   }
 }
