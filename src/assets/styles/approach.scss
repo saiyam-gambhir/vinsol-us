@@ -27,15 +27,14 @@ $totalStages: 5;
     justify-content: center;
     position: relative;
 
-    &.aos-animate {
+    &.aos-animate.fill-color {
       .stage__name {
-        animation: fillColor .35s forwards;
-        animation-delay: .35s;
+        animation: fillColor .5s forwards;
+        animation-delay: .1s;
       }
 
       path {
-        animation: fillIt .35s forwards;
-        animation-delay: .35s;
+        animation: fillIt .5s forwards;
       }
     }
   }

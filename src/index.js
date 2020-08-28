@@ -11,13 +11,28 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init();
 
-$('.wrapper').scroll(function () {
-  AOS.refresh();
-});
-
 import { scripts } from './assets/javascript/script'
 import { scrollBar } from './assets/javascript/scrollBar'
+
 import timeZones from './assets/javascript/timeZones'
+import OurApproach from './assets/javascript/homePage/ourApproach'
+import Navigation from './assets/javascript/navigation'
+
+let ourApproachOptions = {
+  stage: '.stage',
+  window: window
+}
+
+let ourApproach = new OurApproach(ourApproachOptions);
+
+let navigationOptions = {
+  menuBtn: '#menu-toggle-btn',
+  navigationList: '.navigation__list',
+  navigationListItem: '.navigation__list-link'
+}
+
+let navigation = new Navigation(navigationOptions);
+navigation.init();
 
 scripts()
 
@@ -31,6 +46,8 @@ $(window).on('load scroll', function() {
       $('.contact-button__link').addClass('aos-animate')
     }, 450)
   }
+
+  ourApproach.toggleStageColor();
 });
 
 $(document).ready(function() {
@@ -63,9 +80,9 @@ var $status = $('.pagingInfo');
 var $slickElement = $('.slideshow');
 
 $slickElement.on('init reInit afterChange', function(event, slick, currentSlide, nextSlide){
-    //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-    var i = (currentSlide ? currentSlide : 0) + 1;
-    $status.text(i + '/' + slick.slideCount);
+  //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+  var i = (currentSlide ? currentSlide : 0) + 1;
+  $status.text(i + '/' + slick.slideCount);
 });
 
 $slickElement.slick({
@@ -79,12 +96,9 @@ $slickElement.slick({
 
 $(document).on('keydown', function(e) {
   if(e.keyCode == 13) {
-      $slickElement.slick('slickNext');
+    $slickElement.slick('slickNext');
   }
 });
-
-
-
 
 $('.contact-button__link').click(function(){
   $("html").addClass("fullscreen vin");
