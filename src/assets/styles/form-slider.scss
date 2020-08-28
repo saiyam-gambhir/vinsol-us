@@ -14,6 +14,12 @@
   > .container {
     height: inherit;
   }
+
+  .header {
+    .container {
+      padding: 0;
+    }
+  }
 }
 
 .fm-slider {
@@ -31,7 +37,6 @@
     }
   }
 }
-
 
 .slick-arrow-group {
   @extend %flex ;
@@ -84,7 +89,7 @@
   }
 
   .pagingInfo{
-    @include fontstyle(11px, 100, 0.91);
+    @include fontstyle(0.7em, 100, 0.91);
     display: inline-block;
     color: $white-5;
     padding: 0px 16px;
@@ -92,10 +97,20 @@
   }
 
   .press-enter, .tap-enter {
-    @include fontstyle(11px, 100, 0.91);
+    @include fontstyle(0.7em, 100, 0.91);
     color: $white-5;
     padding-left: 16px;
     line-height: 30px;
+    position: absolute;
+    margin-left: 200px;
+    opacity: 1;
+    transition: opacity 100ms ease-in-out;
+    will-change: opacity;
+
+    &.d-none {
+      display: none;
+      opacity: 0;
+    }
   }
 
   .tap-enter {
@@ -103,7 +118,7 @@
   }
 
   .submit-btn {
-    @include fontstyle(10px, normal, 1.5);
+    @include fontstyle(0.625em, normal, 1.5);
     color: $black;
     cursor: pointer;
     margin-top: 0;
@@ -201,14 +216,14 @@
     }
 
     .form-input__field {
-      @include fontstyle(24px, 300, 1.38);
+      @include fontstyle(1.5em, 300, 1.38);
     }
   }
 
   .pagingInfo {
     display: block;
     text-align: center;
-    @include fontstyle(18px, 300, 1.28);
+    @include fontstyle(1.125em, 300, 1.28);
     color: $white-5;
   }
 
@@ -255,7 +270,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        @include fontstyle(18px, 300, 1);
+        @include fontstyle(1.125em, 300, 1);
       }
 
       .next-arrow {
