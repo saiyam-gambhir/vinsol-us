@@ -4,6 +4,7 @@ class Navigation {
     this.navigationList = options.navigationList;
     this.navigationListItem = options.navigationListItem;
     this.navigationListItemParent = options.navigationListItemParent;
+    this.wrapper = options.wrapper;
   }
 
   openNavigation() {
@@ -19,7 +20,7 @@ class Navigation {
     let _this = this;
     $(this.navigationListItem).on('click', function(event) {
       event.preventDefault();
-      $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 500);
+      $(_this.wrapper).animate({ scrollTop: document.querySelector(this.hash).offsetTop }, 600);
       $(_this.navigationListItemParent).removeClass('active');
       $(this).closest('li').addClass('active');
     });

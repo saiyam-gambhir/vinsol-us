@@ -9,15 +9,15 @@ const scrollBar = () => {
     $menuButton.removeClass('open');
   }
 
-  let $scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-  let $documentHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  let $toScroll = ($scrollTop/$documentHeight) * 100;
-  let $removeScrollHeight = (136/document.documentElement.clientHeight) * 100;
-  if(($scrollTop/$documentHeight)*100 <= $removeScrollHeight) {
-    $navigation.css('top', 0 + '%');
-  } else {
-    $navigation.css('top', ($toScroll - $removeScrollHeight) + '%');
-  }
+  // let $scrollTop = document.body.querySelector('.wrapper').scrollTop;
+  // let $documentHeight = $scrollTop - document.documentElement.clientHeight;
+  // let $toScroll = ($scrollTop/$documentHeight) * 100;
+  // let $removeScrollHeight = (136/$scrollTop) * 100;
+  // if(($scrollTop/$documentHeight)*100 <= $removeScrollHeight) {
+  //   $navigation.css('top', 0 + '%');
+  // } else {
+  //   $navigation.css('top', ($toScroll - $removeScrollHeight) + '%');
+  // }
 
   $navigationList.on('click', function(event) {
     event.stopPropagation();

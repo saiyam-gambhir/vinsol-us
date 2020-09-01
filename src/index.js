@@ -9,7 +9,7 @@ export default (window.$ = window.jQuery = jquery);
 /* AOS */
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-AOS.init();
+$(function () { AOS.init(); document.querySelector('.wrapper').addEventListener("scroll", AOS.refresh); });
 
 import { scripts } from './assets/javascript/script'
 import { scrollBar } from './assets/javascript/scrollBar'
@@ -29,7 +29,8 @@ let navigationOptions = {
   menuBtn: '#menu-toggle-btn',
   navigationList: '.navigation__list',
   navigationListItem: '.navigation__list-link',
-  navigationListItemParent: '.navigation__list-item'
+  navigationListItemParent: '.navigation__list-item',
+  wrapper: '.wrapper'
 }
 
 let navigation = new Navigation(navigationOptions);
@@ -47,7 +48,10 @@ $(window).on('load scroll', function() {
       $('.contact-button__link').addClass('aos-animate')
     }, 450)
   }
+});
 
+$('.wrapper').on('scroll', function() {
+  scrollBar()
   ourApproach.toggleStageColor();
 });
 
