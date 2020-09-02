@@ -254,7 +254,7 @@
 
 @media(min-width: 768px) {
   .ecommerce {
-    @include checkbox-svg(7.8em, 5em, 19%, 29.22%);
+    @include checkbox-svg(7.8em, 5em, 19%, 34.22%);
   }
 
   .brand {
@@ -262,31 +262,38 @@
   }
 
   .research {
-    @include checkbox-svg(6.3em, 4.8em, 37%, 36.21%);
+    @include checkbox-svg(6.3em, 4.8em, 37%, 41.21%);
   }
 
   .ui {
-    @include checkbox-svg(3.2em, 2.5em, 30.5%, 57%);
+    @include checkbox-svg(3.2em, 2.5em, 31.5%, 64%);
   }
 
   .ux {
-    @include checkbox-svg(3.18em, 4.1em, 22%, 62%);
+    @include checkbox-svg(3.18em, 4.1em, 22%, 68%);
   }
 
   .strategy {
-    @include checkbox-svg(7.06em, 5.2em, 57%, 37%);
+    @include checkbox-svg(7.06em, 5.2em, 57%, 54%);
   }
 
   .webdev {
-    @include checkbox-svg(4.8em, 3.6em, 71.5%, 33%);
+    @include checkbox-svg(4.8em, 3.6em, 72.5%, 50%);
+     svg {
+      transform: rotate(-14deg);
+    }
   }
 
   .saas {
-    @include checkbox-svg(4.68em, 3.5em, 62.37%, 70%);
+    @include checkbox-svg(4.68em, 3.5em, 58.37%, 85%);
   }
 
   .product-design {
     @include checkbox-svg(6.4em, 4.7em, 44.5%, 67%);
+
+    svg {
+      transform: rotate(163deg);
+    }
   }
 
   .engineering {
@@ -294,7 +301,7 @@
   }
 
   .mobiledev {
-    @include checkbox-svg(6.06em, 4.5em, 47.25%, 100%);
+    @include checkbox-svg(6.06em, 4.5em, 46.25%, 100%);
   }
 
   .design {
@@ -302,7 +309,7 @@
   }
 
   .others {
-    @include checkbox-svg(4.8em, 3.5em, 83.48%, 18px);
+    @include checkbox-svg(4.8em, 3.5em, 83.48%, 55%);
   }
 }
 
