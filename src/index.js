@@ -1,46 +1,77 @@
-/* Styles */
-import './assets/styles/main.scss'
+/* STYLES */
+import './assets/styles/main.scss';
+/* ----------------------------------------------------------------------------------------- */
 
-/* jQuery */
+/* JQUERY */
 import jquery from "jquery";
-import 'slick-carousel'
+import 'slick-carousel';
 export default (window.$ = window.jQuery = jquery);
+/* ----------------------------------------------------------------------------------------- */
 
 /* AOS */
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-$(function () { AOS.init(); document.querySelector('.wrapper').addEventListener("scroll", AOS.refresh); });
 
-import { scripts } from './assets/javascript/script'
-import { scrollBar } from './assets/javascript/scrollBar'
+AOS.init();
+document.querySelector('.wrapper').addEventListener("scroll", AOS.refresh);
+/* ----------------------------------------------------------------------------------------- */
 
-import timeZones from './assets/javascript/timeZones'
-import OurApproach from './assets/javascript/homePage/ourApproach'
-import Navigation from './assets/javascript/navigation'
+/* IMPORTS */
+import { scripts } from './assets/javascript/script';
+import { scrollBar } from './assets/javascript/scrollBar';
+import ContactForm from './assets/javascript/contactForm';
+import Navigation from './assets/javascript/navigation';
+import OurApproach from './assets/javascript/ourApproach';
+import TimeZones from './assets/javascript/timeZones';
+/* ----------------------------------------------------------------------------------------- */
 
-let ourApproachOptions = {
-  stage: '.stage',
-  window: window
+/* OUR APPROACH */
+var ourApproachOptions = {
+  stage: $('.stage'),
+  window: $(window)
 }
 
-let ourApproach = new OurApproach(ourApproachOptions);
+var ourApproach = new OurApproach(ourApproachOptions);
+/* ----------------------------------------------------------------------------------------- */
 
-let navigationOptions = {
-  menuBtn: '#menu-toggle-btn',
-  navigationList: '.navigation__list',
-  navigationListItem: '.navigation__list-link',
-  navigationListItemParent: '.navigation__list-item',
-  wrapper: '.wrapper'
+/* NAVIGATION */
+var navigationOptions = {
+  menuBtn: $('#menu-toggle-btn'),
+  navigationList: $('.navigation__list'),
+  navigationListItem: $('.navigation__list-link'),
+  navigationListItemParent: $('.navigation__list-item'),
+  wrapper: $('.wrapper')
 }
 
-let navigation = new Navigation(navigationOptions);
+var navigation = new Navigation(navigationOptions);
 navigation.init();
+/* ----------------------------------------------------------------------------------------- */
+
+/* CONTACT FORM */
+var contactFormOptions = {
+  contactFormInitialTextInput: $('[data-hook=type-here]'),
+  enterToProceedBtn: $('[data-hook=press-enter-to-proceed]'),
+  pagination: $('.pagingInfo'),
+  showContactFormBtn: $('.contact-button__link'),
+  slider: $('.slideshow')
+}
+
+var contactForm = new ContactForm(contactFormOptions);
+contactForm.init();
+/* ----------------------------------------------------------------------------------------- */
+
+/* TIMEZONES */
+var timeZones = new TimeZones();
+
+setInterval(() => {
+  timeZones.showTime();
+}, 1000);
+/* ----------------------------------------------------------------------------------------- */
+
 
 scripts()
 
 $(window).on('load scroll', function() {
-  scrollBar()
-
   if(!$('.contact-input__inner').hasClass('aos-animate')) {
     $('.contact-button__link').removeClass('aos-animate')
   } else if ($('.contact-input__inner').hasClass('aos-animate') && $('.contact-input__inner').val().trim().length !== "") {
@@ -60,8 +91,6 @@ $(window).on('load', function() {
 });
 
 $(document).ready(function() {
-  setInterval(timeZones.showTime, 1000);
-
   var flash = $('.time-flash');
   setInterval(function() {
     flash.css('opacity', (flash.css('opacity') == 1 ? 0 : 1));
@@ -83,41 +112,6 @@ $(document).ready(function() {
       // }
     }
   })
-})
-
-var $status = $('.pagingInfo');
-var $slickElement = $('.slideshow');
-
-$slickElement.on('init reInit afterChange', function(event, slick, currentSlide, nextSlide){
-  //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-  var i = (currentSlide ? currentSlide : 0) + 1;
-  $status.text(i + '/' + slick.slideCount);
-});
-
-$slickElement.slick({
-  infinite: false,
-  arrows: true,
-  prevArrow: $('.prev'),
-  nextArrow: $('.next'),
-  fade:true,
-  adaptiveHeight: true,
-  onAfterChange: function(slide, index) {
-    if(index === 2) {
-      $('.press-enter').css('display', 'none')
-    }
-    else {
-      $('.press-enter').css('display', 'block')
-    }
-  }
-});
-
-$slickElement.on('afterChange', function (event, slick, currentSlide) {
-  if(currentSlide == 0) {
-      $('.press-enter, .tap-enter').removeClass('d-none');
-  }
-  else {
-      $('.press-enter, .tap-enter').addClass('d-none');
-  }
 })
 
 $(document).on('keydown', function(e) {

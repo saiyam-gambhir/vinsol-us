@@ -114,11 +114,11 @@ li {
     span {
       display: block;
     }
-    // @for $i from 1 through $maxItemsToAnimate {
-    //   span:nth-child(#{$i}):not(.aos-animate) {
-    //     transform: translate3d(0, calc(25px * #{$i}), 0);
-    //   }
-    // }
+    @for $i from 1 through $maxItemsToAnimate {
+      span:nth-child(#{$i}):not(.aos-animate) {
+        transform: translate3d(0, calc(25px * #{$i}), 0);
+      }
+    }
   }
 }
 
