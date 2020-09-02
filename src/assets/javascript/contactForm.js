@@ -25,13 +25,6 @@ class ContactForm {
   }
 
   activateFormButton() {
-    // $('[data-hook=type-here]').on('keyup', function() {
-    //   if($(this).val().length > 0) {
-    //     $('.contact-button__link').addClass('aos-init');
-    //     $('.contact-button__link').attr({ 'data-aos':'fade-up', 'data-aos-delay': '100', 'data-aos-duration': '500' });
-    //     $('.contact-button__link').addClass('aos-animate');
-    //   }
-    // });
     let _this = this;
     this.contactFormInitialTextInput.on('keyup', function() {
       if($(this).val().length > 0) {

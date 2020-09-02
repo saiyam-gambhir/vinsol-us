@@ -1,12 +1,12 @@
 /* STYLES */
 import './assets/styles/main.scss';
-/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------- */
 
 /* JQUERY */
 import jquery from "jquery";
 import 'slick-carousel';
 export default (window.$ = window.jQuery = jquery);
-/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------- */
 
 /* AOS */
 import AOS from 'aos';
@@ -14,7 +14,7 @@ import 'aos/dist/aos.css';
 
 AOS.init();
 document.querySelector('.wrapper').addEventListener("scroll", AOS.refresh);
-/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------- */
 
 /* IMPORTS */
 import { scripts } from './assets/javascript/script';
@@ -23,7 +23,7 @@ import ContactForm from './assets/javascript/contactForm';
 import Navigation from './assets/javascript/navigation';
 import OurApproach from './assets/javascript/ourApproach';
 import TimeZones from './assets/javascript/timeZones';
-/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------- */
 
 /* OUR APPROACH */
 var ourApproachOptions = {
@@ -32,7 +32,7 @@ var ourApproachOptions = {
 }
 
 var ourApproach = new OurApproach(ourApproachOptions);
-/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------- */
 
 /* NAVIGATION */
 var navigationOptions = {
@@ -45,7 +45,7 @@ var navigationOptions = {
 
 var navigation = new Navigation(navigationOptions);
 navigation.init();
-/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------- */
 
 /* CONTACT FORM */
 var contactFormOptions = {
@@ -58,7 +58,7 @@ var contactFormOptions = {
 
 var contactForm = new ContactForm(contactFormOptions);
 contactForm.init();
-/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------- */
 
 /* TIMEZONES */
 var timeZones = new TimeZones();
@@ -66,7 +66,7 @@ var timeZones = new TimeZones();
 setInterval(() => {
   timeZones.showTime();
 }, 1000);
-/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------- */
 
 
 scripts()
