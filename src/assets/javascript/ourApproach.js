@@ -1,7 +1,10 @@
 class OurApproach {
   constructor({ stage, window }) {
-    Object.assign(this, { stage, window });
-  }
+    Object.assign(this, {
+      stage,
+      window
+    });
+  };
 
   toggleStageColor() {
     let _this = this;
@@ -12,7 +15,7 @@ class OurApproach {
         $(this).removeClass('fill-color');
       }
     });
-  }
-}
+  };
+};
 
 export default OurApproach;

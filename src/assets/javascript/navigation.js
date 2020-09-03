@@ -1,6 +1,13 @@
 class Navigation {
-  constructor({ menuBtn, navigationList, navigationListItem, navigationListItemParent, wrapper }) {
-    Object.assign(this, { menuBtn, navigationList, navigationListItem, navigationListItemParent, wrapper });
+  constructor({ body, menuBtn, navigationList, navigationListItem, navigationListItemParent, wrapper }) {
+    Object.assign(this, {
+      body,
+      menuBtn,
+      navigationList,
+      navigationListItem,
+      navigationListItemParent,
+      wrapper
+    });
   }
 
   openNavigation() {
@@ -16,16 +23,32 @@ class Navigation {
     let _this = this;
     this.navigationListItem.on('click', function(event) {
       event.preventDefault();
+      $(this).hasClass('nav-contact-btn') ? _this.wrapper.addClass('fullscreen vin') : _this.wrapper.removeClass('fullscreen vin');
       _this.wrapper.animate({ scrollTop: document.querySelector(this.hash).offsetTop }, 750);
       _this.navigationListItemParent.removeClass('active');
       $(this).closest('li').addClass('active');
     });
   };
 
+  hideNavigationOnBodyClick() {
+    let _this = this;
+    this.body.on('click', function(event) {
+      _this.menuBtn.removeClass('open');
+      _this.navigationList.removeClass('open');
+      event.stopPropagation();
+    });
+  };
+
+  hideNavigationOnScroll() {
+    this.menuBtn.removeClass('open');
+    this.navigationList.removeClass('open');
+  };
+
   init() {
-    this.scrollToTarget();
+    this.hideNavigationOnBodyClick();
     this.openNavigation();
-  }
-}
+    this.scrollToTarget();
+  };
+};
 
 export default Navigation;

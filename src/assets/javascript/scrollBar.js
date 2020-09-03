@@ -1,39 +1,20 @@
-const scrollBar = () => {
-  let $menuButton = $('#menu-toggle-btn');
-  let $navigation = $('.navigation');
-  let $navigationList = $('.navigation__list');
-  let $navigationContactButton = $('.nav-cnt-btn');
+class ScrollBar {
+  constructor({ navigationList, menuBtn }) {
+    Object.assign(this, {
+      navigationList,
+      menuBtn
+    });
+  };
 
-  if($navigationList.hasClass('open')) {
-    $navigationList.removeClass('open');
-    $menuButton.removeClass('open');
-  }
+  convertMenuToScrollBar() {
+    this.navigationList.addClass('scrolled');
+    this.menuBtn.addClass('scrolled');
+  };
 
-  // let $scrollTop = document.body.querySelector('.wrapper').scrollTop;
-  // let $documentHeight = $scrollTop - document.documentElement.clientHeight;
-  // let $toScroll = ($scrollTop/$documentHeight) * 100;
-  // let $removeScrollHeight = (136/$scrollTop) * 100;
-  // if(($scrollTop/$documentHeight)*100 <= $removeScrollHeight) {
-  //   $navigation.css('top', 0 + '%');
-  // } else {
-  //   $navigation.css('top', ($toScroll - $removeScrollHeight) + '%');
-  // }
+  convertScrollBarToMenu() {
+    this.navigationList.removeClass('scrolled');
+    this.menuBtn.removeClass('scrolled');
+  };
+};
 
-  $navigationList.on('click', function(event) {
-    event.stopPropagation();
-    $("html").removeClass("fullscreen vin");
-  });
-
-  $navigationContactButton.on('click', function(event) {
-    event.stopPropagation();
-    $("html").addClass("fullscreen vin");
-  });
-
-  $('body').on('click', function(event) {
-    $menuButton.removeClass('open');
-    $navigationList.removeClass('open');
-    event.stopPropagation();
-  });
-}
-
-export { scrollBar }
+export default ScrollBar;

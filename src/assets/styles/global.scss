@@ -71,7 +71,10 @@ li {
 
 .page-section {
   background: $white;
-  min-height: 100vh;
+
+  &:not(.contact) {
+    min-height: 100vh;
+  }
 }
 
 .relative {
