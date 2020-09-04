@@ -46,6 +46,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    margin-left: -2%;
   }
 
   .contact-button__anim {
@@ -81,7 +82,7 @@
     opacity: 1;
     z-index: 2;
     background-color: $gray;
-    transform: scale(2.26);
+    transform: scale(2.3);
 
     .contact-button__anim {
       svg {
@@ -103,6 +104,7 @@
 
 .contact-form-wrap {
   margin-top: 120px;
+  width: 100%;
 
   &.mt-8 {
     margin-top: 8px;
@@ -112,10 +114,18 @@
     width: 100%;
     height: 100%;
   }
+
+  &.build-topic {
+    min-height: 285px;
+    margin-top: 0
+  }
 }
 
 .headings {
   margin-top: 12.7%;
+  @media(min-width: 768px) {
+    margin-top: 0;
+  }
 }
 
 .mt-26 {
@@ -137,9 +147,24 @@
     width: 100%;
   }
 
+  @media(min-width: 768px) {
+    height: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: -32px;
+
+    &.build-top {
+      margin-top: 0;
+    }
+  }
+
 }
 
 .form-input {
+  max-width: 30%;
+  margin: 0px auto;
+
   &__field {
     font-family: $gtAmericaMonoRG;
     @include fontstyle(1.875em, 300, 45px);
@@ -151,8 +176,9 @@
     caret-color: $red;
     transition:border-bottom 500ms ease-in-out;
     will-change: border-bottom;
-    width: 172px;
+    width: 100%;
     border-radius: 0;
+    max-width: 100%;
 
     &:focus {
       border-bottom: solid 1px $black;
@@ -173,7 +199,6 @@
 }
 
 .checkbox {
-  @include fontstyle(1.25em, 300, 1.6);
   position: absolute;
 
   input {
@@ -195,9 +220,8 @@
   }
 
   label {
+    @include fontstyle(1.25em, 300, 1);
     font-family: $gtAmericaLT;
-    font-size: 1.25em;
-    line-height: 1;
     @extend %flex;
     width: 100%;
     height: 100%;
@@ -229,64 +253,72 @@
 
 @media(min-width: 768px) {
   .ecommerce {
-    @include checkbox-svg(125px, 85px, 19%, 10px);
+    @include checkbox-svg(7.8em, 5em, 19%, 34.22%);
   }
 
   .brand {
-    @include checkbox-svg(80px, 61px, 11%, 82px);
+    @include checkbox-svg(5em, 3.6em, 10%, 53%);
   }
 
   .research {
-    @include checkbox-svg(104px, 80px, 37%, 27px);
+    @include checkbox-svg(6.3em, 4.8em, 37%, 41.21%);
   }
 
   .ui {
-    @include checkbox-svg(54px, 42px, 30.5%, 107px);
+    @include checkbox-svg(3.2em, 2.5em, 31.5%, 64%);
   }
 
   .ux {
-    @include checkbox-svg(51px, 66px, 20%, 130px);
+    @include checkbox-svg(3.18em, 4.1em, 22%, 68%);
   }
 
   .strategy {
-    @include checkbox-svg(113px, 86px, 56%, 36px);
+    @include checkbox-svg(7.06em, 5.2em, 57%, 54%);
   }
 
   .webdev {
-    @include checkbox-svg(81px, 63px, 71.5%, 10px);
+    @include checkbox-svg(4.8em, 3.6em, 72.5%, 50%);
+     svg {
+      transform: rotate(-14deg);
+    }
   }
 
   .saas {
-    @include checkbox-svg(75px, 58px, 58.37%, 156px);
+    @include checkbox-svg(4.68em, 3.5em, 58.37%, 85%);
   }
 
   .product-design {
-    @include checkbox-svg(104px, 80px, 44.5%, 120px);
+    @include checkbox-svg(6.4em, 4.7em, 44.5%, 67%);
+
+    svg {
+      transform: rotate(163deg);
+    }
   }
 
   .engineering {
-    @include checkbox-svg(138px, 95px, 26.83%, 170px);
+    @include checkbox-svg(7.75em, 5.3em, 28.83%, 83%);
   }
 
   .mobiledev {
-    @include checkbox-svg(130px, 94px, 47.25%, 226px);
+    @include checkbox-svg(6.06em, 4.5em, 46.25%, 100%);
   }
 
   .design {
-    @include checkbox-svg(93px, 72px, 8.86%, 205px);
+    @include checkbox-svg(5.5em, 4.3em, 8.86%, 88%);
   }
 
   .others {
-    @include checkbox-svg(80px, 61px, 83.48%, 18px);
+    @include checkbox-svg(4.8em, 3.5em, 83.48%, 55%);
   }
 }
+
 
 .radio-group {
   @extend %flex;
   justify-content: space-between;
   padding-left:78px;
   padding-right:78px;
-  padding-top: 76px;
+  padding-top: 60px;
 
   .radio {
     width: 200px;
@@ -427,10 +459,10 @@
 @media screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: portrait) {
   .fullscreen {
     .contact-form-section {
-      transform: scale(3);
+      transform: scale(3.5);
 
       .cnt-input__inner {
-        top: 46%;
+        top: 49%;
         left: 46%;
       }
     }
@@ -448,8 +480,9 @@
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .fullscreen {
     .contact-form-section {
+      transform: scale(3);
       .cnt-input__inner {
-        top: 45%;
+        top: 49%;
         left: 45%;
       }
     }
@@ -463,6 +496,7 @@
       padding-right: 24px;
     }
   }
+
 }
 
 @media(max-width: $mobile) {
@@ -515,10 +549,9 @@
       .radio {
         width: 130px;
         height: 80px;
-        font-size: 1.25em;
 
         .radio-label {
-          @include fontstyle(1.87em, 300, 1.5);
+          @include fontstyle(1.25em, 300, 1.5);
         }
       }
     }
@@ -543,6 +576,10 @@
         top: 47%;
         left: 20%;
       }
+    }
+
+    .form-input {
+      max-width: 100%;
     }
 
     .header {
@@ -590,10 +627,6 @@
     position: relative;
     left: 0;
     top: 0;
-
-    label {
-      font-size: 1.25em !important;
-    }
 
     svg, br{
       display: none;
@@ -652,7 +685,6 @@
       .radio {
         width: 130px;
         height: 80px;
-        font-size: 1.25em;
       }
     }
 
