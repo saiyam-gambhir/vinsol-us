@@ -1,0 +1,7 @@
+.team-page-content {
+  @include fontstyle(2em, normal, 1.38);
+  font-family: $gtAmericaMonoRG;
+  max-width: 540px;
+  letter-spacing: normal;
+  margin: 0px auto;
+}
