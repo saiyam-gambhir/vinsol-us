@@ -549,10 +549,9 @@
       .radio {
         width: 130px;
         height: 80px;
-        font-size: 1.25em;
 
         .radio-label {
-          @include fontstyle(1.87em, 300, 1.5);
+          @include fontstyle(1.25em, 300, 1.5);
         }
       }
     }
