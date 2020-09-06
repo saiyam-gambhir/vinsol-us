@@ -1,6 +1,7 @@
 class ContactForm {
-  constructor({ enterToProceedBtn, pagination, slider, contactFormInitialTextInput, contactFormTextInputContainer, showContactFormBtn, wrapper, submitFormBtn }) {
+  constructor({ budgetOption, contactFormInitialTextInput, contactFormTextInputContainer, enterToProceedBtn, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
     Object.assign(this, {
+      budgetOption,
       contactFormInitialTextInput,
       contactFormTextInputContainer,
       enterToProceedBtn,
@@ -8,6 +9,8 @@ class ContactForm {
       showContactFormBtn,
       slider,
       submitFormBtn,
+      supportOption,
+      user,
       wrapper
     });
   };
@@ -51,16 +54,6 @@ class ContactForm {
     });
   };
 
-  hideContactForm() {
-    let _this = this;
-    this.submitFormBtn.click(function() {
-      _this.wrapper.removeClass("fullscreen");
-      setTimeout(() =>{
-        _this.wrapper.removeClass("vin");
-      }, 500);
-    });
-  };
-
   enterKeyHandler() {
     let _this = this;
     $(document).on('keydown', function(event) {
@@ -81,13 +74,61 @@ class ContactForm {
     }
   };
 
+  selectSupportOptionsHandler() {
+    let _this = this;
+    this.supportOption.on('click', function() {
+      let $this = $(this);
+      if($this.prop('checked') == true) {
+        _this.user.supportOptionsList.push($this.attr('id'))
+      } else {
+        _this.user.supportOptionsList.splice(_this.user.supportOptionsList.indexOf($this.attr('id')), 1);
+      }
+    });
+  };
+
+  selectBudgetHandler() {
+    let _this = this;
+    this.budgetOption.change(function() {
+      let $this = $(this);
+      if($(this).prop('checked') == true) {
+        _this.user.budget = $this.data('budget');
+      }
+    });
+  };
+
+  collectFormData() {
+    let { budget, email, name, supportOptionsList, query } = this.user;
+    let formData = {
+      budget: budget,
+      email: email.val(),
+      name : name.val(),
+      query: query.val(),
+      support_options: supportOptionsList
+    }
+    // Todo: use axios to send the form data
+  };
+
+  submitFormHandler() {
+    let _this = this;
+    this.submitFormBtn.on('click', function() {
+      _this.wrapper.removeClass("fullscreen");
+      _this.collectFormData();
+      setTimeout(() =>{
+        _this.wrapper.removeClass("vin");
+        _this.slider.slick('slickGoTo', 0);
+      }, 500);
+    });
+  };
+
   init() {
     this.animateFormButton();
     this.enterKeyHandler();
     this.getCurrentSlide();
-    this.hideContactForm();
     this.initFormSlider();
+    this.selectBudgetHandler();
+    this.selectSupportOptionsHandler();
     this.showContactForm();
+    this.submitFormHandler();
   }
 };
 
