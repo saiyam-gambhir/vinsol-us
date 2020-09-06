@@ -16,6 +16,7 @@ var ourApproach = new OurApproach(ourApproachOptions);
 
 /* CONTACT FORM */
 var contactFormOptions = {
+  budgetOption: $('[data-hook=budget]'),
   contactFormInitialTextInput: $('[data-hook=type-here]'),
   contactFormTextInputContainer: $('.contact-input__inner'),
   enterToProceedBtn: $('[data-hook=press-enter-to-proceed]'),
@@ -23,6 +24,14 @@ var contactFormOptions = {
   showContactFormBtn: $('.contact-button__link'),
   slider: $('.slideshow'),
   submitFormBtn: $('[data-hook=submit-form]'),
+  supportOption: $('[data-hook=support-option]'),
+  user: {
+    budget: '',
+    email: $('[data-hook=user-email]'),
+    name: $('[data-hook=user-name]'),
+    query: $('[data-hook=user-query]'),
+    supportOptionsList: [],
+  },
   wrapper: $('.wrapper')
 };
 
