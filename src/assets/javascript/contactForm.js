@@ -1,10 +1,12 @@
 class ContactForm {
-  constructor({ budgetOption, contactFormInitialTextInput, contactFormTextInputContainer, enterToProceedBtn, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
+  constructor({ budgetOption, characterWidth, contactFormInitialTextInput, contactFormTextInputContainer, enterToProceedBtn, formInput, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
     Object.assign(this, {
       budgetOption,
+      characterWidth,
       contactFormInitialTextInput,
       contactFormTextInputContainer,
       enterToProceedBtn,
+      formInput,
       pagination,
       showContactFormBtn,
       slider,
@@ -108,6 +110,18 @@ class ContactForm {
     // Todo: use axios to send the form data
   };
 
+  calculateInputWidthHandler() {
+    let _this = this;
+    this.formInput.on('keyup', function() {
+      let $this = $(this);
+      if($this.val().length === 0) {
+        $this.css('width', '170px');
+      } else {
+        $this.css('width', (this.value.length + 1) * _this.characterWidth + 'px');
+      }
+    });
+  };
+
   submitFormHandler() {
     let _this = this;
     this.submitFormBtn.on('click', function() {
@@ -122,6 +136,7 @@ class ContactForm {
 
   init() {
     this.animateFormButton();
+    this.calculateInputWidthHandler();
     this.enterKeyHandler();
     this.getCurrentSlide();
     this.initFormSlider();
