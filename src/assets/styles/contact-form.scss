@@ -184,6 +184,12 @@
     &:focus {
       border-bottom: solid 1px $black;
     }
+
+    &.input-type-text {
+      &.not-empty {
+        border-bottom: solid 1px $black;
+      }
+    }
   }
 
   &__field::-webkit-input-placeholder {

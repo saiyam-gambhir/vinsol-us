@@ -25,8 +25,9 @@ if($(window).width() > 767) {
 var contactFormOptions = {
   budgetOption: $('[data-hook=budget]'),
   characterWidth: characterWidth,
-  contactFormInitialTextInput: $('[data-hook=type-here]'),
+  contactFormInitialTextInput: $('[data-hook=customer-requirement]'),
   contactFormTextInputContainer: $('.contact-input__inner'),
+  customerRequirementTextarea: $('[data-hook=customer-requirement'),
   enterToProceedBtn: $('[data-hook=press-enter-to-proceed]'),
   formInput: $('.input-type-text'),
   pagination: $('.pagingInfo'),

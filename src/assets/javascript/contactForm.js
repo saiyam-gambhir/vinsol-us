@@ -116,8 +116,10 @@ class ContactForm {
       let $this = $(this);
       if($this.val().length === 0) {
         $this.css('width', '170px');
+        $this.removeClass('not-empty');
       } else {
         $this.css('width', (this.value.length + 1) * _this.characterWidth + 'px');
+        $this.addClass('not-empty');
       }
     });
   };
