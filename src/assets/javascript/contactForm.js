@@ -49,10 +49,19 @@ class ContactForm {
     });
   };
 
+  checkUserRequirementBeforeOpeningForm() {
+    return this.contactFormInitialTextInput.val().trim() !== '';
+  };
+
   showContactForm() {
     let _this = this;
+    let flag = false;
     this.showContactFormBtn.click(function() {
       _this.wrapper.addClass("fullscreen vin");
+      if(_this.checkUserRequirementBeforeOpeningForm() && !flag) {
+        _this.slider.slick('slickRemove', 2);
+      }
+      flag = true;
     });
   };
 
@@ -104,9 +113,10 @@ class ContactForm {
       budget: budget,
       email: email.val(),
       name : name.val(),
-      query: query.val(),
+      query: query.val() || this.contactFormInitialTextInput.val(),
       support_options: supportOptionsList
     }
+    console.log(formData);
     // Todo: use axios to send the form data
   };
 
@@ -124,14 +134,26 @@ class ContactForm {
     });
   };
 
+  clearForm() {
+    this.budgetOption.prop("checked", false);
+    this.contactFormInitialTextInput.val('');
+    this.supportOption.prop("checked", false);
+    this.user.budget = '';
+    this.user.email.val('').removeClass('not-empty').removeAttr('style');
+    this.user.name.val('').removeClass('not-empty').removeAttr('style');
+    this.user.query.val('').removeClass('not-empty').removeAttr('style');
+    this.user.supportOptionsList = [];
+  };
+
   submitFormHandler() {
     let _this = this;
     this.submitFormBtn.on('click', function() {
       _this.wrapper.removeClass("fullscreen");
       _this.collectFormData();
+      _this.clearForm();
       setTimeout(() =>{
-        _this.wrapper.removeClass("vin");
         _this.slider.slick('slickGoTo', 0);
+        _this.wrapper.removeClass("vin");
       }, 500);
     });
   };
