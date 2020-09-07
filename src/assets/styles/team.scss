@@ -31,6 +31,10 @@
   letter-spacing: normal;
 }
 
+.map-heading {
+  color: $white;
+}
+
 .member-list {
   -moz-column-count: 3;
   -webkit-column-count: 3;
@@ -41,30 +45,33 @@
 }
 
 .member-info {
+  z-index: 1;
   position: absolute;
-  display: none;
   opacity: 0;
-  transition: display 500ms ease-in-out, opacity 500ms ease-in-out;
-  will-change: display, opacity;
-}
+  transform: scale(0);
+  transform-origin: top left;
+  transition: transform 500ms ease-in-out;
+  will-change: transform, opacity;
 
-.member-post {
-  color: $red;
-  display: inline-block;
-  transform: rotate(-90deg);
-  position: absolute;
-  left: -50px;
-  top: 22px;
-}
+  .member-post {
+    color: $red;
+    display: inline-block;
+    transform: rotate(-90deg);
+    position: absolute;
+    left: -50px;
+    top: 22px;
+  }
 
-.member-img {
-  width: 210px;
-  height: 210px;
-  box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.25);
+  .member-img {
+    width: 210px;
+    height: 210px;
+    box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.25);
+    pointer-events: none;
 
-  .img {
-    max-width: 100%;
-    object-fit: cover;
+    .img {
+      max-width: 100%;
+      object-fit: cover;
+    }
   }
 }
 
@@ -72,10 +79,10 @@
   position: relative;
   cursor: pointer;
 
-  &:hover {
+  &.show-info{
     .member-info {
       opacity: 1;
-      display: block;
+      transform: scale(1);
     }
 
     .member-name {
@@ -84,8 +91,9 @@
   }
 }
 
-.map {
+.map-area {
   background-color: #000;
+  padding-top: 32px;
 }
 
 .job-link {
@@ -94,6 +102,43 @@
 
   span {
     text-decoration: underline;
+
+    &:hover {
+      color: $red;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .team-page {
+    margin-top: 80px;
+  }
+
+  .member-list {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+
+  .map-heading {
+    text-align: left;
+    padding: 0px 24px;
+  }
+
+  .map-area {
+    .container {
+      padding: 0;
+    }
+
+    .map-image-block {
+      overflow-x: auto;
+      max-height: 517px;
+
+      .map-img {
+        max-width: none;
+        max-height: 517px;
+      }
+    }
   }
 }
 
