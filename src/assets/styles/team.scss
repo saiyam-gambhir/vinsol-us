@@ -8,7 +8,7 @@
 }
 
 .mb-100 {
-  margin-bottom: 7%;
+  margin-bottom: 100px;
 }
 
 .mb-124 {
@@ -36,10 +36,6 @@
   letter-spacing: normal;
 }
 
-.map-heading {
-  color: $white;
-}
-
 .member-list {
   -moz-column-count: 3;
   -webkit-column-count: 3;
@@ -55,7 +51,7 @@
   opacity: 0;
   transform: scale(0);
   transform-origin: top left;
-  transition: transform 500ms ease-in-out;
+  transition: transform $transitionTimeMedium;
   will-change: transform, opacity;
 
   .member-post {
@@ -99,8 +95,9 @@
 }
 
 .map-area {
-  background-color: #000;
-  padding-top: 32px;
+  .map-bg {
+    background-color: #000;
+  }
 }
 
 .job-link {
@@ -133,14 +130,28 @@
       padding: 0;
     }
 
+    .mb-100 {
+      margin-bottom: 80px;
+    }
+
     .map-image-block {
-      overflow-x: auto;
       max-height: 517px;
 
       .map-img {
         max-width: none;
         max-height: 517px;
       }
+    }
+  }
+
+  .scrollbar-track {
+    background: transparent !important;
+  }
+
+  .scrollbar-thumb {
+    &.scrollbar-thumb-x {
+      background-color: $red;
+      border-radius: 0px;
     }
   }
 }
