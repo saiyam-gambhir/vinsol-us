@@ -38,6 +38,7 @@
 
     &.active {
       font-family: $gtAmericaMonoMD;
+      pointer-events: none !important;
 
       .navigation__list-link {
         &:before,

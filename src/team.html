@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VINSOL | US</title>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
   </head>
   <body class="landing" id="landing">
     <div class="wrapper">
@@ -19,11 +18,12 @@
 
         <!-- Main -->
         <main class="main">
-          <include src="partials/index/landing.html"></include>
-          <include src="partials/index/clients.html"></include>
-          <include src="partials/index/approach.html"></include>
-          <include src="partials/index/contact.html"></include>
-          <include src="partials/index/contact-form.html"></include>
+          <section class="team-page">
+            <include src="partials/team/member.html"></include>
+            <include src="partials/team/map.html"></include>
+            <include src="partials/team/jobs.html"></include>
+          </section>
+
         </main>
         <!-- Main -->
 
@@ -33,6 +33,6 @@
       </div>
     </div>
 
-    <script src="./pages/home.js"></script>
+    <script src="./pages/team.js"></script>
   </body>
 </html>

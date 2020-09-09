@@ -7,8 +7,9 @@
   }
 }
 
-html {
-  scrollbar-width: none;
+html, body {
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -17,11 +18,6 @@ body {
   font-family: $gtAmericaMonoLT;
   font-size: 16px;
   line-height: 1.5;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 a {
@@ -45,8 +41,17 @@ li {
 }
 
 .wrapper {
+  height: 100%;
+  position: relative;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+
   @media(max-width: $containerWidth) {
     overflow-x: hidden;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -60,13 +65,17 @@ li {
   }
 
   &.container-form {
-    padding-left:  $containerHorizontalPaddingFormLeft;
-    padding-left:  $containerHorizontalPaddingFormRight;
+    padding-left: $containerHorizontalPaddingFormLeft;
+    padding-left: $containerHorizontalPaddingFormRight;
   }
 }
 
 .page-section {
   background: $white;
+
+  &.landing-section {
+    min-height: calc(100vh - 56px);
+  }
 }
 
 .relative {

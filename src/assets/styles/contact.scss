@@ -3,11 +3,6 @@
   transition: opacity 200ms ease-in-out;
   will-change: opacity;
 
-  &-input,
-  &-button {
-    margin-left: -150px;
-  }
-
   &-form {
     padding-top: 25px;
   }
@@ -15,9 +10,9 @@
 
 .contact-input {
   transition: margin .35s;
+
   &__inner {
     margin: 0 auto;
-    width: 453px;
     transition: width .35s;
   }
 
@@ -31,16 +26,16 @@
     color: $black;
     font-family: $gtAmericaLT;
     font-size: 30px;
-    height: 45px;
+    height: 135px;
     left: 50%;
     letter-spacing: normal;
     line-height: 45px;
-    padding: 0 25px;
+    padding: 45px;
     resize: none;
     scrollbar-width: none;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
-    width: 80%;
+    width: 450px;
 
     &::-webkit-scrollbar {
       display: none;

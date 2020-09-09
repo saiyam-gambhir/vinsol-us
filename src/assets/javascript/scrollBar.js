@@ -1,39 +1,33 @@
-const scrollBar = () => {
-  let $menuButton = $('#menu-toggle-btn');
-  let $navigation = $('.navigation');
-  let $navigationList = $('.navigation__list');
-  let $navigationContactButton = $('.nav-cnt-btn');
+class ScrollBar {
+  constructor({ menuBtn, navigation, navigationList, wrapper, wrapperInner }) {
+    Object.assign(this, {
+      menuBtn,
+      navigation,
+      navigationList,
+      wrapper,
+      wrapperInner
+    });
+  };
 
-  if($navigationList.hasClass('open')) {
-    $navigationList.removeClass('open');
-    $menuButton.removeClass('open');
-  }
+  navigationScrollHandler() {
+    let wrapperScrollTop = this.wrapper.scrollTop(),
+        wrapperHeight = this.wrapperInner.height(),
+        windowHeight = $(window).height(),
+        scrollPercentage = (wrapperScrollTop / (wrapperHeight - windowHeight )),
+        navigationListHeight = this.navigationList.outerHeight(),
+        positionTop = (scrollPercentage * (windowHeight - navigationListHeight));
+    this.navigation.css({'top': positionTop});
+  };
 
-  let $scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-  let $documentHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  let $toScroll = ($scrollTop/$documentHeight) * 100;
-  let $removeScrollHeight = (136/document.documentElement.clientHeight) * 100;
-  if(($scrollTop/$documentHeight)*100 <= $removeScrollHeight) {
-    $navigation.css('top', 0 + '%');
-  } else {
-    $navigation.css('top', ($toScroll - $removeScrollHeight) + '%');
-  }
+  convertMenuToScrollBar() {
+    this.navigationList.addClass('scrolled');
+    this.menuBtn.addClass('scrolled');
+  };
 
-  $navigationList.on('click', function(event) {
-    event.stopPropagation();
-    $("html").removeClass("fullscreen vin");
-  });
+  convertScrollBarToMenu() {
+    this.navigationList.removeClass('scrolled');
+    this.menuBtn.removeClass('scrolled');
+  };
+};
 
-  $navigationContactButton.on('click', function(event) {
-    event.stopPropagation();
-    $("html").addClass("fullscreen vin");
-  });
-
-  $('body').on('click', function(event) {
-    $menuButton.removeClass('open');
-    $navigationList.removeClass('open');
-    event.stopPropagation();
-  });
-}
-
-export { scrollBar }
+export default ScrollBar;
