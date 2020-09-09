@@ -21,6 +21,7 @@
     "aos": "^3.0.0-beta.6",
     "jquery": "^3.5.1",
     "moment": "^2.27.0",
+    "path": "^0.12.7",
     "script": "^0.1.4",
     "slick-carousel": "^1.8.1",
     "smooth-scrollbar": "^8.5.2"

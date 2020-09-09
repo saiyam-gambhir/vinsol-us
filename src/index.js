@@ -31,7 +31,10 @@ navigation.init();
 /* SCROLLBAR */
 var scrollBarOptions = {
   menuBtn: $('#menu-toggle-btn'),
-  navigationList: $('.navigation__list')
+  navigation: $('.navigation'),
+  navigationList: $('.navigation__list'),
+  wrapper: $('.wrapper'),
+  wrapperInner: $('.wrapper__inner')
 };
 
 var scrollBar = new ScrollBar(scrollBarOptions);
@@ -50,7 +53,7 @@ setInterval(() => {
 /* ------------------------------------------------------------------------------- */
 
 /* Wrapper on scroll events */
-$('.wrapper').on('scroll', function() {
+$('.wrapper').on('scroll', function(event) {
   AOS.refresh();
   navigation.hideNavigationOnScroll();
 
@@ -59,6 +62,8 @@ $('.wrapper').on('scroll', function() {
   } else {
     scrollBar.convertScrollBarToMenu();
   }
+
+  scrollBar.navigationScrollHandler();
 });
 /* ------------------------------------------------------------------------------- */
 
