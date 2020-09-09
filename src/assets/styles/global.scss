@@ -44,6 +44,7 @@ li {
   height: 100%;
   position: relative;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 
   @media(max-width: $containerWidth) {
     overflow-x: hidden;
@@ -64,16 +65,16 @@ li {
   }
 
   &.container-form {
-    padding-left:  $containerHorizontalPaddingFormLeft;
-    padding-left:  $containerHorizontalPaddingFormRight;
+    padding-left: $containerHorizontalPaddingFormLeft;
+    padding-left: $containerHorizontalPaddingFormRight;
   }
 }
 
 .page-section {
   background: $white;
 
-  &:not(.contact) {
-    min-height: 100vh;
+  &.landing-section {
+    min-height: calc(100vh - 56px);
   }
 }
 

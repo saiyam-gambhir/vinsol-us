@@ -143,6 +143,7 @@ class ContactForm {
     this.user.name.val('').removeClass('not-empty').removeAttr('style');
     this.user.query.val('').removeClass('not-empty').removeAttr('style');
     this.user.supportOptionsList = [];
+    this.showContactFormBtn.removeClass('aos-init aos-animate');
   };
 
   submitFormHandler() {
