@@ -55,15 +55,17 @@
   will-change: transform, opacity;
 
   .member-post {
+    align-items: flex-end;
     color: $red;
-    display: inline-block;
-    left: -25px;
+    display: flex;
+    font-size: 1em;
+    left: -47px;
     position: absolute;
     text-orientation: mixed;
     top: 0;
     transform: rotate(-180deg);
-    writing-mode: vertical-lr;
-    font-size: 1em;
+    width: 46px;
+    writing-mode: vertical-rl;
   }
 
   .member-img {
@@ -82,12 +84,18 @@
 .member-list-item {
   cursor: pointer;
 
-  &.show-info, &:hover{
+  &.show-info {
     .member-info {
       opacity: 1;
       transform: scale(1);
     }
 
+    .member-name {
+      color: $red;
+    }
+  }
+
+  &:hover {
     .member-name {
       color: $red;
     }
