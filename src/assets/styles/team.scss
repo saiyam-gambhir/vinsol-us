@@ -63,6 +63,7 @@
     top: 0;
     transform: rotate(-180deg);
     writing-mode: vertical-lr;
+    font-size: 1em;
   }
 
   .member-img {
@@ -79,10 +80,9 @@
 }
 
 .member-list-item {
-  position: relative;
   cursor: pointer;
 
-  &.show-info{
+  &.show-info, &:hover{
     .member-info {
       opacity: 1;
       transform: scale(1);
