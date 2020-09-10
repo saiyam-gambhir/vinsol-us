@@ -51,7 +51,7 @@
   opacity: 0;
   transform: scale(0);
   transform-origin: top left;
-  transition: transform $transitionTimeMedium;
+  transition: transform 700ms;
   will-change: transform, opacity;
 
   .member-post {
@@ -90,6 +90,17 @@
 
     .member-name {
       color: $red;
+    }
+  }
+  &:nth-child(30), &:nth-child(60) {
+    &.show-info, &:hover{
+      position: relative;
+
+      .member-info {
+        bottom: 24px;
+        left: 0;
+        transform-origin: bottom left;
+      }
     }
   }
 }
@@ -152,6 +163,33 @@
     &.scrollbar-thumb-x {
       background-color: $red;
       border-radius: 0px;
+    }
+  }
+
+  .member-list-item {
+    &:nth-child(30), &:nth-child(60) {
+      &.show-info, &:hover{
+        position: unset;
+
+        .member-info {
+          top: auto;
+          left: 0;
+          bottom: auto;
+          transform-origin: top left;
+        }
+      }
+    }
+
+    &:nth-child(45){
+      &.show-info, &:hover{
+        position: relative;
+
+        .member-info {
+          bottom: 24px;
+          left: 0;
+          transform-origin: bottom left;
+        }
+      }
     }
   }
 }
