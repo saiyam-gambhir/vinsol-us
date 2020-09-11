@@ -14,7 +14,7 @@ class TimeZones {
   };
 
   updateTime(timeZone, datetime) {
-    let date = moment(new Date().toLocaleString("en-US", { timeZone: timeZone }));
+    let date = moment(new Date().toLocaleString("en-US", { timeZone }));
     $('[data-hook=' + datetime + ']').html(date.format('hh mm A'));
   };
 
