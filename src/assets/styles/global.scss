@@ -40,11 +40,20 @@ li {
   list-style: none;
 }
 
+input::-webkit-contacts-auto-fill-button {
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  visibility: hidden;
+}
+
 .wrapper {
-  height: 100%;
-  position: relative;
-  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  height: 100%;
+  overflow-y: scroll;
+  position: relative;
+  scrollbar-width: none;
 
   @media(max-width: $containerWidth) {
     overflow-x: hidden;

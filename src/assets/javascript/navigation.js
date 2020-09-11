@@ -22,11 +22,16 @@ class Navigation {
   scrollToTarget() {
     let _this = this;
     this.navigationListItem.not('[data-link=team]').on('click', function(event) {
+      event.preventDefault();
       $(this).hasClass('nav-contact-btn') ? _this.wrapper.addClass('fullscreen vin') : _this.wrapper.removeClass('fullscreen vin');
       _this.wrapper.animate({ scrollTop: document.querySelector(this.hash).offsetTop }, 750);
       _this.navigationListItemParent.removeClass('active');
       $(this).closest('li').addClass('active');
     });
+  };
+
+  scrollCheck() {
+    /* Add active class if that section is reached */
   };
 
   hideNavigationOnBodyClick() {
