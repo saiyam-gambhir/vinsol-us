@@ -6,21 +6,17 @@
 
   &__list {
     background: $orange;
-    border-bottom-left-radius: 200px;
-    opacity: 0;
     padding: 16px 0;
     position: absolute;
     right: -132px;
     top: 0;
-    transition: $transitionTimeSlow;
+    transition: .5s;
     visibility: hidden;
 
     &.open {
-      opacity: 1;
-      visibility: visible;
       right: 0;
       top: 0;
-      border-bottom-left-radius: 0;
+      visibility: visible;
     }
   }
 
@@ -37,7 +33,6 @@
 
     &.active {
       font-family: $gtAmericaMonoMD;
-      pointer-events: none !important;
 
       .navigation__list-link {
         &:before,
@@ -128,16 +123,8 @@
       }
     }
 
-    &.open {
-      height: 0;
-    }
-
     &.scrolled {
       height: 136px;
-    }
-
-    &.open.scrolled {
-      height: 0;
     }
   }
 }
