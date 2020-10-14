@@ -6,6 +6,13 @@
   &-form {
     padding-top: 25px;
   }
+
+  .section-heading {
+    align-items: flex-start;
+    display: flex;
+    display: inline-flex;
+    flex-direction: column;
+  }
 }
 
 .contact-input {
@@ -70,6 +77,8 @@
 }
 
 .contact-button {
+  margin-top: 95px;
+
   &__link, &__anim {
     display: inline-flex;
     height: 177px;
@@ -88,6 +97,11 @@
     }
   }
 
+  &__link {
+    left: 125px;
+    margin-top: 0;
+  }
+
   svg {
     &:hover {
       .stroke-hover {
@@ -96,7 +110,7 @@
       }
 
       + .contact-button__text {
-        color: $white;
+        color: $black;
       }
     }
   }
@@ -129,6 +143,7 @@
     .section-heading {
       padding-left: 24px;
       padding-right: 24px;
+      display: flex;
     }
   }
 
@@ -176,15 +191,20 @@
   .contact-button {
     &__link {
       height: auto;
-      left: auto;
-      margin-left: -40%;
-      margin-top: 0;
-      margin-top: -10%;
+      left: 15px;
+      width: 165px;
+    }
+
+    svg {
+      height: auto !important;
+      width: 165px !important;
     }
 
     &__text {
       font-size: 1em;
+      left: 48%;
       line-height: 1.5;
+      top: 51%;
     }
   }
 }

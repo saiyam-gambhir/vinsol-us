@@ -118,6 +118,161 @@
   .map-bg {
     background-color: #000;
   }
+
+  .map-image-block {
+    margin: 0 auto;
+    position: relative;
+    width: 1024px;
+  }
+
+  .map-img {
+    height: auto;
+    max-width: 1024px;
+  }
+
+  .countries {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .country {
+    background: $transparent;
+    border-radius: 50%;
+    height: 7px;
+    position: absolute;
+    width: 7px;
+
+    &__name {
+      background: $darkGrey;
+      border-radius: 3px;
+      color: $black;
+      font-family: $gtAmericaMonoRG;
+      font-size: 16px;
+      height: 18px;
+      left: 20px;
+      letter-spacing: 0;
+      line-height: 17px;
+      margin-top: -10px;
+      opacity: 0;
+      padding: 0 4px;
+      position: absolute;
+      text-transform: lowercase;
+      top: 50%;
+      transition: $transitionTimeMedium;
+      visibility: hidden;
+      white-space: nowrap;
+
+      &.on-left {
+        left: auto !important;
+        right: 20px;
+      }
+    }
+
+    &:hover {
+      .country__name {
+        left: 11px;
+        opacity: 1;
+        visibility: visible;
+
+        &.on-left {
+          right: 11px;
+        }
+      }
+    }
+  }
+
+  .australia {
+    bottom: 153px;
+    right: 223px;
+  }
+
+  .austria {
+    right: 497px;
+    top: 303px;
+  }
+
+  .belgium {
+    left: 491px;
+    top: 293px;
+  }
+
+  .brazil {
+    bottom: 173px;
+    left: 380px;
+  }
+
+  .canada {
+    left: 225px;
+    top: 265px;
+  }
+
+  .china {
+    bottom: 303px;
+    right: 294px;
+  }
+
+  .czechia {
+    right: 498px;
+    top: 294px;
+  }
+
+  .denmark {
+    left: 505px;
+    top: 269px;
+  }
+
+  .egypt {
+    right: 468px;
+    top: 363px;
+  }
+
+  .finland {
+    right: 473px;
+    top: 240px;
+  }
+
+  .france {
+    left: 494px;
+    top: 301px;
+  }
+
+  .india {
+    bottom: 262px;
+    right: 350px;;
+  }
+
+  .portugal {
+    left: 469px;
+    top: 326px;
+  }
+
+  .russia {
+    right: 336px;
+    top: 254px;
+  }
+
+  .singapore {
+    bottom: 215px;
+    right: 294px;
+  }
+
+  .south-africa {
+    bottom: 137px;
+    right: 481px;
+  }
+
+  .spain {
+    left: 477px;
+    top: 324px;
+  }
+
+  .usa {
+    left: 242px;
+    bottom: 313px;
+  }
 }
 
 .job-link {
