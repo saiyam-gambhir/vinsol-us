@@ -239,9 +239,74 @@
     top: 301px;
   }
 
+  .germany {
+    right: 506px;
+    top: 283px;
+  }
+
+  .hong-kong {
+    bottom: 265px;
+    right: 267px;
+  }
+
+  .hungary {
+    right: 488px;
+    top: 303px;
+  }
+
+  .iceland {
+    left: 444px;
+    top: 228px;
+  }
+
   .india {
     bottom: 262px;
     right: 350px;;
+  }
+
+  .ireland {
+    left: 474px;
+    top: 267px;
+  }
+
+  .italy {
+    left: 514px;
+    top: 318px;
+  }
+
+  .japan {
+    right: 215px;
+    top: 337px;
+  }
+
+  .luxembourg {
+    left: 492px;
+    top: 293px;
+  }
+
+  .macau {
+    right: 276px;
+    top: 374px;
+  }
+
+  .netherlands {
+    left: 502px;
+    top: 288px;
+  }
+
+  .nigeria {
+    left: 502px;
+    top: 407px;
+  }
+
+  .norway {
+    left: 505px;
+    top: 241px;
+  }
+
+  .poland {
+    left: 523px;
+    top: 286px;
   }
 
   .portugal {
@@ -264,9 +329,44 @@
     right: 481px;
   }
 
+  .south-korea {
+    right: 238px;
+    top: 335px;
+  }
+
   .spain {
     left: 477px;
     top: 324px;
+  }
+
+  .sweden {
+    left: 516px;
+    top: 247px;
+  }
+
+  .switzerland {
+    left: 511px;
+    top: 302px;
+  }
+
+  .taiwan {
+    right: 280px;
+    top: 381px;
+  }
+
+  .turkey {
+    right: 460px;
+    top: 328px;
+  }
+
+  .uae {
+    right: 412px;
+    top: 373px;
+  }
+
+  .uk {
+    left: 479px;
+    top: 281px;
   }
 
   .usa {
@@ -285,6 +385,12 @@
     &:hover {
       color: $red;
     }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .countries {
+    display: none;
   }
 }
 
