@@ -48,7 +48,7 @@ class ContactForm {
   enterKeyHandler() {
     let _this = this;
     $(document).on('keydown', function(event) {
-      if(event.keyCode == 13 && _this.wrapper.hasClass('fullscreen')) {
+      if(event.keyCode == 13 && _this.wrapper.hasClass('fullscreen') && !_this.user.query.is(':focus')) {
         _this.slider.slick('slickNext');
       }
     });
@@ -82,7 +82,7 @@ class ContactForm {
       budget: budget,
       email: email.val(),
       name : name.val(),
-      query: query.val(),
+      query: query.text(),
       support_options: supportOptionsList
     }
     console.log(formData);
@@ -122,7 +122,7 @@ class ContactForm {
     this.user.budget = '';
     this.user.email.val('').removeClass('not-empty').removeAttr('style');
     this.user.name.val('').removeClass('not-empty').removeAttr('style');
-    this.user.query.val('').removeClass('not-empty').removeAttr('style');
+    this.user.query.text('').removeClass('not-empty').removeAttr('style');
     this.user.supportOptionsList = [];
   };
 
@@ -140,6 +140,12 @@ class ContactForm {
         case 2:
           query.focus()
           break;
+      }
+
+      if(currentSlide < 1) {
+        $('.prev.slick-arrow').fadeOut();
+      } else {
+        $('.prev.slick-arrow').fadeIn();
       }
     });
   };

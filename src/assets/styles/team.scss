@@ -101,7 +101,7 @@
     }
   }
 
-  &:nth-child(30), &:nth-child(60) {
+  &:nth-child(30), &:nth-child(60), &:nth-child(90) {
     &.show-info, &:hover{
       position: relative;
 
@@ -375,6 +375,12 @@
   }
 }
 
+.job-list {
+  li + li {
+    margin-top: 32px;
+  }
+}
+
 .job-link {
   @include fontstyle(1.125em, normal, 1.33);
   font-family: $gtAmericaRG;
@@ -437,7 +443,7 @@
   }
 
   .member-list-item {
-    &:nth-child(30), &:nth-child(60) {
+    &:nth-child(30), &:nth-child(60), &:nth-child(90) {
       &.show-info, &:hover{
         position: unset;
 
@@ -450,7 +456,7 @@
       }
     }
 
-    &:nth-child(45){
+    &:nth-child(45), &:nth-child(90) {
       &.show-info, &:hover{
         position: relative;
 

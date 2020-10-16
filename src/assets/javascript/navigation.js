@@ -23,7 +23,7 @@ class Navigation {
   scrollToTarget() {
     let _this = this;
     this.navigationListItem.on('click', function(event) {
-      if($(this).hasClass('nav-contact-btn')) {
+      if($(this).hasClass('nav-contact-btn') && window.location.pathname.length === 1) {
         _this.wrapper.addClass('fullscreen vin')
         setTimeout(() => {
           _this.userNameField.focus();

@@ -22,6 +22,7 @@
 .heading-form {
   @include fontstyle(1.5em, 300, 1.33);
   color: $white-5;
+  font-family: $gtAmericaMonoLT;
 }
 
 .heading-small {

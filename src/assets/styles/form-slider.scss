@@ -215,9 +215,10 @@
   }
 
   .arrow-count {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: space-between;
+    position: relative;
   }
 
   .prev-arrow {
@@ -229,6 +230,8 @@
     transition: opacity 200ms ease;
     will-change: opacity;
     background-size: cover;
+    position: absolute;
+    top: 0;
   }
 
   .fm-slider {

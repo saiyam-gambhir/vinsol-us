@@ -63,10 +63,12 @@
     overflow: hidden;
   }
 
-  .header {
-    position: absolute;
-    top: 0;
-    z-index: 1;
+  .slider-form-wrap {
+    .header {
+      position: absolute;
+      top: 0;
+      z-index: 1;
+    }
   }
 
   .navigation{
@@ -118,6 +120,10 @@
   &.build-topic {
     min-height: 285px;
     margin-top: 0
+  }
+
+  @media(max-width: 767px) {
+    margin-top: 97px;
   }
 }
 
@@ -186,12 +192,20 @@
     }
 
     &.user-query {
-      background-position: 0 0;  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1em'%3E%3Crect id='background' height='1em' width='1' y='0' x='0' fill='%23f1faf7'/%3E %3Cline id='underline' y2='1em' x2='0' y1='1em' x1='1' stroke='%23008000' fill='none'/%3E %3C/svg%3E");
-      background-repeat: repeat;
-      background-size: 1px 1em;
+      border-bottom: 0;
       margin: 0 auto;
-      vertical-align: bottom;
-      width: 320px;
+      max-width: 500px;
+      min-width: 170px;
+      text-decoration: underline;
+      width: auto;
+
+      &:focus {
+        border-bottom: 0 !important;
+      }
+
+      @media(max-width: 767px) {
+        max-width: 320px;
+      }
     }
 
     &.input-type-text {
@@ -598,18 +612,21 @@
       max-width: 100%;
     }
 
-    .header {
-      position: relative;
-      .container {
-        padding: 0;
-      }
+    .slider-form-wrap {
+      .header {
+        position: relative;
+        .container {
+          padding: 0;
+        }
 
-      .logo {
-        margin:0;
-        line-height: 1;
-        margin-bottom: 32px;
+        .logo {
+          margin:0;
+          line-height: 1;
+          margin-bottom: 32px;
+        }
       }
     }
+
     .navigation {
       .scrolled {
         min-height: 33px;

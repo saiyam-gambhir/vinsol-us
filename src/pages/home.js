@@ -53,3 +53,13 @@ $('.wrapper').on('scroll', function() {
   ourApproach.toggleStageColor();
 });
 /* ------------------------------------------------------------------------------- */
+
+/* Window on load events */
+$(window).on('load', function() {
+  setTimeout(function() {
+    if(window.location.href.includes('contact')) {
+      contactForm.showContactFormBtn.click();
+    }
+  }, 750);
+});
+/* ------------------------------------------------------------------------------- */
