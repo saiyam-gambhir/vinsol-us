@@ -1,9 +1,8 @@
 class ContactForm {
-  constructor({ budgetOption, characterWidth, contactFormInitialTextInput, contactFormTextInputContainer, enterToProceedBtn, formInput, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
+  constructor({ budgetOption, characterWidth, contactFormTextInputContainer, enterToProceedBtn, formInput, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
     Object.assign(this, {
       budgetOption,
       characterWidth,
-      contactFormInitialTextInput,
       contactFormTextInputContainer,
       enterToProceedBtn,
       formInput,
@@ -38,51 +37,21 @@ class ContactForm {
     });
   };
 
-  animateFormButton() {
-    let _this = this;
-    this.contactFormInitialTextInput.on('keyup', function() {
-      if($(this).val().length > 0) {
-        _this.showContactFormBtn.addClass('aos-init');
-        _this.showContactFormBtn.attr({ 'data-aos':'fade-up', 'data-aos-delay': '100', 'data-aos-duration': '500' });
-        _this.showContactFormBtn.addClass('aos-animate');
-      }
-    });
-  };
-
-  checkUserRequirementBeforeOpeningForm() {
-    return this.contactFormInitialTextInput.val().trim() !== '';
-  };
-
   showContactForm() {
     let _this = this;
-    let flag = false;
     this.showContactFormBtn.click(function() {
       _this.wrapper.addClass("fullscreen vin");
-      if(_this.checkUserRequirementBeforeOpeningForm() && !flag) {
-        _this.slider.slick('slickRemove', 2);
-      }
-      flag = true;
+      _this.user.name.focus();
     });
   };
 
   enterKeyHandler() {
     let _this = this;
     $(document).on('keydown', function(event) {
-      if(event.keyCode == 13 && _this.wrapper.hasClass('fullscreen')) {
+      if(event.keyCode == 13 && _this.wrapper.hasClass('fullscreen') && !_this.user.query.is(':focus')) {
         _this.slider.slick('slickNext');
       }
     });
-  };
-
-  hideShowContactFormBtnOnScroll() {
-    let _this = this;
-    if(!this.contactFormTextInputContainer.hasClass('aos-animate')) {
-      this.showContactFormBtn.removeClass('aos-animate')
-    } else if (this.contactFormTextInputContainer.hasClass('aos-animate') && this.showContactFormBtn.val().trim().length !== "") {
-      setTimeout(function() {
-        _this.showContactFormBtn.addClass('aos-animate')
-      }, 500);
-    }
   };
 
   selectSupportOptionsHandler() {
@@ -113,7 +82,7 @@ class ContactForm {
       budget: budget,
       email: email.val(),
       name : name.val(),
-      query: query.val() || this.contactFormInitialTextInput.val(),
+      query: query.text(),
       support_options: supportOptionsList
     }
     console.log(formData);
@@ -134,18 +103,6 @@ class ContactForm {
     });
   };
 
-  clearForm() {
-    this.budgetOption.prop("checked", false);
-    this.contactFormInitialTextInput.val('');
-    this.supportOption.prop("checked", false);
-    this.user.budget = '';
-    this.user.email.val('').removeClass('not-empty').removeAttr('style');
-    this.user.name.val('').removeClass('not-empty').removeAttr('style');
-    this.user.query.val('').removeClass('not-empty').removeAttr('style');
-    this.user.supportOptionsList = [];
-    this.showContactFormBtn.removeClass('aos-init aos-animate');
-  };
-
   submitFormHandler() {
     let _this = this;
     this.submitFormBtn.on('click', function() {
@@ -159,8 +116,41 @@ class ContactForm {
     });
   };
 
+  clearForm() {
+    this.budgetOption.prop("checked", false);
+    this.supportOption.prop("checked", false);
+    this.user.budget = '';
+    this.user.email.val('').removeClass('not-empty').removeAttr('style');
+    this.user.name.val('').removeClass('not-empty').removeAttr('style');
+    this.user.query.text('').removeClass('not-empty').removeAttr('style');
+    this.user.supportOptionsList = [];
+  };
+
+  focusOnFormInputsHandler() {
+    let _this = this;
+    this.slider.on('afterChange', function(_event, _slick, currentSlide, _nextSlide) {
+      const { name, email, query } = _this.user;
+      switch(currentSlide) {
+        case 0:
+          name.focus();
+          break;
+        case 1:
+          email.focus();
+          break;
+        case 2:
+          query.focus()
+          break;
+      }
+
+      if(currentSlide < 1) {
+        $('.prev.slick-arrow').fadeOut();
+      } else {
+        $('.prev.slick-arrow').fadeIn();
+      }
+    });
+  };
+
   init() {
-    this.animateFormButton();
     this.calculateInputWidthHandler();
     this.enterKeyHandler();
     this.getCurrentSlide();
@@ -169,6 +159,7 @@ class ContactForm {
     this.selectSupportOptionsHandler();
     this.showContactForm();
     this.submitFormHandler();
+    this.focusOnFormInputsHandler();
   }
 };
 

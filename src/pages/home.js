@@ -25,7 +25,6 @@ if($(window).width() > 767) {
 var contactFormOptions = {
   budgetOption: $('[data-hook=budget]'),
   characterWidth: characterWidth,
-  contactFormInitialTextInput: $('[data-hook=customer-requirement]'),
   contactFormTextInputContainer: $('.contact-input__inner'),
   customerRequirementTextarea: $('[data-hook=customer-requirement'),
   enterToProceedBtn: $('[data-hook=press-enter-to-proceed]'),
@@ -51,7 +50,16 @@ contactForm.init();
 
 /* Wrapper on scroll events */
 $('.wrapper').on('scroll', function() {
-  contactForm.hideShowContactFormBtnOnScroll();
   ourApproach.toggleStageColor();
+});
+/* ------------------------------------------------------------------------------- */
+
+/* Window on load events */
+$(window).on('load', function() {
+  setTimeout(function() {
+    if(window.location.href.includes('contact')) {
+      contactForm.showContactFormBtn.click();
+    }
+  }, 750);
 });
 /* ------------------------------------------------------------------------------- */

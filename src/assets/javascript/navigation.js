@@ -1,11 +1,12 @@
 class Navigation {
-  constructor({ body, menuBtn, navigationList, navigationListItem, navigationListItemParent, wrapper }) {
+  constructor({ body, menuBtn, navigationList, navigationListItem, navigationListItemParent, userNameField, wrapper }) {
     Object.assign(this, {
       body,
       menuBtn,
       navigationList,
       navigationListItem,
       navigationListItemParent,
+      userNameField,
       wrapper
     });
   }
@@ -22,7 +23,14 @@ class Navigation {
   scrollToTarget() {
     let _this = this;
     this.navigationListItem.on('click', function(event) {
-      $(this).hasClass('nav-contact-btn') ? _this.wrapper.addClass('fullscreen vin') : _this.wrapper.removeClass('fullscreen vin');
+      if($(this).hasClass('nav-contact-btn') && window.location.pathname.length === 1) {
+        _this.wrapper.addClass('fullscreen vin')
+        setTimeout(() => {
+          _this.userNameField.focus();
+        }, 100);
+      } else {
+        _this.wrapper.removeClass('fullscreen vin');
+      }
       _this.wrapper.animate({ scrollTop: document.querySelector(this.hash).offsetTop }, 750);
       _this.navigationListItemParent.removeClass('active');
       $(this).closest('li').addClass('active');

@@ -21,6 +21,7 @@ var navigationOptions = {
   navigationList: $('.navigation__list'),
   navigationListItem: $('.navigation__list-link'),
   navigationListItemParent: $('.navigation__list-item'),
+  userNameField: $('[data-hook=user-name]'),
   wrapper: $('.wrapper')
 };
 

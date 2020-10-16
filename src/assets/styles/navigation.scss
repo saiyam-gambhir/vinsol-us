@@ -8,9 +8,9 @@
     background: $orange;
     padding: 16px 0;
     position: absolute;
-    right: -132px;
+    right: -162px;
     top: 0;
-    transition: .5s;
+    transition: $transitionTimeSlow;
     visibility: hidden;
 
     &.open {
@@ -100,6 +100,7 @@
     flex-direction: column;
     height: 56px;
     justify-content: center;
+    overflow: hidden;
     position: absolute;
     right: 0;
     top: 0;
@@ -117,6 +118,7 @@
       position: relative;
       top: -.5px;
       width: 13px;
+      transition: $transitionTimeSlow;
 
       + .toggle-btn__bar {
         margin-top: 3px;
@@ -126,6 +128,12 @@
     &.scrolled {
       height: 136px;
     }
+
+    &.open {
+      .toggle-btn__bar {
+        top: -100px;
+      }
+    }
   }
 }
 
@@ -134,11 +142,16 @@
     &__toggle-btn {
       height: 33px;
       width: 30px;
+
+      &.scrolled {
+        height: 107px;
+      }
     }
 
     &__list {
       padding: 28px 0;
       width: 162px;
+      right: -192px;
     }
 
     &__list-item {

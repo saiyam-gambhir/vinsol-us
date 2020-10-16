@@ -63,10 +63,12 @@
     overflow: hidden;
   }
 
-  .header {
-    position: absolute;
-    top: 0;
-    z-index: 1;
+  .slider-form-wrap {
+    .header {
+      position: absolute;
+      top: 0;
+      z-index: 1;
+    }
   }
 
   .navigation{
@@ -118,6 +120,10 @@
   &.build-topic {
     min-height: 285px;
     margin-top: 0
+  }
+
+  @media(max-width: 767px) {
+    margin-top: 97px;
   }
 }
 
@@ -182,7 +188,24 @@
     width: 170px;
 
     &:focus {
-      border-bottom: solid 1px $black;
+      border-bottom: solid 1px $black !important;
+    }
+
+    &.user-query {
+      border-bottom: 0;
+      margin: 0 auto;
+      max-width: 500px;
+      min-width: 170px;
+      text-decoration: underline;
+      width: auto;
+
+      &:focus {
+        border-bottom: 0 !important;
+      }
+
+      @media(max-width: 767px) {
+        max-width: 320px;
+      }
     }
 
     &.input-type-text {
@@ -589,18 +612,21 @@
       max-width: 100%;
     }
 
-    .header {
-      position: relative;
-      .container {
-        padding: 0;
-      }
+    .slider-form-wrap {
+      .header {
+        position: relative;
+        .container {
+          padding: 0;
+        }
 
-      .logo {
-        margin:0;
-        line-height: 1;
-        margin-bottom: 32px;
+        .logo {
+          margin:0;
+          line-height: 1;
+          margin-bottom: 32px;
+        }
       }
     }
+
     .navigation {
       .scrolled {
         min-height: 33px;
