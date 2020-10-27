@@ -1,7 +1,8 @@
 class Navigation {
-  constructor({ body, menuBtn, navigationList, navigationListItem, navigationListItemParent, userNameField, wrapper }) {
+  constructor({ body, clientsFooterLink, menuBtn, navigationList, navigationListItem, navigationListItemParent, userNameField, wrapper }) {
     Object.assign(this, {
       body,
+      clientsFooterLink,
       menuBtn,
       navigationList,
       navigationListItem,
@@ -31,10 +32,21 @@ class Navigation {
       } else {
         _this.wrapper.removeClass('fullscreen vin');
       }
+      if(this.hash === '#clients' && window.location.pathname === '/') {
+        event.preventDefault();
+      }
       _this.wrapper.animate({ scrollTop: document.querySelector(this.hash).offsetTop }, 750);
-      _this.navigationListItemParent.removeClass('active');
-      $(this).closest('li').addClass('active');
     });
+  };
+
+  scrollToTargetFromFooter() {
+    let _this = this;
+    this.clientsFooterLink.on('click', function(event) {
+      if(this.hash === '#clients' && window.location.pathname === '/') {
+        event.preventDefault();
+      }
+      _this.wrapper.animate({ scrollTop: document.querySelector(this.hash).offsetTop }, 750);
+    })
   };
 
   hideNavigationOnBodyClick() {
@@ -55,6 +67,7 @@ class Navigation {
     this.hideNavigationOnBodyClick();
     this.openNavigation();
     this.scrollToTarget();
+    this.scrollToTargetFromFooter();
   };
 };
 

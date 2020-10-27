@@ -30,7 +30,7 @@ var contactFormOptions = {
   enterToProceedBtn: $('[data-hook=press-enter-to-proceed]'),
   formInput: $('.input-type-text'),
   pagination: $('.pagingInfo'),
-  showContactFormBtn: $('.contact-button__link'),
+  showContactFormBtn: $('[data-hook=show-contact-form-btn]'),
   slider: $('.slideshow'),
   submitFormBtn: $('[data-hook=submit-form]'),
   supportOption: $('[data-hook=support-option]'),
