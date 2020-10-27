@@ -17,6 +17,7 @@ AOS.init();
 /* NAVIGATION */
 var navigationOptions = {
   body: $('body'),
+  clientsFooterLink: $('[data-hook=clients-footer-link]'),
   menuBtn: $('#menu-toggle-btn'),
   navigationList: $('.navigation__list'),
   navigationListItem: $('.navigation__list-link'),

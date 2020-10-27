@@ -1,3 +1,5 @@
+import Airtable from 'airtable';
+
 class ContactForm {
   constructor({ budgetOption, characterWidth, contactFormTextInputContainer, enterToProceedBtn, formInput, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
     Object.assign(this, {
@@ -76,17 +78,36 @@ class ContactForm {
     });
   };
 
+  sendUserForm(apiKey, formData) {
+    let base = new Airtable({apiKey}).base('appoQoBF3HUIOx0QE');
+    base('Contact Form Submission').create([
+      {
+        "fields": formData
+      }
+    ], function(err, records) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      records.forEach(function (record) {
+        console.log(record.getId());
+      });
+    });
+  };
+
   collectFormData() {
-    let { budget, email, name, supportOptionsList, query } = this.user;
+    let { budget, email, name, query } = this.user;
+    let supportOptionsList = [...this.user.supportOptionsList];
+    supportOptionsList = supportOptionsList.map(option => {
+      return option.split('-').join(' ');
+    });
     let formData = {
-      budget: budget,
-      email: email.val(),
-      name : name.val(),
-      query: query.text(),
-      support_options: supportOptionsList
+      "What is your budget?": budget,
+      "Email": email.val(),
+      "Name" : name.val(),
+      "What kind of support are you looking for?": supportOptionsList
     }
-    console.log(formData);
-    // Todo: use axios to send the form data
+    this.sendUserForm('keyQpdjhQ9cRWzh4g', formData);
   };
 
   calculateInputWidthHandler() {

@@ -101,7 +101,7 @@
     }
   }
 
-  &:nth-child(30), &:nth-child(60), &:nth-child(90) {
+  &:nth-child(29), &:nth-child(58), &:nth-child(87) {
     &.show-info, &:hover{
       position: relative;
 
@@ -443,7 +443,7 @@
   }
 
   .member-list-item {
-    &:nth-child(30), &:nth-child(60), &:nth-child(90) {
+    &:nth-child(29), &:nth-child(58), &:nth-child(87) {
       &.show-info, &:hover{
         position: unset;
 
@@ -456,7 +456,7 @@
       }
     }
 
-    &:nth-child(45), &:nth-child(90) {
+    &:nth-child(44), &:nth-child(87) {
       &.show-info, &:hover{
         position: relative;
 
