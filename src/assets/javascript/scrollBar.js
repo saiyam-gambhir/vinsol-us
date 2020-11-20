@@ -9,16 +9,6 @@ class ScrollBar {
     });
   };
 
-  navigationScrollHandler() {
-    let wrapperScrollTop = this.wrapper.scrollTop(),
-        wrapperHeight = this.wrapperInner.height(),
-        windowHeight = $(window).height(),
-        scrollPercentage = (wrapperScrollTop / (wrapperHeight - windowHeight )),
-        navigationListHeight = this.navigationList.outerHeight(),
-        positionTop = (scrollPercentage * (windowHeight - navigationListHeight));
-    this.navigation.css({'top': positionTop});
-  };
-
   convertMenuToScrollBar() {
     this.navigationList.addClass('scrolled');
     this.menuBtn.addClass('scrolled');

@@ -25,12 +25,14 @@ class Navigation {
     let _this = this;
     this.navigationListItem.on('click', function(event) {
       if($(this).hasClass('nav-contact-btn') && window.location.pathname.length === 1) {
+        _this.menuBtn.addClass('initial');
         _this.wrapper.addClass('fullscreen vin')
         setTimeout(() => {
           _this.userNameField.focus();
         }, 100);
       } else {
         _this.wrapper.removeClass('fullscreen vin');
+        _this.menuBtn.removeClass('initial');
       }
       if(this.hash === '#clients' && window.location.pathname === '/') {
         event.preventDefault();

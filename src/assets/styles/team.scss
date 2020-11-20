@@ -50,7 +50,7 @@
   position: absolute;
   transform-origin: top left;
   transform: scale(0);
-  transition: transform 700ms;
+  transition: transform .5s cubic-bezier(.77,.2,.05,1);
   will-change: transform, opacity;
   z-index: 1;
 

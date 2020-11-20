@@ -64,8 +64,6 @@ $('.wrapper').on('scroll', function(event) {
   } else {
     scrollBar.convertScrollBarToMenu();
   }
-
-  scrollBar.navigationScrollHandler();
 });
 /* ------------------------------------------------------------------------------- */
 
@@ -74,3 +72,68 @@ $(window).on('load', function() {
   $('#menu-toggle-btn, #navigation-menu').addClass('open');
 });
 /* ------------------------------------------------------------------------------- */
+
+(function () {
+    var scrollContainer = document.querySelector('body'),
+        scrollContentWrapper = document.querySelector('.wrapper'),
+        contentPosition = 0,
+        scrollerBeingDragged = false,
+        scroller,
+        normalizedPosition,
+        scrollerHeight;
+
+    function calculateScrollerHeight() {
+      var visibleRatio = scrollContainer.offsetHeight / scrollContentWrapper.scrollHeight;
+      return visibleRatio * scrollContainer.offsetHeight;
+    }
+
+    function moveScroller(evt) {
+      let wrapperScrollTop = $('.wrapper').scrollTop(),
+          wrapperHeight = $('.wrapper__inner').height(),
+          windowHeight = $(window).height(),
+          scrollPercentage = (wrapperScrollTop / (wrapperHeight - windowHeight)),
+          navigationListHeight = $('.navigation__list').outerHeight(),
+          positionTop = (scrollPercentage * (windowHeight - navigationListHeight));
+
+      scroller.style.top = positionTop + 'px';
+      $('.navigation').css('top', positionTop + 'px');
+    }
+
+    function startDrag(evt) {
+      normalizedPosition = evt.pageY;
+      contentPosition = scrollContentWrapper.scrollTop;
+      scrollerBeingDragged = true;
+    }
+
+    function stopDrag(evt) {
+      scrollerBeingDragged = false;
+    }
+
+    function scrollBarScroll(evt) {
+      if (scrollerBeingDragged === true) {
+        var mouseDifferential = evt.pageY - normalizedPosition;
+        var scrollEquivalent = mouseDifferential * (scrollContentWrapper.scrollHeight / scrollContainer.offsetHeight);
+        scrollContentWrapper.scrollTop = contentPosition + scrollEquivalent;
+      }
+
+      if(scrollerBeingDragged) {
+        $('#menu-toggle-btn').css('pointer-events', 'none');
+      } else {
+        $('#menu-toggle-btn').css('pointer-events', 'all');
+      }
+    }
+
+    function createScroller() {
+      scroller = document.querySelector('#menu-toggle-btn');
+      scrollerHeight = calculateScrollerHeight();
+
+      if (scrollerHeight / scrollContainer.offsetHeight < 1) {
+        scroller.addEventListener('mousedown', startDrag);
+        window.addEventListener('mouseup', stopDrag);
+        window.addEventListener('mousemove', scrollBarScroll)
+      }
+    }
+
+    createScroller();
+    scrollContentWrapper.addEventListener('scroll', moveScroller);
+}());
