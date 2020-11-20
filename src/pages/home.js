@@ -34,6 +34,7 @@ var contactFormOptions = {
   slider: $('.slideshow'),
   submitFormBtn: $('[data-hook=submit-form]'),
   supportOption: $('[data-hook=support-option]'),
+  navToggleBtn: $('#menu-toggle-btn'),
   user: {
     budget: '',
     email: $('[data-hook=user-email]'),

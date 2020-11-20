@@ -1,7 +1,7 @@
 import Airtable from 'airtable';
 
 class ContactForm {
-  constructor({ budgetOption, characterWidth, contactFormTextInputContainer, enterToProceedBtn, formInput, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
+  constructor({ budgetOption, characterWidth, contactFormTextInputContainer, enterToProceedBtn, formInput, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, navToggleBtn, user, wrapper }) {
     Object.assign(this, {
       budgetOption,
       characterWidth,
@@ -13,6 +13,7 @@ class ContactForm {
       slider,
       submitFormBtn,
       supportOption,
+      navToggleBtn,
       user,
       wrapper
     });
@@ -20,6 +21,7 @@ class ContactForm {
 
   initFormSlider() {
     this.slider.slick({
+      accessibility: false,
       adaptiveHeight: true,
       arrows: true,
       fade: true,
@@ -32,7 +34,7 @@ class ContactForm {
   };
 
   getCurrentSlide() {
-    var _this = this;
+    let _this = this;
     this.slider.on('init reInit afterChange', function(_event, { currentSlide, slideCount }) {
       _this.pagination.text((currentSlide + 1) + '/' + slideCount);
       currentSlide === 0 ? _this.enterToProceedBtn.removeClass('hide') : _this.enterToProceedBtn.addClass('hide');
@@ -44,13 +46,14 @@ class ContactForm {
     this.showContactFormBtn.click(function() {
       _this.wrapper.addClass("fullscreen vin");
       _this.user.name.focus();
+      _this.navToggleBtn.addClass('initial');
     });
   };
 
   enterKeyHandler() {
     let _this = this;
     $(document).on('keydown', function(event) {
-      if(event.keyCode == 13 && _this.wrapper.hasClass('fullscreen') && !_this.user.query.is(':focus')) {
+      if(event.key === 'Enter' && _this.wrapper.hasClass('fullscreen') && !_this.user.query.is(':focus')) {
         _this.slider.slick('slickNext');
       }
     });
@@ -102,10 +105,11 @@ class ContactForm {
       return option.split('-').join(' ');
     });
     let formData = {
-      "What is your budget?": budget,
       "Email": email.val(),
       "Name" : name.val(),
-      "What kind of support are you looking for?": supportOptionsList
+      "What are you looking to build?": query.text(),
+      "What is your budget?": budget,
+      "What kind of support are you looking for?": supportOptionsList,
     }
     this.sendUserForm('keyQpdjhQ9cRWzh4g', formData);
   };
@@ -139,6 +143,7 @@ class ContactForm {
 
   clearForm() {
     this.budgetOption.prop("checked", false);
+    this.navToggleBtn.removeClass('initial');
     this.supportOption.prop("checked", false);
     this.user.budget = '';
     this.user.email.val('').removeClass('not-empty').removeAttr('style');

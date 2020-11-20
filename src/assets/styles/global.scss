@@ -62,6 +62,15 @@ input::-webkit-contacts-auto-fill-button {
   &::-webkit-scrollbar {
     display: none;
   }
+
+  &__inner {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
 
 .container {
@@ -153,4 +162,72 @@ input::-webkit-contacts-auto-fill-button {
 
 .mb-24 {
   margin-bottom: 24px;
+}
+
+[contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.cursor {
+  background: url('../images/cursor.svg') no-repeat;
+  background-position: center;
+  background-size: 11px 12px;
+  height: 12px;
+  pointer-events: none;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 11px;
+  z-index: 99;
+
+  &.link-grow {
+    background: url('../images/cursor-bold.svg') no-repeat;
+    background-position: center;
+    background-size: 11px 12px;
+  }
+}
+
+.toggle-btn {
+  align-items: center;
+  background: $orange;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  height: 56px;
+  justify-content: center;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: height $transitionTimeFast;
+  width: 64px;
+
+  &__bar {
+    background: $black;
+    display: block;
+    height: 1px;
+    pointer-events: none;
+    position: relative;
+    top: -.5px;
+    width: 13px;
+    transition: $transitionTimeSlow;
+
+    + .toggle-btn__bar {
+      margin-top: 3px;
+    }
+  }
+
+  &.scrolled {
+    height: 136px;
+  }
+
+  &.initial {
+    top: 0 !important;
+  }
+
+  &.open {
+    .toggle-btn__bar {
+      top: -100px;
+    }
+  }
 }

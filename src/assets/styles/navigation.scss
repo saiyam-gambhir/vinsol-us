@@ -92,49 +92,6 @@
       right: -10px;
     }
   }
-
-  &__toggle-btn {
-    align-items: center;
-    background: $orange;
-    display: inline-flex;
-    flex-direction: column;
-    height: 56px;
-    justify-content: center;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 64px;
-  }
-
- .toggle-btn {
-   transition: $transitionTimeSlow;
-
-    &__bar {
-      background: $black;
-      display: block;
-      height: 1px;
-      pointer-events: none;
-      position: relative;
-      top: -.5px;
-      width: 13px;
-      transition: $transitionTimeSlow;
-
-      + .toggle-btn__bar {
-        margin-top: 3px;
-      }
-    }
-
-    &.scrolled {
-      height: 136px;
-    }
-
-    &.open {
-      .toggle-btn__bar {
-        top: -100px;
-      }
-    }
-  }
 }
 
 @media(max-width: $mobile) {
