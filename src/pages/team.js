@@ -13,13 +13,13 @@ Scrollbar.init(document.querySelector('.map-bg'), {
 /* Show Member Details */
 $('.member-name').on('click', function (event) {
   event.stopPropagation();
-  $('.member-list-item').removeClass('show-info');
-  $(this).closest('.member-list-item').toggleClass('show-info');
+  // $('.member-list-item').removeClass('show-info');
+  // $(this).closest('.member-list-item').toggleClass('show-info');
 });
 /* ------------------------------------------------------------------------------- */
 
 /* Hide Member Details */
 $('body').on('click', function() {
-  $('.member-list-item').removeClass('show-info');
+  // $('.member-list-item').removeClass('show-info');
 });
 /* ------------------------------------------------------------------------------- */

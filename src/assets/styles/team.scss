@@ -81,6 +81,13 @@
   }
 }
 
+.member-name {
+  &:hover + .member-info {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .member-list-item {
   cursor: pointer;
 
