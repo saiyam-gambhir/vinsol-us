@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-const officeLocations = [
+const locations = [
   { 'timeZone': 'America/Los_Angeles', 'selector': 'usa-time' },
   { 'timeZone': 'America/Toronto', 'selector': 'toronto-time' },
   { 'timeZone': 'Asia/Kolkata', 'selector': 'delhi-time' }
@@ -19,7 +19,7 @@ class TimeZones {
   };
 
   showTime() {
-    officeLocations.forEach(location => {
+    locations.forEach(location => {
       this.updateTime(location.timeZone, location.selector);
     });
   };

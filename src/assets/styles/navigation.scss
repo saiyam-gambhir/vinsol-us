@@ -1,4 +1,5 @@
 .navigation {
+  $root: &;
   position: fixed;
   right: 0;
   top: 0;
@@ -33,6 +34,7 @@
 
     &.active {
       font-family: $gtAmericaMonoMD;
+      pointer-events: none;
 
       .navigation__list-link {
         &:before,
@@ -52,44 +54,9 @@
     }
 
     &:hover {
-      font-family: $gtAmericaMonoMD;
-
-      .navigation__list-link {
-        &:before,
-        &:after {
-          opacity: 1;
-        }
-
-        &:before {
-          left: -13px;
-        }
-
-        &:after {
-          right: -13px;
-        }
+      #{$root}__list-link {
+        color: $white;
       }
-    }
-  }
-
-  &__list-link {
-    position: relative;
-
-    &:before,
-    &:after {
-      opacity: 0;
-      pointer-events: none;
-      position: absolute;
-      transition: $transitionTimeMedium;
-    }
-
-    &:before {
-      content: '[';
-      left: -10px;
-    }
-
-    &:after {
-      content: ']';
-      right: -10px;
     }
   }
 }

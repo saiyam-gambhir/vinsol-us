@@ -192,12 +192,12 @@
     &__link {
       height: auto;
       left: 15px;
-      width: 165px;
+      width: 175px !important;
     }
 
     svg {
       height: auto !important;
-      width: 165px !important;
+      width: auto !important;
     }
 
     &__text {

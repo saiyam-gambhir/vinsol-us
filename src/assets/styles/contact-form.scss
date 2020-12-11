@@ -391,6 +391,16 @@
         transition: opacity 500ms ease-in-out;
         will-change: opacity;
       }
+
+      &:hover {
+        &:before {
+          opacity: 1;
+        }
+
+        span {
+          color: $white;
+        }
+      }
     }
 
     input:checked {

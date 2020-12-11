@@ -10,7 +10,7 @@
   &__container {
     display: flex;
     justify-content: space-between;
-    padding-top: 15px;
+    padding-top: 120px;
   }
 
   &__shapes {
@@ -60,6 +60,7 @@
   .landing-section {
     &__container {
       display: block;
+      padding-top: 15px;
     }
 
     .section-heading {

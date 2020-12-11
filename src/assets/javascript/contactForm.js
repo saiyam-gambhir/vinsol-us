@@ -53,7 +53,7 @@ class ContactForm {
   enterKeyHandler() {
     let _this = this;
     $(document).on('keydown', function(event) {
-      if(event.key === 'Enter' && _this.wrapper.hasClass('fullscreen') && !_this.user.query.is(':focus')) {
+      if(event.key === 'Enter' && _this.wrapper.hasClass('fullscreen')) {
         _this.slider.slick('slickNext');
       }
     });
@@ -81,20 +81,13 @@ class ContactForm {
     });
   };
 
-  sendUserForm(apiKey, formData) {
+  userFormHandler(apiKey, formData) {
     let base = new Airtable({apiKey}).base('appoQoBF3HUIOx0QE');
-    base('Contact Form Submission').create([
-      {
-        "fields": formData
-      }
-    ], function(err, records) {
+    base('Contact Form Submission').create([{"fields": formData}], function(err, _records) {
       if (err) {
-        console.error(err);
+        //console.error(err);
         return;
       }
-      records.forEach(function (record) {
-        console.log(record.getId());
-      });
     });
   };
 
@@ -116,7 +109,7 @@ class ContactForm {
 
   calculateInputWidthHandler() {
     let _this = this;
-    this.formInput.on('keyup', function() {
+    this.formInput.on('input', function() {
       let $this = $(this);
       if($this.val().length === 0) {
         $this.css('width', '170px');
@@ -125,19 +118,6 @@ class ContactForm {
         $this.css('width', (this.value.length + 1) * _this.characterWidth + 'px');
         $this.addClass('not-empty');
       }
-    });
-  };
-
-  submitFormHandler() {
-    let _this = this;
-    this.submitFormBtn.on('click', function() {
-      _this.wrapper.removeClass("fullscreen");
-      _this.collectFormData();
-      _this.clearForm();
-      setTimeout(() =>{
-        _this.slider.slick('slickGoTo', 0);
-        _this.wrapper.removeClass("vin");
-      }, 500);
     });
   };
 
@@ -150,6 +130,19 @@ class ContactForm {
     this.user.name.val('').removeClass('not-empty').removeAttr('style');
     this.user.query.text('').removeClass('not-empty').removeAttr('style');
     this.user.supportOptionsList = [];
+  };
+
+  submitFormHandler() {
+    let _this = this;
+    this.submitFormBtn.on('click', function() {
+      _this.wrapper.removeClass("fullscreen");
+      _this.userFormHandler();
+      _this.clearForm();
+      setTimeout(() =>{
+        _this.slider.slick('slickGoTo', 0);
+        _this.wrapper.removeClass("vin");
+      }, 500);
+    });
   };
 
   focusOnFormInputsHandler() {
