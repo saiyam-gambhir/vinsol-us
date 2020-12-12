@@ -5,7 +5,7 @@
 }
 
 %placeholder {
-  color: rgba(0,0,0,0.3);
+  color: $black-3;
   font-family: $gtAmericaMonoRG;
   @include fontstyle(30px, 300, 1.5);
 }
@@ -228,6 +228,20 @@
   }
 }
 
+.input-custom-field {
+  &::-webkit-input-placeholder {
+    color: $black-3;
+  }
+
+  &:-ms-input-placeholder {
+    color: $black-3;
+  }
+
+  &::placeholder {
+    color: $black-3;
+  }
+}
+
 .checkbox {
   position: absolute;
 
@@ -368,6 +382,7 @@
       height: 100%;
       cursor: pointer;
       @include fontstyle(1.87em, 300, 1.5);
+      font-family: $gtAmericaMonoLT;
 
       span {
         color: $black;
@@ -592,6 +607,7 @@
 
         .radio-label {
           @include fontstyle(1.25em, 300, 1.5);
+          font-family: $gtAmericaMonoLT;
         }
       }
     }
@@ -769,6 +785,14 @@
     .radio-button-help {
       margin-top: 10px;
       margin-bottom: 0;
+    }
+  }
+}
+
+.slick-arrow-group {
+  .submit-btn {
+    &.submit-btn-custom {
+      font-family: $gtAmericaMonoTH;
     }
   }
 }
