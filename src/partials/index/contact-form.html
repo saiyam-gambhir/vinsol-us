@@ -1,11 +1,11 @@
-<section class="slider-form-wrap " >
+<section class="slider-form-wrap disable-next-btn" data-hook="contact-form">
   <div class="container">
     <include src="partials/shared/header.html"></include>
     <div class="arrow-count hidden-desktop">
       <span class="prev"><span class="prev-arrow"></span></span>
       <span class="pagingInfo mx-auto"></span>
     </div>
-    <div class="slideshow fm-slider" >
+    <div class="slideshow fm-slider">
       <include src="partials/index/form/q1.html"></include>
       <include src="partials/index/form/q2.html"></include>
       <include src="partials/index/form/q3.html"></include>
@@ -15,12 +15,13 @@
     <div class="slick-arrow-group">
       <span class="prev hidden-mobile"><span class="prev-arrow"></span></span>
       <span class="pagingInfo hidden-mobile"></span>
-      <span class="next">
-        <span class="hidden-desktop next-btn">next</span><span class="next-arrow"></span>
+      <span class="next disabled">
+        <span class="hidden-desktop next-btn">next</span>
+        <span class="next-arrow"></span>
       </span>
       <button class="submit-btn submit-btn-custom" data-hook="submit-form">submit form</button>
       <span class="press-enter hidden-mobile" data-hook="press-enter-to-proceed"> or press enter</span>
-       <span class="tap-enter hidden-desktop" data-hook="press-enter-to-proceed"> or tap return</span>
+      <span class="tap-enter hidden-desktop" data-hook="press-enter-to-proceed"> or tap return</span>
     </div>
   </div>
 </section>

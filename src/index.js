@@ -98,7 +98,7 @@ $(window).on('load', function() {
           positionTop = (scrollPercentage * (windowHeight - navigationListHeight));
 
       scroller.style.top = positionTop + 'px';
-      $('.navigation').css('top', positionTop + 'px');
+      $('.navigation').css('transform', 'translateY(' + positionTop + '%)');
     }
 
     function startDrag(evt) {

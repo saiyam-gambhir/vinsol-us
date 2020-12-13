@@ -1,11 +1,12 @@
 import Airtable from 'airtable';
 
 class ContactForm {
-  constructor({ budgetOption, characterWidth, contactFormTextInputContainer, enterToProceedBtn, formInput, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, navToggleBtn, user, wrapper }) {
+  constructor({ budgetOption, characterWidth, contactFormTextInputContainer, currentSlide, enterToProceedBtn, formInput, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, navToggleBtn, user, wrapper }) {
     Object.assign(this, {
       budgetOption,
       characterWidth,
       contactFormTextInputContainer,
+      currentSlide,
       enterToProceedBtn,
       formInput,
       pagination,
@@ -37,7 +38,9 @@ class ContactForm {
     let _this = this;
     this.slider.on('init reInit afterChange', function(_event, { currentSlide, slideCount }) {
       _this.pagination.text((currentSlide + 1) + '/' + slideCount);
+      _this.currentSlide = currentSlide;
       currentSlide === 0 ? _this.enterToProceedBtn.removeClass('hide') : _this.enterToProceedBtn.addClass('hide');
+      console.log(_this.currentSlide);
     });
   };
 
@@ -52,9 +55,13 @@ class ContactForm {
 
   enterKeyHandler() {
     let _this = this;
-    $(document).on('keydown', function(event) {
+    $(document).on('keypress', function(event) {
+      event.preventDefault();
+      if(event.shiftKey) return;
+
       if(event.key === 'Enter' && _this.wrapper.hasClass('fullscreen')) {
         _this.slider.slick('slickNext');
+        _this.currentSlide = _this.slider.slick('slickCurrentSlide');
       }
     });
   };
@@ -84,10 +91,7 @@ class ContactForm {
   userFormHandler(apiKey, formData) {
     let base = new Airtable({apiKey}).base('appoQoBF3HUIOx0QE');
     base('Contact Form Submission').create([{"fields": formData}], function(err, _records) {
-      if (err) {
-        //console.error(err);
-        return;
-      }
+      if (err) return;
     });
   };
 
@@ -108,6 +112,7 @@ class ContactForm {
   };
 
   calculateInputWidthHandler() {
+    debugger
     let _this = this;
     this.formInput.on('input', function() {
       let $this = $(this);
@@ -147,7 +152,7 @@ class ContactForm {
 
   focusOnFormInputsHandler() {
     let _this = this;
-    this.slider.on('afterChange', function(_event, _slick, currentSlide, _nextSlide) {
+    this.slider.on('init afterChange', function(_event, _slick, currentSlide, _nextSlide) {
       const { name, email, query } = _this.user;
       switch(currentSlide) {
         case 0:
