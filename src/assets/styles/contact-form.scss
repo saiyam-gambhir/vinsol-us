@@ -796,3 +796,12 @@
     }
   }
 }
+
+.slider-form-wrap {
+  &.disabled {
+    .next.slick-arrow {
+      opacity: .3;
+      pointer-events: none;
+    }
+  }
+}

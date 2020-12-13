@@ -1,20 +1,23 @@
 import Airtable from 'airtable';
 
+const EmailRegEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 class ContactForm {
-  constructor({ budgetOption, characterWidth, contactFormTextInputContainer, currentSlide, enterToProceedBtn, formInput, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, navToggleBtn, user, wrapper }) {
+  constructor({ budgetOption, characterWidth, contactForm, contactFormTextInputContainer, currentSlide, enterToProceedBtn, formInput, navToggleBtn, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
     Object.assign(this, {
       budgetOption,
       characterWidth,
+      contactForm,
       contactFormTextInputContainer,
       currentSlide,
       enterToProceedBtn,
       formInput,
+      navToggleBtn,
       pagination,
       showContactFormBtn,
       slider,
       submitFormBtn,
       supportOption,
-      navToggleBtn,
       user,
       wrapper
     });
@@ -56,8 +59,11 @@ class ContactForm {
   enterKeyHandler() {
     let _this = this;
     $(document).on('keypress', function(event) {
-      event.preventDefault();
-      if(event.shiftKey) return;
+      if(event.shiftKey || _this.contactForm.hasClass('disabled')) return;
+
+      if(event.key === 'Enter') {
+        event.preventDefault();
+      }
 
       if(event.key === 'Enter' && _this.wrapper.hasClass('fullscreen')) {
         _this.slider.slick('slickNext');
@@ -75,6 +81,8 @@ class ContactForm {
       } else {
         _this.user.supportOptionsList.splice(_this.user.supportOptionsList.indexOf($this.attr('id')), 1);
       }
+
+      _this.user.supportOptionsList.length > 0 ? _this.contactForm.removeClass('disabled') : _this.contactForm.addClass('disabled'); 
     });
   };
 
@@ -84,6 +92,9 @@ class ContactForm {
       let $this = $(this);
       if($(this).prop('checked') == true) {
         _this.user.budget = $this.data('budget');
+        _this.contactForm.removeClass('disabled')
+      } else {
+        _this.contactForm.addClass('disabled')
       }
     });
   };
@@ -111,17 +122,30 @@ class ContactForm {
     this.sendUserForm('keyQpdjhQ9cRWzh4g', formData);
   };
 
+  validateEmail(email) {
+    return EmailRegEx.test(String(email.val().toLowerCase()));
+  };
+
   calculateInputWidthHandler() {
-    debugger
     let _this = this;
     this.formInput.on('input', function() {
       let $this = $(this);
-      if($this.val().length === 0) {
+      if($this.val() === '') {
         $this.css('width', '170px');
         $this.removeClass('not-empty');
+        _this.contactForm.addClass('disabled');
       } else {
         $this.css('width', (this.value.length + 1) * _this.characterWidth + 'px');
         $this.addClass('not-empty');
+        _this.contactForm.removeClass('disabled');
+      }
+
+      if($this.data('hook') === 'user-email') {
+        if(_this.validateEmail($this)) {
+          _this.contactForm.removeClass('disabled');
+        } else {
+          _this.contactForm.addClass('disabled');
+        }
       }
     });
   };
@@ -153,16 +177,28 @@ class ContactForm {
   focusOnFormInputsHandler() {
     let _this = this;
     this.slider.on('init afterChange', function(_event, _slick, currentSlide, _nextSlide) {
-      const { name, email, query } = _this.user;
+      const { name, email, query, supportOptionsList } = _this.user;
       switch(currentSlide) {
         case 0:
+          name.val() === '' ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled')
           name.focus();
           break;
         case 1:
+          email.val() === '' ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled')
           email.focus();
           break;
         case 2:
+          //query.text() === '' ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled')
           query.focus()
+          break;
+        case 3:
+          supportOptionsList.length === 0 ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled');
+          break;
+        case 4:
+          // check if any of the radio is selected then remove the disabled class
+          _this.contactForm.addClass('disabled');
+          break;
+        default:
           break;
       }
 
