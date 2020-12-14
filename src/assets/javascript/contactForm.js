@@ -59,7 +59,8 @@ class ContactForm {
   enterKeyHandler() {
     let _this = this;
     $(document).on('keypress', function(event) {
-      if(event.shiftKey || _this.contactForm.hasClass('disabled')) return;
+      // if(event.shiftKey || _this.contactForm.hasClass('disabled')) return;
+      if(event.shiftKey) return;
 
       if(event.key === 'Enter') {
         event.preventDefault();

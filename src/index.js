@@ -75,6 +75,7 @@ $(window).on('load', function() {
 });
 /* ------------------------------------------------------------------------------- */
 
+/* Move to Navigation File and optimize */
 (function () {
     var scrollContainer = document.querySelector('body'),
         scrollContentWrapper = document.querySelector('.wrapper'),
@@ -139,3 +140,4 @@ $(window).on('load', function() {
     createScroller();
     scrollContentWrapper.addEventListener('scroll', moveScroller);
 }());
+/* ------------------------------------------------------------------------------- */
