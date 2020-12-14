@@ -18,6 +18,32 @@ body {
   font-family: $gtAmericaMonoLT;
   font-size: 16px;
   line-height: 1.5;
+
+  ::-moz-selection {
+    background: rgba(255, 79, 0, .15);
+  }
+
+  ::selection {
+    background: rgba(255, 79, 0, .15);
+  }
+
+  &.page-dragging {
+    .navigation__toggle-btn {
+      pointer-events: none;
+    }
+
+    .toggle-btn__bar {
+      background: $white;
+    }
+
+    ::-moz-selection {
+      background: transparent;
+    }
+
+    ::selection {
+      background: transparent;
+    }
+  }
 }
 
 a {
@@ -61,15 +87,6 @@ input::-webkit-contacts-auto-fill-button {
 
   &::-webkit-scrollbar {
     display: none;
-  }
-
-  &__inner {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
   }
 }
 
@@ -188,6 +205,7 @@ input::-webkit-contacts-auto-fill-button {
 }
 
 .toggle-btn {
+  $root: &;
   align-items: center;
   background: $orange;
   cursor: pointer;
@@ -228,6 +246,12 @@ input::-webkit-contacts-auto-fill-button {
   &.open {
     .toggle-btn__bar {
       top: -100px;
+    }
+  }
+
+  &:hover {
+    #{$root}__bar {
+      background: $white;
     }
   }
 }

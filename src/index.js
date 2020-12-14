@@ -69,10 +69,13 @@ $('.wrapper').on('scroll', function(event) {
 
 /* Window on load events */
 $(window).on('load', function() {
-  $('#menu-toggle-btn, #navigation-menu').addClass('open');
+  if($(this).width() > 1024) {
+    $('#menu-toggle-btn, #navigation-menu').addClass('open');
+  }
 });
 /* ------------------------------------------------------------------------------- */
 
+/* Move to Navigation File and optimize */
 (function () {
     var scrollContainer = document.querySelector('body'),
         scrollContentWrapper = document.querySelector('.wrapper'),
@@ -115,11 +118,11 @@ $(window).on('load', function() {
         var scrollEquivalent = mouseDifferential * (scrollContentWrapper.scrollHeight / scrollContainer.offsetHeight);
         scrollContentWrapper.scrollTop = contentPosition + scrollEquivalent;
       }
-
       if(scrollerBeingDragged) {
-        $('#menu-toggle-btn').css('pointer-events', 'none');
+        $('body').addClass('page-dragging');
+        window.getSelection ? window.getSelection().removeAllRanges() : null;
       } else {
-        $('#menu-toggle-btn').css('pointer-events', 'all');
+        $('body').removeClass('page-dragging');
       }
     }
 
@@ -128,8 +131,8 @@ $(window).on('load', function() {
       scrollerHeight = calculateScrollerHeight();
 
       if (scrollerHeight / scrollContainer.offsetHeight < 1) {
-        scroller.addEventListener('mousedown', startDrag);
-        window.addEventListener('mouseup', stopDrag);
+        scroller.addEventListener('pointerdown', startDrag);
+        window.addEventListener('pointerup', stopDrag);
         window.addEventListener('mousemove', scrollBarScroll)
       }
     }
@@ -137,3 +140,4 @@ $(window).on('load', function() {
     createScroller();
     scrollContentWrapper.addEventListener('scroll', moveScroller);
 }());
+/* ------------------------------------------------------------------------------- */

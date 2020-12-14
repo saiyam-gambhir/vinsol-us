@@ -25,16 +25,17 @@ if($(window).width() > 767) {
 var contactFormOptions = {
   budgetOption: $('[data-hook=budget]'),
   characterWidth: characterWidth,
+  contactForm: $('[data-hook=contact-form]'),
   contactFormTextInputContainer: $('.contact-input__inner'),
   customerRequirementTextarea: $('[data-hook=customer-requirement'),
   enterToProceedBtn: $('[data-hook=press-enter-to-proceed]'),
   formInput: $('.input-type-text'),
+  navToggleBtn: $('#menu-toggle-btn'),
   pagination: $('.pagingInfo'),
   showContactFormBtn: $('[data-hook=show-contact-form-btn]'),
   slider: $('.slideshow'),
   submitFormBtn: $('[data-hook=submit-form]'),
   supportOption: $('[data-hook=support-option]'),
-  navToggleBtn: $('#menu-toggle-btn'),
   user: {
     budget: '',
     email: $('[data-hook=user-email]'),
