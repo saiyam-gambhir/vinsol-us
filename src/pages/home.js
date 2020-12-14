@@ -19,7 +19,7 @@ var characterWidth = 0;
 if($(window).width() > 767) {
   characterWidth = 18.5;
 } else {
-  characterWidth = 15;
+  characterWidth = 14;
 }
 
 var contactFormOptions = {

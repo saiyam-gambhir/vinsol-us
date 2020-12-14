@@ -66,22 +66,16 @@
     &__toggle-btn {
       height: 33px;
       width: 30px;
-
-      &.scrolled {
-        height: 107px;
-      }
     }
 
     &__list {
-      padding: 28px 0;
-      width: 162px;
       right: -192px;
+      text-align: left;
+      width: 132px;
     }
 
     &__list-item {
-      & + & {
-        padding-top: 28px;
-      }
+      padding-left: 32px;
     }
   }
 }

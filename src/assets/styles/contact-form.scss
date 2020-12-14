@@ -175,6 +175,7 @@
     font-family: $gtAmericaMonoLT;
     @include fontstyle(1.875em, 300, 45px);
     border: 0;
+    border-bottom: 1px solid $black-3;
     background-color: transparent;
     color: $black;
     padding: 0;
@@ -182,13 +183,16 @@
     caret-color: $red;
     transition:border-bottom 500ms ease-in-out;
     will-change: border-bottom;
-    width: 100%;
     border-radius: 0;
     max-width: 100%;
     width: 170px;
 
     &:focus {
       border-bottom: solid 1px $black !important;
+    }
+
+    @media(max-width: $mobile) {
+      width: 135px;
     }
 
     &.user-query {
@@ -799,7 +803,8 @@
 
 .slider-form-wrap {
   &.disabled {
-    .next.slick-arrow {
+    .next.slick-arrow,
+    [data-hook="submit-form"] {
       opacity: .3;
       pointer-events: none;
     }
