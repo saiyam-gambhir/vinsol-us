@@ -1,15 +1,13 @@
 import Airtable from 'airtable';
-
 const EmailRegEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 class ContactForm {
-  constructor({ budgetOption, characterWidth, contactForm, contactFormTextInputContainer, currentSlide, enterToProceedBtn, formInput, navToggleBtn, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
+  constructor({ budgetOption, characterWidth, contactForm, contactFormTextInputContainer, enterToProceedBtn, formInput, navToggleBtn, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
     Object.assign(this, {
       budgetOption,
       characterWidth,
       contactForm,
       contactFormTextInputContainer,
-      currentSlide,
       enterToProceedBtn,
       formInput,
       navToggleBtn,
@@ -41,9 +39,7 @@ class ContactForm {
     let _this = this;
     this.slider.on('init reInit afterChange', function(_event, { currentSlide, slideCount }) {
       _this.pagination.text((currentSlide + 1) + '/' + slideCount);
-      _this.currentSlide = currentSlide;
       currentSlide === 0 ? _this.enterToProceedBtn.removeClass('hide') : _this.enterToProceedBtn.addClass('hide');
-      console.log(_this.currentSlide);
     });
   };
 
@@ -59,8 +55,7 @@ class ContactForm {
   enterKeyHandler() {
     let _this = this;
     $(document).on('keypress', function(event) {
-      // if(event.shiftKey || _this.contactForm.hasClass('disabled')) return;
-      if(event.shiftKey) return;
+      if(event.shiftKey || _this.contactForm.hasClass('disabled')) return;
 
       if(event.key === 'Enter') {
         event.preventDefault();
@@ -68,7 +63,6 @@ class ContactForm {
 
       if(event.key === 'Enter' && _this.wrapper.hasClass('fullscreen')) {
         _this.slider.slick('slickNext');
-        _this.currentSlide = _this.slider.slick('slickCurrentSlide');
       }
     });
   };
@@ -100,14 +94,24 @@ class ContactForm {
     });
   };
 
-  userFormHandler(apiKey, formData) {
+  sendUserForm(apiKey, formData) {
     let base = new Airtable({apiKey}).base('appoQoBF3HUIOx0QE');
-    base('Contact Form Submission').create([{"fields": formData}], function(err, _records) {
-      if (err) return;
+    base('Contact Form Submission').create([
+      {
+        "fields": formData
+      }
+    ], function(err, records) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      records.forEach(function (record) {
+        console.log(record.getId());
+      });
     });
   };
 
-  collectFormData() {
+  userFormHandler() {
     let { budget, email, name, query } = this.user;
     let supportOptionsList = [...this.user.supportOptionsList];
     supportOptionsList = supportOptionsList.map(option => {
@@ -120,7 +124,7 @@ class ContactForm {
       "What is your budget?": budget,
       "What kind of support are you looking for?": supportOptionsList,
     }
-    this.sendUserForm('keyQpdjhQ9cRWzh4g', formData);
+    this.sendUserForm('keyredyoDL3M8X3wI', formData);
   };
 
   validateEmail(email) {
@@ -132,7 +136,11 @@ class ContactForm {
     this.formInput.on('input', function() {
       let $this = $(this);
       if($this.val() === '') {
-        $this.css('width', '170px');
+        if($(window).width() > 767) {
+          $this.css('width', '170px');
+        } else {
+          $this.css('width', '135px');
+        }
         $this.removeClass('not-empty');
         _this.contactForm.addClass('disabled');
       } else {
@@ -148,6 +156,13 @@ class ContactForm {
           _this.contactForm.addClass('disabled');
         }
       }
+    });
+  };
+
+  userQueryInputHandler() {
+    let _this = this;
+    this.user.query.on('input', function() {
+      $(this).text() === '' ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled');
     });
   };
 
@@ -170,12 +185,12 @@ class ContactForm {
       _this.clearForm();
       setTimeout(() =>{
         _this.slider.slick('slickGoTo', 0);
-        _this.wrapper.removeClass("vin");
+        _this.wrapper.removeClass('vin fullscreen');
       }, 500);
     });
   };
 
-  focusOnFormInputsHandler() {
+  formStateHandler() {
     let _this = this;
     this.slider.on('init afterChange', function(_event, _slick, currentSlide, _nextSlide) {
       const { name, email, query, supportOptionsList } = _this.user;
@@ -189,15 +204,17 @@ class ContactForm {
           email.focus();
           break;
         case 2:
-          //query.text() === '' ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled')
+          query.text() === '' ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled')
           query.focus()
           break;
         case 3:
           supportOptionsList.length === 0 ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled');
           break;
         case 4:
-          // check if any of the radio is selected then remove the disabled class
           _this.contactForm.addClass('disabled');
+          _this.budgetOption.each((_index, option) => {
+            $(option).prop('checked') == true ? _this.contactForm.removeClass('disabled') : null;
+          });
           break;
         default:
           break;
@@ -220,7 +237,8 @@ class ContactForm {
     this.selectSupportOptionsHandler();
     this.showContactForm();
     this.submitFormHandler();
-    this.focusOnFormInputsHandler();
+    this.formStateHandler();
+    this.userQueryInputHandler();
   }
 };
 
