@@ -3,6 +3,14 @@
   margin: 0px auto;
 }
 
+.text-white {
+  color: $white;
+}
+
+.mt-64 {
+  margin-top: 6.4%;
+}
+
 .mb-64 {
   margin-bottom: 11.85%;
 }
@@ -129,12 +137,12 @@
   .map-image-block {
     margin: 0 auto;
     position: relative;
-    width: 1024px;
+    /*width: 1024px;*/
   }
 
   .map-img {
     height: auto;
-    max-width: 1024px;
+    max-width: 100%;
   }
 
   .countries {

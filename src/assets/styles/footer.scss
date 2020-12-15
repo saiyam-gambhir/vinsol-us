@@ -106,16 +106,33 @@
   .footer {
     padding: 50px 0 24px 0;
 
-    .container {
-      flex-direction: column;
+    &__left,
+    &__contacts,
+    &__locations {
+      margin: 0 0 20px 0;
+      flex: initial;
     }
 
-    &__left, &__contacts, &__locations {
-      margin: 0 0 20px 0;
+    &__left {
+      width: 40%;
+    }
+
+    &__contacts {
+      width: 60%;
+
+      .f-social-links {
+        display: flex;
+        flex-wrap: wrap;
+
+        a {
+          text-decoration: underline;
+        }
+      }
     }
 
     &__right {
       margin-bottom: 0;
+      margin-left: 40%;
     }
   }
 }
