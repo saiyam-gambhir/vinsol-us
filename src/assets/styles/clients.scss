@@ -142,3 +142,48 @@
     }
   }
 }
+
+@media(max-width: $mobile) {
+  .clients {
+    &__list-item {
+      padding-left: 59px;
+      width: 100%;
+    }
+
+    .apple img {
+      width: 46px;
+    }
+
+    .loreal img {
+      width: 98px;
+    }
+
+    .logitech img {
+      width: 98px;
+    }
+
+    .stadium img {
+      width: 112px;
+    }
+
+    .orthoscience img {
+      width: 149px;
+    }
+  }
+
+  .client {
+    &__logo {
+      min-height: initial;
+    }
+
+    &__details {
+      font-size: 1.125em;
+      line-height: 32px;
+      margin-top: 16px;
+    }
+
+    & + & {
+      margin-top: 46px;
+    }
+  }
+}
