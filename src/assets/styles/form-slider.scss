@@ -39,11 +39,12 @@
 }
 
 .slick-arrow-group {
-  @extend %flex ;
+  @extend %flex;
   position: absolute;
   bottom: 34px;
   left: 0;
   right: 0;
+  flex-wrap: wrap;
 
   .slick-arrow {
     position: relative;
@@ -53,8 +54,8 @@
 
     .prev-arrow {
       background: url(./../images/left-arrow.svg) no-repeat center;
-      width: 11px;
-      background-size: 11px;
+      width: 17px;
+      background-size: 17px;
       height: 30px;
       display: block;
       opacity: 1;
@@ -64,8 +65,8 @@
 
     .next-arrow {
       background: url(./../images/right-arrow.svg)  no-repeat center;
-      width: 11px;
-      background-size: 11px;
+      width: 17px;
+      background-size: 17px;
       height: 30px;
       display: block;
       transition: opacity 200ms ease;
@@ -94,20 +95,20 @@
     @include fontstyle(0.7em, 100, 0.91);
     display: inline-block;
     color: $white-5;
-    padding: 0px 16px;
+    padding: 0px 32px;
     line-height: 30px;
   }
 
-  .press-enter, .tap-enter {
+  .press-enter,
+  .tap-enter {
     @include fontstyle(0.7em, 100, 0.91);
     color: $white-5;
-    padding-left: 16px;
     line-height: 30px;
-    position: absolute;
-    margin-left: 200px;
     opacity: 1;
     transition: opacity $transitionTimeMedium;
     will-change: opacity;
+    width: 100%;
+    text-align: center;
 
     &.hide {
       opacity: 0;
@@ -247,14 +248,19 @@
   .slick-arrow-group  {
     position: relative;
     bottom: auto;
+
+    .submit-btn {
+      border: none;
+      color: $orange;
+      font-size: 1.125em;
+    }
+
     .pagingInfo {
       display: none;
     }
 
     .tap-enter {
-      display: inline-block;
-      right: 0;
-      margin-left: 0;
+      display: block;
     }
 
     .slick-arrow {

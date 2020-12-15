@@ -279,6 +279,10 @@
   }
 
   &:hover {
+    label {
+      color: $white;
+    }
+
     svg {
       fill: $orange;
     }
@@ -297,31 +301,31 @@
 
 @media(min-width: 768px) {
   .ecommerce {
-    @include checkbox-svg(7.8em, 5em, 19%, 34.22%);
+    @include checkbox-svg(7.8em, 5em, 19%, 25%);
   }
 
   .brand {
-    @include checkbox-svg(5em, 4em, 10%, 53%);
+    @include checkbox-svg(5em, 4em, 12%, 57%);
   }
 
   .research {
-    @include checkbox-svg(6.5em, 5em, 37%, 41.21%);
+    @include checkbox-svg(6.5em, 5em, 34%, 45%);
   }
 
   .ui {
-    @include checkbox-svg(3.5em, 2.7em, 31.5%, 64%);
+    @include checkbox-svg(3.5em, 2.7em, 28.5%, 72%);
   }
 
   .ux {
-    @include checkbox-svg(3.18em, 4.2em, 22%, 68%);
+    @include checkbox-svg(3.18em, 4.2em, 21%, 88%);
   }
 
   .strategy {
-    @include checkbox-svg(7.06em, 5.2em, 57%, 54%);
+    @include checkbox-svg(7.06em, 5.2em, 63%, 39%);
   }
 
   .webdev {
-    @include checkbox-svg(4.8em, 3.6em, 72.5%, 50%);
+    @include checkbox-svg(4.8em, 3.6em, 72.5%, 4%);
      svg {
       transform: rotate(-14deg);
     }
@@ -332,7 +336,7 @@
   }
 
   .product-design {
-    @include checkbox-svg(6.4em, 4.7em, 44.5%, 67%);
+    @include checkbox-svg(6.4em, 4.7em, 47%, 53%);
 
     svg {
       transform: rotate(163deg);
@@ -340,19 +344,19 @@
   }
 
   .engineering {
-    @include checkbox-svg(7.75em, 5.3em, 28.83%, 83%);
+    @include checkbox-svg(7.75em, 5.3em, 32.83%, 84%);
   }
 
   .mobiledev {
-    @include checkbox-svg(6.06em, 4.5em, 46.25%, 100%);
+    @include checkbox-svg(6.06em, 4.5em, 46.25%, 93%);
   }
 
   .design {
-    @include checkbox-svg(6em, 4.5em, 8.86%, 88%);
+    @include checkbox-svg(6em, 4.5em, 6%, 88%);
   }
 
   .others {
-    @include checkbox-svg(5em, 4em, 83.48%, 55%);
+    @include checkbox-svg(5em, 4em, 83.48%, 40%);
   }
 }
 
@@ -562,13 +566,19 @@
     flex: 0 0 50%;
     height: 50px;
 
-    svg, br{
+    &.others {
+      margin-left: 50%;
+    }
+
+    svg,
+    br {
       display: none;
     }
 
     input:checked {
       + .checkbox-label {
           color: $orange;
+          text-decoration: underline;
         }
     }
   }
@@ -605,9 +615,18 @@
         width: 130px;
         height: 80px;
 
+        input:checked ~ label > span {
+          color: $orange;
+          text-decoration: underline;
+        }
+
         .radio-label {
           @include fontstyle(1.25em, 300, 1.5);
           font-family: $gtAmericaMonoLT;
+
+          &:before {
+            background-image: none;
+          }
         }
       }
     }

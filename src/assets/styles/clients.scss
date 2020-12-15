@@ -17,6 +17,27 @@
   }
 }
 
+.apple-hover {
+  display: none;
+  transition: $transitionTimeSlow;
+}
+
+.apple {
+  &:hover {
+    cursor: pointer;
+
+    & + .client__details {
+      .apple-hover {
+        display: block;
+      }
+
+      .apple-projects {
+        display: none;
+      }
+    }
+  }
+}
+
 .client {
   margin-bottom: 12px;
 
@@ -32,9 +53,18 @@
   &__details {
     display: flex;
     flex-direction: column;
-    font-size: 1.5em;
-    line-height: 1.5em;
+    font-size: 1.125em;
+    line-height: 2em;
     margin-top: 25px;
+  }
+
+  .rating-icon {
+    vertical-align: baseline;
+  }
+
+  .product-icon {
+    vertical-align: middle;
+    margin-right: 5px;
   }
 
   .apple {
