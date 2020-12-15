@@ -74,7 +74,7 @@
     }
 
     &.slick-disabled {
-      .prev-arrow, .next-arrow {
+      .prev-arrow, .next-arrow, .prev {
         visibility: hidden;
         opacity: 0;
       }

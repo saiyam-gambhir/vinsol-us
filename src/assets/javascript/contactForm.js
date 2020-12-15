@@ -39,7 +39,7 @@ class ContactForm {
     let _this = this;
     this.slider.on('init reInit afterChange', function(_event, { currentSlide, slideCount }) {
       _this.pagination.text((currentSlide + 1) + '/' + slideCount);
-      currentSlide === 0 ? _this.enterToProceedBtn.removeClass('hide') : _this.enterToProceedBtn.addClass('hide');
+      (currentSlide + 1) === slideCount ? _this.enterToProceedBtn.addClass('hide') : _this.enterToProceedBtn.removeClass('hide');
     });
   };
 
