@@ -33,10 +33,10 @@
 
 .team-page {
   font-family: $gtAmericaRG;
-  padding-top: 96px;
+  padding: 96px 0 25px 0;
 
   @media(max-width: 768px) {
-    padding-top: 80px;
+    padding: 80px 0 50px 0;
   }
 }
 
@@ -141,7 +141,7 @@
   .map-image-block {
     margin: 0 auto;
     position: relative;
-    /*width: 1024px;*/
+    width: 1024px;
   }
 
   .map-img {
@@ -180,7 +180,7 @@
       position: absolute;
       text-transform: lowercase;
       top: 50%;
-      transition: $transitionTimeMedium;
+      transition: $transitionTimeFastLinear;
       visibility: hidden;
       white-space: nowrap;
 
@@ -413,13 +413,13 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: $tabletLandscape) {
   .countries {
     display: none;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $mobile) {
   .member-list {
     -moz-column-count: 2;
     -webkit-column-count: 2;
@@ -432,6 +432,8 @@
   }
 
   .map-area {
+    margin-bottom: 50px;
+
     .container {
       padding: 0;
     }
@@ -488,5 +490,3 @@
     }
   }
 }
-
-

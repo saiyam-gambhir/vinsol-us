@@ -72,7 +72,7 @@
   }
 
   .navigation{
-    top: 0 !important;
+    transform: translateY(0) !important;
 
     .scrolled {
       height: auto;
@@ -287,7 +287,9 @@
 
   &:hover {
     label {
-      color: $white;
+      @media(min-width: $smallDesktop) {
+        color: $white;
+      }
     }
 
     svg {
@@ -301,8 +303,8 @@
     }
 
     + .checkbox-label {
-        color: $white;
-      }
+      color: $white;
+    }
   }
 }
 

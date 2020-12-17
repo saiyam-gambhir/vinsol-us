@@ -7,7 +7,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  transition: opacity $transitionTimeMedium;
+  transition: opacity $transitionTimeFastLinear;
   width: 100vw;
   z-index: -1;
 
@@ -99,13 +99,12 @@
     line-height: 30px;
   }
 
-  .press-enter,
-  .tap-enter {
+  .press-enter {
     @include fontstyle(0.7em, 100, 0.91);
     color: $white-5;
     line-height: 30px;
     opacity: 1;
-    transition: opacity $transitionTimeMedium;
+    transition: opacity $transitionTimeFastLinear;
     will-change: opacity;
     width: 100%;
     text-align: center;
@@ -114,10 +113,6 @@
       opacity: 0;
       visibility: hidden;
     }
-  }
-
-  .tap-enter {
-    display: none;
   }
 
   .submit-btn {
@@ -246,8 +241,7 @@
   }
 
   .slick-arrow-group  {
-    position: relative;
-    bottom: auto;
+    bottom: 39px;
 
     .submit-btn {
       border: none;
@@ -257,10 +251,6 @@
 
     .pagingInfo {
       display: none;
-    }
-
-    .tap-enter {
-      display: block;
     }
 
     .slick-arrow {
@@ -297,6 +287,10 @@
   .build-topic {
     margin-bottom: 24px;
   }
+}
+
+.slick-disabled {
+  opacity: 0;
 }
 
 @media screen and (min-width: 375px) and (max-width: 812px) and (orientation: landscape) {
