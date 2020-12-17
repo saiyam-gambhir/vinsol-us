@@ -217,7 +217,7 @@ input::-webkit-contacts-auto-fill-button {
   position: fixed;
   right: 0;
   top: 0;
-  transition: height $transitionTimeFast;
+  transition: $transitionTimeFastLinear;
   width: 64px;
 
   &__bar {
@@ -228,7 +228,7 @@ input::-webkit-contacts-auto-fill-button {
     position: relative;
     top: -.5px;
     width: 13px;
-    transition: $transitionTimeSlow;
+    transition: $transitionTimeFastLinear;
 
     + .toggle-btn__bar {
       margin-top: 3px;

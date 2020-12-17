@@ -36,6 +36,4 @@ $gtAmericaRG: 'GTAmerica-Regular';
 $gtAmericaLT: 'GTAmerica-Light';
 
 /* Configs */
-$transitionTimeFast: .3s cubic-bezier(.77,.2,.05,1);
-$transitionTimeMedium: .5s cubic-bezier(.77,.2,.05,1);
-$transitionTimeSlow: .75s cubic-bezier(.77,.2,.05,1);
+$transitionTimeFastLinear : .3s linear;

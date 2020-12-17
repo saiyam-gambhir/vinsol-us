@@ -1,3 +1,8 @@
+.active-state {
+  font-family: $gtAmericaMonoMD;
+  pointer-events: none;
+}
+
 .navigation {
   $root: &;
   position: fixed;
@@ -9,14 +14,13 @@
     background: $orange;
     padding: 16px 0;
     position: absolute;
-    right: -162px;
     top: 0;
-    transition: $transitionTimeSlow;
+    transform: translateX(140px);
+    transition: $transitionTimeFastLinear;
     visibility: hidden;
 
     &.open {
-      right: 0;
-      top: 0;
+      transform: translateX(-132px);
       visibility: visible;
     }
   }
@@ -33,30 +37,27 @@
     }
 
     &.active {
-      font-family: $gtAmericaMonoMD;
-      pointer-events: none;
-
-      .navigation__list-link {
-        &:before,
-        &:after {
-          font-family: $gtAmericaMonoMD;
-          opacity: 1;
-        }
-
-        &:before {
-          left: -13px;
-        }
-
-        &:after {
-          right: -13px;
-        }
-      }
+      @extend .active-state;
     }
 
     &:hover {
       #{$root}__list-link {
         color: $white;
       }
+    }
+  }
+}
+
+.page {
+  &-home {
+    .link-vinsol {
+      @extend .active-state;
+    }
+  }
+
+  &-team {
+    .link-team {
+      @extend .active-state;
     }
   }
 }
@@ -69,7 +70,6 @@
     }
 
     &__list {
-      right: -192px;
       text-align: left;
       width: 132px;
     }
