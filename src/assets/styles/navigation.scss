@@ -70,12 +70,24 @@
     }
 
     &__list {
-      text-align: left;
-      width: 132px;
+      width: 100vw;
+      padding: 24px 0;
+
+      &.open {
+        transform: translateX(-100vw);
+      }
+
+      &.at-bottom {
+        top: -40px;
+      }
     }
 
     &__list-item {
       padding-left: 32px;
+
+      & + & {
+        padding-top: 16px;
+      }
     }
   }
 }

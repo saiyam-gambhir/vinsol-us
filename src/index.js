@@ -2,6 +2,7 @@
 import './assets/styles/main.scss';
 import jquery from "jquery";
 export default (window.$ = window.jQuery = jquery);
+import 'pepjs';
 import Navigation from './assets/javascript/navigation';
 import ScrollBar from './assets/javascript/scrollBar';
 import TimeZones from './assets/javascript/timeZones';
@@ -10,8 +11,6 @@ import TimeZones from './assets/javascript/timeZones';
 /* AOS */
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
-AOS.init();
 /* ------------------------------------------------------------------------------- */
 
 /* NAVIGATION */
@@ -72,6 +71,8 @@ $(window).on('load', function() {
   if($(this).width() > 1024) {
     $('#menu-toggle-btn, #navigation-menu').addClass('open');
   }
+  $('#loading').slideUp('slow');
+  AOS.init();
 });
 /* ------------------------------------------------------------------------------- */
 
@@ -95,11 +96,16 @@ $(window).on('load', function() {
           wrapperHeight = $('.wrapper__inner').height(),
           windowHeight = $(window).height(),
           scrollPercentage = (wrapperScrollTop / (wrapperHeight - windowHeight)),
-          navigationListHeight = $('.navigation__list').outerHeight(),
-          positionTop = (scrollPercentage * (windowHeight - navigationListHeight));
+          positionTop = (scrollPercentage * (windowHeight - 136));
 
       scroller.style.transform = positionTop + 'px';
       $('.navigation').css('transform', 'translateY(' + positionTop + 'px)');
+
+      if((positionTop + 136).toFixed(2) > windowHeight - 40) {
+        $('.navigation__list').addClass('at-bottom');
+      } else {
+        $('.navigation__list').removeClass('at-bottom');
+      }
     }
 
     function startDrag(evt) {

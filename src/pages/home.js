@@ -61,6 +61,7 @@ $(window).on('load', function() {
   setTimeout(function() {
     if(window.location.href.includes('contact')) {
       contactForm.showContactFormBtn.click();
+      contactForm.user.name.focus();
     }
   }, 750);
 });
