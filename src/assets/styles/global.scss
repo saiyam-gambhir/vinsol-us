@@ -255,3 +255,31 @@ input::-webkit-contacts-auto-fill-button {
     }
   }
 }
+
+[contenteditable=true]:empty:before {
+  @include fontstyle(30px, 300, 1.5);
+  color: $black-3;
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+  font-family: $gtAmericaMonoRG;
+  pointer-events: none;
+  text-underline-offset: 6px;
+}
+
+#loading {
+  align-items: center;
+  background: lighten($orange, 5%);
+  color: $white;
+  display: flex;
+  font-family: $gtAmericaMonoTH;
+  font-size: 50px;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  letter-spacing: 1px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
+}

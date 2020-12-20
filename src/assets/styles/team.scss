@@ -78,6 +78,10 @@
     transform: rotate(-180deg);
     width: 46px;
     writing-mode: vertical-rl;
+
+    @media(max-width: $mobile) {
+      display: none;
+    }
   }
 
   .member-img {
@@ -417,6 +421,17 @@
   .countries {
     display: none;
   }
+
+  .scrollbar-track {
+    background: transparent !important;
+  }
+
+  .scrollbar-thumb {
+    &.scrollbar-thumb-x {
+      background-color: $red;
+      border-radius: 0px;
+    }
+  }
 }
 
 @media screen and (max-width: $mobile) {
@@ -444,22 +459,16 @@
 
     .map-image-block {
       max-height: 517px;
+      transform: scale(1.3);
 
       .map-img {
         max-width: none;
         max-height: 517px;
       }
     }
-  }
 
-  .scrollbar-track {
-    background: transparent !important;
-  }
-
-  .scrollbar-thumb {
-    &.scrollbar-thumb-x {
-      background-color: $red;
-      border-radius: 0px;
+    .scrollbar-track.scrollbar-track-y {
+      display: none !important;
     }
   }
 

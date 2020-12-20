@@ -13,12 +13,17 @@
 
   > .container {
     height: inherit;
+    position: relative;
   }
 
   .header {
     .container {
       padding: 0;
     }
+  }
+
+  .heading-small {
+    font-family: $gtAmericaMonoTH;
   }
 }
 
@@ -148,6 +153,10 @@
   .page-section {
     opacity: 0;
   }
+
+  .navigation__list.at-bottom {
+    top: 0;
+  }
 }
 
 @media screen and (min-width: 1920px) {
@@ -241,7 +250,7 @@
   }
 
   .slick-arrow-group  {
-    bottom: 39px;
+    bottom: auto;
 
     .submit-btn {
       border: none;

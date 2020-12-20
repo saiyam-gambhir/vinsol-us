@@ -29,7 +29,10 @@ class ContactForm {
       fade: true,
       infinite: false,
       nextArrow: $('.next'),
-      prevArrow: $('.prev')
+      prevArrow: $('.prev'),
+      swipe: false,
+      swipeToSlide: false,
+      touchMove: false
     });
     let $slick = this.slider.slick('getSlick');
     this.pagination.text(($slick.currentSlide + 1) + '/' + $slick.$slides.length);
@@ -106,7 +109,7 @@ class ContactForm {
         return;
       }
       records.forEach(function (record) {
-        console.log(record.getId());
+        //console.log(record.getId());
       });
     });
   };

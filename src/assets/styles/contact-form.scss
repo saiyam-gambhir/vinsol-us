@@ -105,7 +105,7 @@
 }
 
 .contact-form-wrap {
-  margin-top: 160px;
+  margin-top: 140px;
   width: 100%;
 
   &.mt-8 {
@@ -197,19 +197,27 @@
     }
 
     &.user-query {
-      border-bottom: 0;
+      border: 0 !important;
       margin: 0 auto;
+      max-height: 175px;
       max-width: 500px;
       min-width: 170px;
+      overflow-y: auto;
+      scrollbar-width: none;
       text-decoration: underline;
+      text-underline-offset: 4px;
       width: auto;
 
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       &:focus {
-        border-bottom: 0 !important;
+        border: 0 !important;
       }
 
       @media(max-width: 767px) {
-        max-width: 320px;
+        max-width: 100%;
       }
     }
 
@@ -411,7 +419,6 @@
         top: 0;
         bottom: 0;
         content: '';
-        background-image: url("./../images/radio-bg.svg");
         background-size: 100%;
         background-position: center;
         background-repeat: no-repeat;
