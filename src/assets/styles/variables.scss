@@ -1,12 +1,13 @@
 /* Breakpoints */
-$smallDesktop: 1120px;
-$tabletLandscape: 1024px;
-$tabletAndMobile: 1023px;
 $mobile: 767px;
-$mobilePortraitPlus: 414px;
-$mobilePortraitX: 375px;
 $mobilePortrait: 365px;
+$mobilePortraitPlus: 414px;
 $mobilePortraitSmall: 320px;
+$mobilePortraitX: 375px;
+$smallDesktop: 1120px;
+$tabletAndMobile: 1023px;
+$tabletLandscape: 1024px;
+$tabletPortrait: 768px;
 
 /* Constants */
 $containerHorizontalPadding: 48px;
@@ -16,8 +17,9 @@ $containerWidth: 1120px;
 $maxItemsToAnimate: 6;
 
 /* Colors */
-$black: #000000;
 $black-3: rgba(0, 0, 0, 0.3);
+$black-8: rgba(0, 0, 0, 0.8);
+$black: #000000;
 $darkGrey: #c4c4c4;
 $gray: #f6f6f6;
 $orange: #ff4f00;
