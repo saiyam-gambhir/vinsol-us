@@ -429,8 +429,10 @@
 
       &:hover {
         &:before {
-          opacity: 1;
-          background-image: url("./../images/money-hover.svg");
+          @media(min-width: 1025px) {
+            background-image: url("./../images/money-hover.svg");
+            opacity: 1;
+          }
         }
 
         span {
@@ -448,17 +450,20 @@
         }
 
         &:before {
-          opacity: 1;
-          background-image: url("./../images/radio-bg.svg");
+          @media(min-width: 1025px) {
+            background-image: url("./../images/radio-bg.svg");
+            opacity: 1;
+          }
         }
 
          &:hover {
           &:before {
-            background-image: url("./../images/radio-bg.svg");
+            @media(min-width: 1025px) {
+              background-image: url("./../images/radio-bg.svg");
+            }
           }
         }
       }
-
     }
   }
 }
@@ -605,6 +610,7 @@
       + .checkbox-label {
           color: $orange;
           text-decoration: underline;
+          text-underline-offset: 6px;
         }
     }
   }
@@ -644,6 +650,7 @@
         input:checked ~ label > span {
           color: $orange;
           text-decoration: underline;
+          text-underline-offset: 6px;
         }
 
         .radio-label {
