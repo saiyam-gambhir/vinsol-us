@@ -140,9 +140,9 @@ class ContactForm {
       let $this = $(this);
       if($this.val() === '') {
         if($(window).width() > 767) {
-          $this.css('width', '170px');
+          $this.css('width', '127px');
         } else {
-          $this.css('width', '135px');
+          $this.css('width', '102px');
         }
         $this.removeClass('not-empty');
         _this.contactForm.addClass('disabled');

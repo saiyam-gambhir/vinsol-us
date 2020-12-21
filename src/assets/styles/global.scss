@@ -261,7 +261,7 @@ input::-webkit-contacts-auto-fill-button {
   color: $black-3;
   content: attr(placeholder);
   display: block; /* For Firefox */
-  font-family: $gtAmericaMonoRG;
+  font-family: $gtAmericaLT;
   pointer-events: none;
   text-underline-offset: 6px;
 }
