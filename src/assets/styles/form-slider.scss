@@ -211,6 +211,7 @@
 
     .form-input__field {
       @include fontstyle(1.5em, 300, 1.38);
+      font-family: $gtAmericaLT;
     }
   }
 

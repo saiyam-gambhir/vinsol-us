@@ -173,12 +173,12 @@
   margin: 0px auto;
 
   &__field {
-    font-family: $gtAmericaMonoLT;
     @include fontstyle(1.875em, 300, 45px);
     border: 0;
     border-bottom: 1px solid $black-3;
     background-color: transparent;
     color: $black;
+    font-family: $gtAmericaLT;
     padding: 0;
     text-align: center;
     caret-color: $red;
@@ -186,14 +186,14 @@
     will-change: border-bottom;
     border-radius: 0;
     max-width: 100%;
-    width: 170px;
+    width: 127px;
 
     &:focus {
       border-bottom: solid 1px $black !important;
     }
 
     @media(max-width: $mobile) {
-      width: 135px;
+      width: 102px;
     }
 
     &.user-query {
@@ -201,7 +201,7 @@
       margin: 0 auto;
       max-height: 175px;
       max-width: 500px;
-      min-width: 170px;
+      min-width: 127px;
       overflow-y: auto;
       scrollbar-width: none;
       text-decoration: underline;
