@@ -1,16 +1,13 @@
 /* IMPORTS */
 import './assets/styles/main.scss';
-import jquery from "jquery";
-export default (window.$ = window.jQuery = jquery);
+import 'aos/dist/aos.css';
 import 'pepjs';
+import AOS from 'aos';
 import Navigation from './assets/javascript/navigation';
 import ScrollBar from './assets/javascript/scrollBar';
 import TimeZones from './assets/javascript/timeZones';
-/* ------------------------------------------------------------------------------- */
-
-/* AOS */
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import jquery from "jquery";
+export default (window.$ = window.jQuery = jquery);
 /* ------------------------------------------------------------------------------- */
 
 /* NAVIGATION */
