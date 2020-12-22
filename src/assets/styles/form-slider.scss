@@ -96,7 +96,7 @@
     }
   }
 
-  .pagingInfo{
+  .pagingInfo {
     @include fontstyle(0.7em, 100, 0.91);
     display: inline-block;
     color: $white-5;
@@ -117,6 +117,10 @@
     &.hide {
       opacity: 0;
       visibility: hidden;
+    }
+
+    @media(max-width: $tabletLandscape) {
+      display: none;
     }
   }
 
@@ -156,6 +160,14 @@
 
   .navigation__list.at-bottom {
     top: 0;
+  }
+
+  .navigation__list-item {
+    font-family: $gtAmericaMonoLT;
+  }
+
+  .nav-contact-btn {
+    @extend .active-state;
   }
 }
 

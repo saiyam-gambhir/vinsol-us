@@ -175,21 +175,25 @@
   &__field {
     @include fontstyle(1.875em, 300, 45px);
     border: 0;
-    border-bottom: 1px solid $black-3;
     background-color: transparent;
     color: $black;
     font-family: $gtAmericaLT;
     padding: 0;
     text-align: center;
     caret-color: $red;
-    transition:border-bottom 500ms ease-in-out;
-    will-change: border-bottom;
-    border-radius: 0;
     max-width: 100%;
     width: 127px;
 
+    &:not(.user-query) {
+      border-bottom: 1px solid $black-3;
+      transition:border-bottom 500ms ease-in-out;
+      will-change: border-bottom;
+      border-radius: 0;
+    }
+
     &:focus {
       border-bottom: solid 1px $black !important;
+      outline: none !important;
     }
 
     @media(max-width: $mobile) {
@@ -198,33 +202,49 @@
 
     &.user-query {
       border: 0 !important;
+      font-size: 1.875em !important;
+      height: 175px;
       margin: 0 auto;
-      max-height: 175px;
       max-width: 500px;
       min-width: 127px;
       overflow-y: auto;
       scrollbar-width: none;
       text-decoration: underline;
-      text-underline-offset: 4px;
+      text-underline-offset: .25em;
+      text-decoration-thickness: 1px;
       width: auto;
+      resize: none;
 
       &::-webkit-scrollbar {
         display: none;
       }
 
+      &::placeholder {
+        text-decoration-thickness: 1px;
+        text-decoration: underline;
+        text-underline-offset: .25em;
+      }
+
       &:focus {
         border: 0 !important;
+        outline: 0 !important;
       }
 
       @media(max-width: 767px) {
         max-width: 100%;
+        font-size: 1.5em !important;
       }
     }
 
     &.input-type-text {
       &.not-empty {
         border-bottom: solid 1px $black;
+        transition: color $transitionTimeFastLinear;
       }
+    }
+
+    &.theme-color {
+      color: $orange;
     }
   }
 
@@ -293,8 +313,6 @@
 
   &:hover {
     label {
-      color: $white;
-
       @media(min-width: $smallDesktop) {
         color: $white;
       }
@@ -398,12 +416,12 @@
 
     .radio-label {
       @extend %flex;
+      @include fontstyle(1.87em, 300, 1.5);
+      cursor: pointer;
+      font-family: $gtAmericaLT;
+      height: 100%;
       position: absolute;
       width: 100%;
-      height: 100%;
-      cursor: pointer;
-      @include fontstyle(1.87em, 300, 1.5);
-      font-family: $gtAmericaMonoLT;
 
       span {
         color: $black;
@@ -428,15 +446,15 @@
       }
 
       &:hover {
-        &:before {
-          @media(min-width: 1025px) {
+        @media(min-width: 1025px) {
+          &:before {
             background-image: url("./../images/money-hover.svg");
             opacity: 1;
           }
-        }
 
-        span {
-          color: $white;
+          span {
+            color: $white;
+          }
         }
       }
     }
@@ -482,7 +500,7 @@
   .radio-label {
     @include fontstyle(0.75em, 100, 1.33);
     padding-left: 8px;
-    font-family: $gtAmericaMonoTH;
+    font-family: $gtAmericaLT;
 
     &:before {
       position: absolute;
@@ -655,7 +673,7 @@
 
         .radio-label {
           @include fontstyle(1.25em, 300, 1.5);
-          font-family: $gtAmericaMonoLT;
+          font-family: $gtAmericaLT;
 
           &:before {
             background-image: none;
@@ -844,7 +862,7 @@
 .slick-arrow-group {
   .submit-btn {
     &.submit-btn-custom {
-      font-family: $gtAmericaMonoTH;
+      font-family: $gtAmericaMonoLT;
     }
   }
 }
