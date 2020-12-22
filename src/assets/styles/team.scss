@@ -457,12 +457,15 @@
   }
 
   .map-heading {
+    padding: 24px 24px 0 24px;
     text-align: left;
-    padding: 24px 24px 16px 24px;
+    transform: scale(.77);
   }
 
   .map-area {
     margin-bottom: 50px;
+    margin-top: 175px;
+    transform: scale(1.3);
 
     .container {
       padding: 0;

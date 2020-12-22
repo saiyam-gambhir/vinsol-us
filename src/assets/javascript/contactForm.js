@@ -123,7 +123,7 @@ class ContactForm {
     let formData = {
       "Email": email.val(),
       "Name" : name.val(),
-      "What are you looking to build?": query.text(),
+      "What are you looking to build?": query.val(),
       "What is your budget?": budget,
       "What kind of support are you looking for?": supportOptionsList,
     }
@@ -155,8 +155,10 @@ class ContactForm {
       if($this.data('hook') === 'user-email') {
         if(_this.validateEmail($this)) {
           _this.contactForm.removeClass('disabled');
+          $this.addClass('theme-color');
         } else {
           _this.contactForm.addClass('disabled');
+          $this.removeClass('theme-color');
         }
       }
     });
@@ -165,7 +167,7 @@ class ContactForm {
   userQueryInputHandler() {
     let _this = this;
     this.user.query.on('input', function() {
-      $(this).text() === '' ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled');
+      $(this).val() === '' ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled');
     });
   };
 
@@ -207,7 +209,7 @@ class ContactForm {
           email.focus();
           break;
         case 2:
-          query.text() === '' ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled')
+          query.val() === '' ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled')
           query.focus()
           break;
         case 3:
