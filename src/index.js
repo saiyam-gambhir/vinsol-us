@@ -134,9 +134,15 @@ $(window).on('load', function() {
       scrollerHeight = calculateScrollerHeight();
 
       if (scrollerHeight / scrollContainer.offsetHeight < 1) {
-        scroller.addEventListener('pointerdown', startDrag);
-        window.addEventListener('pointerup', stopDrag);
-        window.addEventListener('mousemove', scrollBarScroll)
+        if(window.width < 1025) {
+          scroller.addEventListener('touchstart', startDrag);
+          window.addEventListener('touchend', stopDrag);
+          window.addEventListener('touchmove', scrollBarScroll);
+        } else {
+          scroller.addEventListener('pointerdown', startDrag);
+          window.addEventListener('pointerup', stopDrag);
+          window.addEventListener('mousemove', scrollBarScroll);
+        }
       }
     }
 
