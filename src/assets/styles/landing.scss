@@ -1,6 +1,15 @@
 .landing-section {
-  padding: 0 0 80px 0;
   position: relative;
+
+  @media(min-width: 1120px) {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    .container {
+      min-width: 1120px;
+    }
+  }
 
   .section-heading {
     align-self: flex-end;
@@ -10,7 +19,6 @@
   &__container {
     display: flex;
     justify-content: space-between;
-    padding-top: 60px;
   }
 
   &__shapes {
@@ -74,15 +82,17 @@
 
   .landing__shapes {
     width: 100%;
+    text-align: center;
   }
 
   .landing-shapes {
     &__top {
       left: 0;
       width: 100%;
+      text-align: center;
 
       > svg {
-        width: 100%;
+        width: auto;
       }
     }
 
@@ -94,6 +104,12 @@
         width: 100%;
       }
     }
+  }
+}
+
+@media(max-width: $tabletPortrait) {
+  .page-section.landing-section {
+    align-items: flex-start;
   }
 }
 
