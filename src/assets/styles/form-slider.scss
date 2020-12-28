@@ -10,6 +10,12 @@
   transition: opacity $transitionTimeFastLinear;
   width: 100vw;
   z-index: -1;
+  transition: opacity .5s;
+
+  &.fade-out {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
 
   > .container {
     height: inherit;

@@ -4,12 +4,6 @@
   justify-content: center;
 }
 
-%placeholder {
-  color: $black-3;
-  font-family: $gtAmericaMonoRG;
-  @include fontstyle(30px, 300, 1.5);
-}
-
 @mixin checkbox-svg($w, $h, $l, $t) {
   width: $w;
   height: $h;
@@ -174,25 +168,24 @@
 
   &__field {
     @include fontstyle(1.875em, 300, 45px);
-    border: 0;
     background-color: transparent;
+    border: 0 !important;
+    caret-color: $red;
     color: $black;
     font-family: $gtAmericaLT;
     padding: 0;
     text-align: center;
-    caret-color: $red;
-    max-width: 100%;
-    width: 127px;
+    width: 100%;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: $black-3;
 
     &:not(.user-query) {
-      border-bottom: 1px solid $black-3;
-      transition:border-bottom 500ms ease-in-out;
-      will-change: border-bottom;
       border-radius: 0;
     }
 
     &:focus {
-      border-bottom: solid 1px $black !important;
       outline: none !important;
     }
 
@@ -201,6 +194,7 @@
     }
 
     &.user-query {
+      appearance: inherit;
       border: 0 !important;
       font-size: 1.875em !important;
       height: 175px;
@@ -208,21 +202,16 @@
       max-width: 500px;
       min-width: 127px;
       overflow-y: auto;
-      scrollbar-width: none;
-      text-decoration: underline;
-      text-underline-offset: .25em;
-      text-decoration-thickness: 1px;
-      width: auto;
       resize: none;
+      scrollbar-width: none;
+      width: auto;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: $black;
 
       &::-webkit-scrollbar {
         display: none;
-      }
-
-      &::placeholder {
-        text-decoration-thickness: 1px;
-        text-decoration: underline;
-        text-underline-offset: .25em;
       }
 
       &:focus {
@@ -238,40 +227,42 @@
 
     &.input-type-text {
       &.not-empty {
-        border-bottom: solid 1px $black;
-        transition: color $transitionTimeFastLinear;
+        transition: color text-decoration-color $transitionTimeFastLinear;
+        text-decoration-color: $black;
       }
     }
 
     &.theme-color {
       color: $orange;
+      text-decoration-color: $orange !important;
     }
-  }
 
-  &__field::-webkit-input-placeholder {
-    @extend %placeholder;
-  }
+    &::-webkit-input-placeholder {
+      color: $black-3;
+      opacity: 1;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: $black-3;
+    }
 
-  &__field:-ms-input-placeholder {
-    @extend %placeholder;
-  }
+    &:-ms-input-placeholder {
+      color: $black-3;
+      opacity: 1;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: $black-3;
+    }
 
-  &__field::placeholder {
-    @extend %placeholder;
-  }
-}
-
-.input-custom-field {
-  &::-webkit-input-placeholder {
-    color: $black-3;
-  }
-
-  &:-ms-input-placeholder {
-    color: $black-3;
-  }
-
-  &::placeholder {
-    color: $black-3;
+    &::placeholder {
+      color: $black-3;
+      opacity: 1;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: $black-3;
+    }
   }
 }
 

@@ -2,10 +2,9 @@ import Airtable from 'airtable';
 const EmailRegEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 class ContactForm {
-  constructor({ budgetOption, characterWidth, contactForm, contactFormTextInputContainer, enterToProceedBtn, formInput, navToggleBtn, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
+  constructor({ budgetOption, contactForm, contactFormTextInputContainer, enterToProceedBtn, formInput, navToggleBtn, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
     Object.assign(this, {
       budgetOption,
-      characterWidth,
       contactForm,
       contactFormTextInputContainer,
       enterToProceedBtn,
@@ -98,7 +97,9 @@ class ContactForm {
   };
 
   sendUserForm(apiKey, formData) {
+    let _this = this;
     let base = new Airtable({apiKey}).base('appoQoBF3HUIOx0QE');
+
     base('Contact Form Submission').create([
       {
         "fields": formData
@@ -108,9 +109,10 @@ class ContactForm {
         console.error(err);
         return;
       }
-      records.forEach(function (record) {
-        //console.log(record.getId());
-      });
+
+      if(records) {
+        _this.contactForm.addClass('fade-out');
+      }
     });
   };
 
@@ -139,15 +141,9 @@ class ContactForm {
     this.formInput.on('input', function() {
       let $this = $(this);
       if($this.val() === '') {
-        if($(window).width() > 767) {
-          $this.css('width', '127px');
-        } else {
-          $this.css('width', '102px');
-        }
         $this.removeClass('not-empty');
         _this.contactForm.addClass('disabled');
       } else {
-        $this.css('width', (this.value.length + 1) * _this.characterWidth + 'px');
         $this.addClass('not-empty');
         _this.contactForm.removeClass('disabled');
       }
@@ -185,13 +181,13 @@ class ContactForm {
   submitFormHandler() {
     let _this = this;
     this.submitFormBtn.on('click', function() {
-      _this.wrapper.removeClass("fullscreen");
+      //_this.wrapper.removeClass("fullscreen");
       _this.userFormHandler();
-      _this.clearForm();
-      setTimeout(() =>{
-        _this.slider.slick('slickGoTo', 0);
-        _this.wrapper.removeClass('vin fullscreen');
-      }, 500);
+      //_this.clearForm();
+      // setTimeout(() => {
+      //   _this.slider.slick('slickGoTo', 0);
+      //   _this.wrapper.removeClass('vin fullscreen');
+      // }, 500);
     });
   };
 

@@ -15,16 +15,8 @@ var ourApproach = new OurApproach(ourApproachOptions);
 /* ------------------------------------------------------------------------------- */
 
 /* CONTACT FORM */
-var characterWidth = 0;
-if($(window).width() > 767) {
-  characterWidth = 15.75;
-} else {
-  characterWidth = 12.5;
-}
-
 var contactFormOptions = {
   budgetOption: $('[data-hook=budget]'),
-  characterWidth: characterWidth,
   contactForm: $('[data-hook=contact-form]'),
   contactFormTextInputContainer: $('.contact-input__inner'),
   customerRequirementTextarea: $('[data-hook=customer-requirement'),
