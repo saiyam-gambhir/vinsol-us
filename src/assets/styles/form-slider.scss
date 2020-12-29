@@ -11,6 +11,26 @@
   width: 100vw;
   z-index: -1;
 
+  .arrow-count,
+  .slick-arrow-group,
+  .slideshow {
+    transition: opacity $transitionTimeFastLinear;
+  }
+
+  &.fade-out {
+    .arrow-count,
+    .slick-arrow-group,
+    .slideshow {
+      opacity: 0 !important;
+      pointer-events: none;
+    }
+  }
+
+  &.show-loading {
+    opacity: .25 !important;
+    pointer-events: none;
+  }
+
   > .container {
     height: inherit;
     position: relative;
@@ -123,24 +143,26 @@
       display: none;
     }
   }
+}
 
-  .submit-btn {
-    @include fontstyle(0.625em, normal, 1.5);
-    color: $black;
-    cursor: pointer;
-    margin-top: 0;
-    box-shadow: none;
-    background-color: transparent;
-    border: 1px solid $red;
-    padding: 6px;
-    transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
-    will-change: background-color;
+.submit-btn {
+  @include fontstyle(0.625em, normal, 1.5);
+  color: $black;
+  cursor: pointer;
+  margin-top: 0;
+  box-shadow: none;
+  background-color: transparent;
+  border: 1px solid $red;
+  padding: 6px;
+  transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+  will-change: background-color;
+  min-width: 81px;
+  padding: 4px 10px;
 
-    &:hover, &:focus {
-      background-color: $red;
-      border-color: transparent;
-      color: $white;
-    }
+  &:hover, &:focus {
+    background-color: $red;
+    border-color: transparent;
+    color: $white;
   }
 }
 
@@ -262,14 +284,14 @@
     }
   }
 
+  .submit-btn {
+    border: none;
+    color: $orange;
+    font-size: 1.125em;
+  }
+
   .slick-arrow-group  {
     bottom: auto;
-
-    .submit-btn {
-      border: none;
-      color: $orange;
-      font-size: 1.125em;
-    }
 
     .pagingInfo {
       display: none;

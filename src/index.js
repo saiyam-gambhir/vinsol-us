@@ -88,6 +88,7 @@ $(window).on('load', function() {
       return visibleRatio * scrollContainer.offsetHeight;
     }
 
+    // 136 height of scrollbar
     function moveScroller(evt) {
       let wrapperScrollTop = $('.wrapper').scrollTop(),
           wrapperHeight = $('.wrapper__inner').height(),
