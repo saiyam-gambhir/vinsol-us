@@ -1,12 +1,16 @@
 import Airtable from 'airtable';
 const EmailRegEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const APIKEY = 'key4GFYRxkE4XHE17';
 
 class ContactForm {
-  constructor({ budgetOption, contactForm, contactFormTextInputContainer, enterToProceedBtn, formInput, navToggleBtn, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
+  constructor({ budgetOption, closeContactFormBtn, contactForm, contactFormTextInputContainer, contactSubmittedSection, displayName, enterToProceedBtn, formInput, navToggleBtn, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
     Object.assign(this, {
       budgetOption,
+      closeContactFormBtn,
       contactForm,
       contactFormTextInputContainer,
+      contactSubmittedSection,
+      displayName,
       enterToProceedBtn,
       formInput,
       navToggleBtn,
@@ -111,7 +115,10 @@ class ContactForm {
       }
 
       if(records) {
-        _this.contactForm.addClass('fade-out');
+        _this.contactForm.addClass('fade-out').removeClass('show-loading');
+        setTimeout(() => {
+          _this.contactSubmittedSection.addClass('fade-in');
+        }, 300);
       }
     });
   };
@@ -129,7 +136,7 @@ class ContactForm {
       "What is your budget?": budget,
       "What kind of support are you looking for?": supportOptionsList,
     }
-    this.sendUserForm('keyredyoDL3M8X3wI', formData);
+    this.sendUserForm(APIKEY, formData);
   };
 
   validateEmail(email) {
@@ -146,6 +153,10 @@ class ContactForm {
       } else {
         $this.addClass('not-empty');
         _this.contactForm.removeClass('disabled');
+      }
+
+      if($this.data('hook') === 'user-name') {
+        _this.displayName.text($this.val());
       }
 
       if($this.data('hook') === 'user-email') {
@@ -172,22 +183,31 @@ class ContactForm {
     this.navToggleBtn.removeClass('initial');
     this.supportOption.prop("checked", false);
     this.user.budget = '';
-    this.user.email.val('').removeClass('not-empty').removeAttr('style');
-    this.user.name.val('').removeClass('not-empty').removeAttr('style');
-    this.user.query.text('').removeClass('not-empty').removeAttr('style');
+    this.user.email.val('').removeClass('not-empty');
+    this.user.name.val('').removeClass('not-empty');
+    this.user.query.val('').removeClass('not-empty');
     this.user.supportOptionsList = [];
+    this.contactForm.removeClass('fade-out');
+    this.contactSubmittedSection.removeClass('fade-in');
   };
 
   submitFormHandler() {
     let _this = this;
     this.submitFormBtn.on('click', function() {
-      //_this.wrapper.removeClass("fullscreen");
+      _this.contactForm.addClass('show-loading');
       _this.userFormHandler();
-      //_this.clearForm();
-      // setTimeout(() => {
-      //   _this.slider.slick('slickGoTo', 0);
-      //   _this.wrapper.removeClass('vin fullscreen');
-      // }, 500);
+    });
+  };
+
+  closeContactFormHandler() {
+    let _this = this;
+    this.closeContactFormBtn.on('click', function() {
+      _this.wrapper.removeClass('fullscreen');
+      _this.clearForm();
+      setTimeout(function() {
+        _this.slider.slick('slickGoTo', 0);
+        _this.wrapper.removeClass('vin fullscreen');
+      }, 250);
     });
   };
 
@@ -240,6 +260,7 @@ class ContactForm {
     this.submitFormHandler();
     this.formStateHandler();
     this.userQueryInputHandler();
+    this.closeContactFormHandler();
   }
 };
 

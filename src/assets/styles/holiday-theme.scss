@@ -58,7 +58,7 @@
   top: -40px;
   user-select: none;
 
-  @for $i from 1 to 25 {
+  @for $i from 1 through 25 {
     &:nth-child(#{$i}) {
       -webkit-animation-delay: #{3*$i + 1}s;
       animation-delay: #{3*$i + 1}s;

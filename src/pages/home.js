@@ -17,9 +17,12 @@ var ourApproach = new OurApproach(ourApproachOptions);
 /* CONTACT FORM */
 var contactFormOptions = {
   budgetOption: $('[data-hook=budget]'),
+  closeContactFormBtn: $('[data-hook=close-contact-form]'),
   contactForm: $('[data-hook=contact-form]'),
   contactFormTextInputContainer: $('.contact-input__inner'),
+  contactSubmittedSection: $('[data-hook=contact-submitted]'),
   customerRequirementTextarea: $('[data-hook=customer-requirement'),
+  displayName: $('[data-hook="display-name"]'),
   enterToProceedBtn: $('[data-hook=press-enter-to-proceed]'),
   formInput: $('.input-type-text'),
   navToggleBtn: $('#menu-toggle-btn'),

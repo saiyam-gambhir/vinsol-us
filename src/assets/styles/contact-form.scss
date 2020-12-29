@@ -141,8 +141,8 @@
   margin: 0 auto;
   max-width: 100%;
   height: inherit;
-  padding-left:  $containerHorizontalPaddingFormLeft;
-  padding-right:  $containerHorizontalPaddingFormRight;
+  padding-left: 40px;
+  padding-right: 40px;
 
   @media(max-width: $containerWidth) {
     width: 100%;
@@ -187,10 +187,6 @@
 
     &:focus {
       outline: none !important;
-    }
-
-    @media(max-width: $mobile) {
-      width: 102px;
     }
 
     &.user-query {
@@ -850,13 +846,13 @@
   }
 }
 
-.slick-arrow-group {
-  .submit-btn {
-    &.submit-btn-custom {
-      font-family: $gtAmericaMonoLT;
-    }
+
+.submit-btn {
+  &.submit-btn-custom {
+    font-family: $gtAmericaMonoLT;
   }
 }
+
 
 .slider-form-wrap {
   &.disabled {
@@ -865,5 +861,48 @@
       opacity: .3;
       pointer-events: none;
     }
+  }
+}
+
+.submit-success-section {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  top: 0;
+  transition: opacity $transitionTimeFastLinear;
+  visibility: hidden;
+  white-space: nowrap;
+  width: 100%;
+
+  &.fade-in {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .form-wrapper {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: static;
+    transform: none;
+  }
+
+  .headings {
+    margin-top: 0;
+  }
+
+  .heading-form {
+    color: $black;
+    font-size: 1.875em;
+    line-height: 45px;
+  }
+
+  .submit-btn {
+    bottom: 64px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
