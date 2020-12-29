@@ -206,6 +206,7 @@ class ContactForm {
       _this.clearForm();
       setTimeout(function() {
         _this.slider.slick('slickGoTo', 0);
+        _this.user.name.focusout();
         _this.wrapper.removeClass('vin fullscreen');
       }, 250);
     });
@@ -218,7 +219,9 @@ class ContactForm {
       switch(currentSlide) {
         case 0:
           name.val() === '' ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled')
-          name.focus();
+          if(_this.wrapper.hasClass('vin')) {
+            name.focus();
+          }
           break;
         case 1:
           email.val() === '' ? _this.contactForm.addClass('disabled') : _this.contactForm.removeClass('disabled')
