@@ -8,6 +8,7 @@ import ScrollBar from './assets/javascript/scrollBar';
 import TimeZones from './assets/javascript/timeZones';
 import jquery from "jquery";
 export default (window.$ = window.jQuery = jquery);
+window.APIKEY = 'key4GFYRxkE4XHE17';
 /* ------------------------------------------------------------------------------- */
 
 /* NAVIGATION */

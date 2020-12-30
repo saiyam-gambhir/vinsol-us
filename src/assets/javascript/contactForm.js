@@ -1,6 +1,5 @@
 import Airtable from 'airtable';
 const EmailRegEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const APIKEY = 'key4GFYRxkE4XHE17';
 
 class ContactForm {
   constructor({ budgetOption, closeContactFormBtn, contactForm, contactFormTextInputContainer, contactSubmittedSection, displayName, enterToProceedBtn, formInput, navToggleBtn, pagination, showContactFormBtn, slider, submitFormBtn, supportOption, user, wrapper }) {
