@@ -26,12 +26,12 @@ base('Jobs').select({
 }).eachPage(function page(records, fetchNextPage) {
 // This function (`page`) will get called for each page of records.
 
-  records.forEach(function(record) {
+  records.forEach(function(record, index) {
     if(record.get('Status') === 'Closed' || record.get('Status') === 'Filled') {
       closedJobs += 1;
       return
     };
-    $('[data-hook=jobs-listing]').append('<li><a class="job-link" target="_blank" href="' + record.get('URL') + '"><span>' + record.get('Title') +'</span><br/>' + record.get('Location') + '</a></li>');
+    $('[data-hook=jobs-listing]').append('<li data-aos="fade-up" data-aos-duration="750" data-aos-delay="' + ((index+1)*100) + '"><a class="job-link" target="_blank" href="' + record.get('URL') + '"><span>' + record.get('Title') +'</span><br/>' + record.get('Location') + '</a></li>');
   });
 
   if(records.length === closedJobs) {
