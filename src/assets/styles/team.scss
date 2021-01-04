@@ -74,7 +74,7 @@
     align-items: flex-end;
     color: $red;
     display: flex;
-    font-size: 1.125em;
+    font-size: 1em;
     left: -47px;
     position: absolute;
     text-orientation: mixed;
@@ -98,14 +98,19 @@
 }
 
 .member-name {
-  &:hover + .member-info {
-    opacity: 1;
-    transform: scale(1);
+  cursor: pointer;
+
+  &:hover {
+    color: $red;
+
+    + .member-info {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 }
 
 .member-list-item {
-  cursor: pointer;
 
   &.show-info {
     .member-info {
@@ -118,11 +123,11 @@
     }
   }
 
-  &:hover {
-    .member-name {
-      color: $red;
-    }
-  }
+  // &:hover {
+  //   .member-name {
+  //     color: $red;
+  //   }
+  // }
 }
 
 .map-heading  {
