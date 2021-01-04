@@ -122,12 +122,6 @@
       color: $red;
     }
   }
-
-  // &:hover {
-  //   .member-name {
-  //     color: $red;
-  //   }
-  // }
 }
 
 .map-heading  {
@@ -437,9 +431,9 @@
 
 @media screen and (max-width: $mobile) {
   .member-list {
-    grid-template-rows: repeat(44, min-content);
+    grid-template-rows: repeat(46, min-content);
 
-    .member-list-item:nth-child(n+45) {
+    .member-list-item:nth-child(n+47) {
       .member-info {
         transform-origin: right top;
       }
