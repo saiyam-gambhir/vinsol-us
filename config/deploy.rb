@@ -55,7 +55,8 @@ namespace :npm do
     on roles(:app) do
       within release_path do
         execute :ls, '-ltha'
-        execute :npm, "run build:production"
+        info release_path
+        execute :npm, :run, "build:production"
       end
     end
   end
