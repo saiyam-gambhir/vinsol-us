@@ -25,7 +25,7 @@ set :deploy_to, "/var/www/vinsol.com"
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
-append :linked_dirs, "node_modules"
+# append :linked_dirs, "node_modules"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -45,6 +45,7 @@ namespace :npm do
   task :install do |t|
     on roles(:app) do
       within release_path do
+        execute :pwd
         execute :npm, :install
       end
     end
@@ -62,5 +63,5 @@ namespace :npm do
   end
 end
 
-before 'deploy:symlink:release', 'npm:install'
+after 'deploy:symlink:linked_dirs', 'npm:install'
 after 'npm:install', 'npm:build'

@@ -17,7 +17,7 @@
   "dependencies": {
     "sass": "^1.26.10",
     "parcel-bundler": "^1.12.4",
-    "airtable": "^0.10.0",
+    "airtable": "^0.10.1",
     "aos": "^3.0.0-beta.6",
     "jquery": "^3.5.1",
     "moment": "^2.27.0",
