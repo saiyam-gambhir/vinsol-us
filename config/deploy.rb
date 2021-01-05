@@ -39,7 +39,6 @@ set :keep_releases, 5
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
-before 'deploy:symlink:release', 'npm:install'
 
 namespace :npm do
   desc "run npm install"
@@ -50,4 +49,17 @@ namespace :npm do
       end
     end
   end
+
+  desc "npm run build:production"
+  task :build do |t|
+    on roles(:app) do
+      within release_path do
+        execute :ls, '-ltha'
+        execute :npm, "run build:production"
+      end
+    end
+  end
 end
+
+before 'deploy:symlink:release', 'npm:install'
+after 'npm:install', 'npm:build'

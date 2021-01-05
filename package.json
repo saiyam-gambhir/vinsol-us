@@ -12,11 +12,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel-bundler": "^1.12.4",
     "posthtml-include": "^1.4.3",
     "sass": "^1.26.10"
   },
   "dependencies": {
+    "parcel-bundler": "^1.12.4",
     "airtable": "^0.10.0",
     "aos": "^3.0.0-beta.6",
     "jquery": "^3.5.1",
