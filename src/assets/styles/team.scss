@@ -70,6 +70,11 @@
   will-change: transform, opacity;
   z-index: 1;
 
+  &.info-top {
+    transform-origin: bottom left;
+    bottom: 25px;
+  }
+
   .member-post {
     align-items: flex-end;
     color: $red;
@@ -111,6 +116,7 @@
 }
 
 .member-list-item {
+  position: relative;
 
   &.show-info {
     .member-info {
