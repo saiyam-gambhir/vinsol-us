@@ -82,7 +82,7 @@ class ContactForm {
         _this.user.supportOptionsList.splice(_this.user.supportOptionsList.indexOf($this.attr('id')), 1);
       }
 
-      _this.user.supportOptionsList.length > 0 ? _this.contactForm.removeClass('disabled') : _this.contactForm.addClass('disabled'); 
+      _this.user.supportOptionsList.length > 0 ? _this.contactForm.removeClass('disabled') : _this.contactForm.addClass('disabled');
     });
   };
 
@@ -161,10 +161,10 @@ class ContactForm {
       if($this.data('hook') === 'user-email') {
         if(_this.validateEmail($this)) {
           _this.contactForm.removeClass('disabled');
-          $this.addClass('theme-color');
+          $this.addClass('black-color');
         } else {
           _this.contactForm.addClass('disabled');
-          $this.removeClass('theme-color');
+          $this.removeClass('black-color');
         }
       }
     });
