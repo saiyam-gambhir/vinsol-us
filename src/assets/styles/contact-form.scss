@@ -228,7 +228,19 @@
       }
     }
 
-    &.theme-color {
+    &.email-field {
+      &.not-empty {
+        color: $orange;
+        text-decoration-color: $orange;
+
+        &.black-color {
+          color: $black;
+          text-decoration-color: $black !important;
+        }
+      }
+    }
+
+    .theme-color {
       color: $orange;
       text-decoration-color: $orange !important;
     }
