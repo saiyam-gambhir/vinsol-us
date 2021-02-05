@@ -18,6 +18,22 @@ if($(window).width() < 1025) {
 }
 /* ------------------------------------------------------------------------------- */
 
+/* adjust team member profile image based on the viewport height*/
+$(".member-list-item").on({
+  mouseenter: function() {
+    var $this = $(this),
+    thisTopOffset = $(window).height() - $this.offset().top,
+    memberInfoHeight = $this.find(".member-info").height() + $this.height();
+      
+    if(thisTopOffset < memberInfoHeight) {
+      $this.find(".member-info").addClass('info-top');
+    }else{
+      $this.find(".info-top").removeClass('info-top');
+    }
+  }
+})
+/* adjust team member profile image based on the viewport height*/
+
 /* Fetch Job Openings */
 var base = new Airtable({apiKey: APIKEY}).base('appoQoBF3HUIOx0QE');
 var closedJobs = 0;
