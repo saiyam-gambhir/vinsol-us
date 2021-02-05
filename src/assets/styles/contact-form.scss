@@ -425,8 +425,6 @@
       span {
         color: $black;
         position: relative;
-        transition: color 500ms ease-in-out;
-        will-change: color;
       }
 
       &:before {
@@ -453,6 +451,8 @@
 
           span {
             color: $white;
+            transition: color 500ms ease-in-out;
+            will-change: color;
           }
         }
       }
