@@ -70,6 +70,11 @@
   will-change: transform, opacity;
   z-index: 1;
 
+  &.info-top {
+    transform-origin: bottom left;
+    bottom: 25px;
+  }
+
   .member-post {
     align-items: flex-end;
     color: $red;
@@ -111,6 +116,7 @@
 }
 
 .member-list-item {
+  position: relative;
 
   &.show-info {
     .member-info {
@@ -436,6 +442,13 @@
     .member-list-item:nth-child(n+47) {
       .member-info {
         transform-origin: right top;
+        right: 0;
+        left: unset;
+
+        &.info-top {
+          transform-origin: right bottom;
+          bottom: 25px;
+        }
       }
     }
 
@@ -490,7 +503,7 @@
 
   .member-info {
     width: calc(100vw - 48px);
-    left: 24px;
+    left: 0;
 
     .member-img {
       width: 100%;
