@@ -63,5 +63,19 @@ namespace :npm do
   end
 end
 
+
+namespace :blog do
+  desc "symlink blog directory inside build"
+  task :symlink do |t|
+    on roles(:app) do
+      within release_path do
+        execute :ln, '-s', "/var/www/vinsol-blog #{release_path}/public/build/blog"
+      end
+    end
+  end
+
+end
+
 after 'deploy:symlink:linked_dirs', 'npm:install'
 after 'npm:install', 'npm:build'
+after 'npm:build', 'blog:symlink'
