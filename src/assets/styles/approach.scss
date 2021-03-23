@@ -22,6 +22,13 @@ $totalStages: 5;
     display: inline-flex;
   }
 
+  &__design {
+    left: 5px;
+    @media(min-width: $tabletPortrait) {
+      left: 13px;
+    }
+  }
+
   &__list-item {
     display: flex;
     justify-content: center;
@@ -103,14 +110,6 @@ $totalStages: 5;
   .section-heading {
     margin-bottom: 107px;
     text-align: right;
-  }
-
-  .stages {
-    @for $i from 1 through $totalStages {
-      &__list-item:nth-child(#{$i}) {
-        top: calc(-3px * #{$i - 1});
-      }
-    }
   }
 }
 
@@ -204,6 +203,23 @@ $totalStages: 5;
       left: -102px;
       line-height: 2;
       width: 90px;
+    }
+  }
+}
+
+@media(max-width: $mobile) {
+  .our-approach {
+    .stages {
+      @for $i from 1 through $totalStages {
+        &__list-item:nth-child(#{$i}) {
+          top: calc(-1px * #{$i - 1});
+        }
+      }
+
+    }
+    
+    .support-stage {
+      margin-top: 1px;
     }
   }
 }
