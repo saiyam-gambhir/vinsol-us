@@ -17,9 +17,38 @@
   }
 }
 
+.apple-projects {
+  display: flex;
+  align-items: center;
+}
+
+.apple-project {
+  background-color: $black-3;
+  text-align: center;
+  color: $black;
+  width: 1.86em;
+  height: 1.86em;
+  line-height: 1.86em;
+  font-size: 0.6em;
+}
+
 .apple-hover {
   display: none;
   transition: $transitionTimeFastLinear;
+}
+
+.apple-caption {
+  &:hover {
+    cursor: pointer;
+
+    & + .apple-projects {
+      display: none;
+    }
+
+    & ~ .apple-hover {
+      display: block;
+    }
+  }
 }
 
 .apple {
